@@ -118,7 +118,7 @@ export default function Home() {
     <>
       <div className="min-h-screen" ref={scrollRef}>
         {/* Hero Section */}
-        <section className="relative flex items-center justify-center bg-black pt-40 sm:min-h-screen sm:py-0">
+        <section className="relative flex items-center justify-center bg-black pt-40 pb-20 sm:min-h-screen sm:py-0">
           <div className="absolute inset-0">
             {/* Background Image */}
             <div className="absolute inset-0">
@@ -601,9 +601,9 @@ export default function Home() {
               </div>
 
               {/* Lado Direito - Métricas */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {/* Taxa de Qualificação */}
-                <div className="col-span-2 bg-black backdrop-blur-xl rounded-2xl p-8 border border-[#00F0FF]/20 shadow-[0_0_25px_rgba(0,240,255,0.1)]">
+                <div className="col-span-1 lg:col-span-2 bg-black backdrop-blur-xl rounded-2xl p-8 border border-[#00F0FF]/20 shadow-[0_0_25px_rgba(0,240,255,0.1)]">
                   <style jsx>{`
                     @keyframes loadBar {
                       0% { width: 0%; }
@@ -698,7 +698,7 @@ export default function Home() {
                 </div>
 
                 {/* Citação */}
-                <div className="col-span-2 bg-black backdrop-blur-xl rounded-2xl p-8 border border-[#00F0FF]/20 shadow-[0_0_25px_rgba(0,240,255,0.1)]">
+                <div className="col-span-1 lg:col-span-2 bg-black backdrop-blur-xl rounded-2xl p-8 border border-[#00F0FF]/20 shadow-[0_0_25px_rgba(0,240,255,0.1)]">
                   <blockquote className="text-center">
                     <p className="text-xl text-gray-300 italic mb-4">
                       "Foi como adicionar um vendedor técnico com memória infinita — sem custo fixo."
