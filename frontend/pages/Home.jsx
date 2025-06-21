@@ -67,37 +67,37 @@ export default function Home() {
 
               {/* Título Principal */}
               <div className="mb-6">
-                <h1 className="text-4xl md:text-6xl font-bold mb-2">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-2">
                   <TypewriterText
                     text={"Automação Inteligente e Agentes Humanizados para Empresas Inovadoras"}
                     speed={45}
-                    className="text-4xl md:text-6xl font-bold text-center"
+                    className="text-4xl sm:text-5xl md:text-6xl font-bold text-center"
                   />
                 </h1>
               </div>
 
               {/* Subtítulo */}
-              <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-10">
+              <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10">
                 Não somos uma agência de chatbots. Somos um laboratório que cria <span className="font-semibold text-[#6B8AFF]">agentes humanizados</span> que decidem com lógica, sentem com linguagem e aprendem com dados reais.
               </p>
 
               {/* Cards de Benefícios */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-                <div className="rounded-2xl bg-white/10 border border-[#00f0ff]/30 p-6 text-center shadow-lg backdrop-blur-md">
+                <div className="rounded-2xl bg-white/10 border border-[#00f0ff]/30 p-4 md:p-6 text-center shadow-lg backdrop-blur-md">
                   <div className="flex justify-center mb-3">
                     <Brain className="w-8 h-8 text-[#00f0ff] drop-shadow-[0_0_8px_#00f0ff] animate-pulse" strokeWidth={2.2} />
                   </div>
                   <h3 className="text-lg font-bold text-white mb-1">Inteligência Real</h3>
                   <p className="text-gray-300 text-sm">Agentes que pensam e se adaptam</p>
                 </div>
-                <div className="rounded-2xl bg-white/10 border border-[#00f0ff]/30 p-6 text-center shadow-lg backdrop-blur-md">
+                <div className="rounded-2xl bg-white/10 border border-[#00f0ff]/30 p-4 md:p-6 text-center shadow-lg backdrop-blur-md">
                   <div className="flex justify-center mb-3">
                     <Sparkles className="w-8 h-8 text-[#00f0ff] drop-shadow-[0_0_8px_#00f0ff] animate-pulse" strokeWidth={2.2} />
                   </div>
                   <h3 className="text-lg font-bold text-white mb-1">Personalização Cognitiva</h3>
                   <p className="text-gray-300 text-sm">Únicos como sua empresa</p>
                 </div>
-                <div className="rounded-2xl bg-white/10 border border-[#00f0ff]/30 p-6 text-center shadow-lg backdrop-blur-md">
+                <div className="rounded-2xl bg-white/10 border border-[#00f0ff]/30 p-4 md:p-6 text-center shadow-lg backdrop-blur-md">
                   <div className="flex justify-center mb-3">
                     <Zap className="w-8 h-8 text-[#00f0ff] drop-shadow-[0_0_8px_#00f0ff] animate-pulse" strokeWidth={2.2} />
                   </div>
@@ -155,10 +155,10 @@ export default function Home() {
                 <span className="text-sm text-white/90">Produtos e Serviços</span>
               </div>
             </div>
-            <h2 className="text-3xl md:text-5xl font-bold text-center mb-6 bg-gradient-to-r from-[#00f0ff] via-[#6B8AFF] to-[#9442fe] text-transparent bg-clip-text drop-shadow-[0_0_8px_rgba(0,240,255,0.3)]">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 bg-gradient-to-r from-[#00f0ff] via-[#6B8AFF] to-[#9442fe] text-transparent bg-clip-text drop-shadow-[0_0_8px_rgba(0,240,255,0.3)]">
               Produtos e Serviços com Automação Real. Sem rótulos. Sem atalhos.
             </h2>
-            <p className="text-lg text-[#FFB86C] text-center mb-4 max-w-2xl mx-auto font-medium">
+            <p className="text-base md:text-lg text-[#FFB86C] text-center mb-4 max-w-2xl mx-auto font-medium">
               Do código aberto à entrega isolada: tudo seu — com performance, segurança, identidade e serviço dedicado.
             </p>
 
@@ -166,29 +166,31 @@ export default function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
               {/* Card Synapse */}
               <div className="relative rounded-2xl overflow-hidden shadow-xl border-2 border-[#00f0ff]/20 bg-transparent group transition-all duration-300 hover:shadow-[0_0_20px_#00f0ff55] hover:border-[#00f0ff] hover:scale-[1.015] flex flex-col h-full justify-between">
-                <div className="flex items-center gap-3 px-8 py-6 bg-transparent">
+                <div className="flex items-center gap-3 px-4 sm:px-8 py-6 bg-transparent">
                   <span className="text-3xl">🔮</span>
                   <span className="text-2xl font-bold bg-gradient-to-r from-[#00f0ff] to-[#9442fe] bg-clip-text text-transparent drop-shadow-[0_0_8px_#00f0ff]">Ugarit Synapse</span>
                 </div>
                 {/* Para quem é */}
-                <div className="flex items-center gap-2 px-8 pb-2">
-                  <span className="text-[#00f0ff] text-lg">📌</span>
+                <div className="flex items-start gap-2 px-4 sm:px-8 pb-2">
+                  <span className="text-[#00f0ff] text-lg mt-1">📌</span>
                   <span className="text-sm text-[#00f0ff] font-semibold">Ideal para empresas que precisam de atendimento inteligente e personalizado</span>
                 </div>
-                <div className="flex-1 flex flex-col px-8 py-6 justify-between">
+                <div className="flex-1 flex flex-col px-4 sm:px-8 py-6 justify-between">
                   <div>
                     <p className="text-gray-200 mb-6">CRM conversacional com IA que fala como sua marca e organiza o caos.</p>
-                    <div className="space-y-3 mb-6">
+                    <div className="space-y-2 mb-6">
                       <div className="flex items-start gap-2"><span className="text-[#00f0ff] mt-1">✅</span><span className="text-gray-200">Centraliza WhatsApp, Instagram, E-mail e outros canais</span></div>
                       <div className="flex items-start gap-2"><span className="text-[#00f0ff] mt-1">✅</span><span className="text-gray-200">Utiliza linguagem treinada com o DNA da sua empresa</span></div>
                       <div className="flex items-start gap-2"><span className="text-[#00f0ff] mt-1">✅</span><span className="text-gray-200">Gera métricas acionáveis: tempo de resposta, engajamento, conversões por canal</span></div>
                       <div className="flex items-start gap-2"><span className="text-[#00f0ff] mt-1">✅</span><span className="text-gray-200">Visual sob medida, com domínio próprio e estrutura isolada</span></div>
                       <div className="flex items-start gap-2"><span className="text-[#00f0ff] mt-1">✅</span><span className="text-gray-200">Criptografia em múltiplas camadas: os dados do seu cliente ficam onde devem estar — sob controle</span></div>
                     </div>
-                    <div className="bg-[#00f0ff]/5 rounded-xl p-4 border border-[#00f0ff]/20 mb-6 flex items-center gap-2">
+                    <div className="bg-[#00f0ff]/5 rounded-xl p-4 border border-[#00f0ff]/20 mb-6 flex items-start gap-2">
                       <span className="text-2xl">🧩</span>
-                      <span className="text-[#00f0ff] font-semibold">Impacto real:</span>
-                      <span className="text-gray-200">Atenda melhor com menos esforço operacional.</span>
+                      <div>
+                        <span className="text-[#00f0ff] font-semibold">Impacto real:</span>
+                        <span className="text-gray-200 block">Atenda melhor com menos esforço operacional.</span>
+                      </div>
                     </div>
                   </div>
                   <div className="flex flex-col gap-3">
@@ -205,29 +207,31 @@ export default function Home() {
 
               {/* Card Machina */}
               <div className="relative rounded-2xl overflow-hidden shadow-xl border-2 border-[#FFB86C]/20 bg-transparent group transition-all duration-300 hover:shadow-[0_0_20px_#FFB86C55] hover:border-[#FFB86C] hover:scale-[1.015] flex flex-col h-full justify-between">
-                <div className="flex items-center gap-3 px-8 py-6 bg-transparent">
+                <div className="flex items-center gap-3 px-4 sm:px-8 py-6 bg-transparent">
                   <span className="text-3xl">⚙️</span>
                   <span className="text-2xl font-bold bg-gradient-to-r from-[#FFB86C] to-[#FF6F91] bg-clip-text text-transparent drop-shadow-[0_0_8px_#FFB86C]">Ugarit Machina</span>
                 </div>
                 {/* Para quem é */}
-                <div className="flex items-center gap-2 px-8 pb-2">
-                  <span className="text-[#FFB86C] text-lg">📌</span>
+                <div className="flex items-start gap-2 px-4 sm:px-8 pb-2">
+                  <span className="text-[#FFB86C] text-lg mt-1">📌</span>
                   <span className="text-sm text-[#FFB86C] font-semibold">Ideal para empresas com processos recorrentes e integração entre sistemas</span>
                 </div>
-                <div className="flex-1 flex flex-col px-8 py-6 justify-between">
+                <div className="flex-1 flex flex-col px-4 sm:px-8 py-6 justify-between">
                   <div>
                     <p className="text-gray-200 mb-6">Plataforma de automação que executa decisões com a lógica do seu negócio.</p>
-                    <div className="space-y-3 mb-6">
+                    <div className="space-y-2 mb-6">
                       <div className="flex items-start gap-2"><span className="text-[#FFB86C] mt-1">✅</span><span className="text-gray-200">Criação de fluxos inteligentes sob medida (no-code ou código puro)</span></div>
                       <div className="flex items-start gap-2"><span className="text-[#FFB86C] mt-1">✅</span><span className="text-gray-200">Integração com APIs, CRMs, bancos de dados e sistemas internos</span></div>
                       <div className="flex items-start gap-2"><span className="text-[#FFB86C] mt-1">✅</span><span className="text-gray-200">Logs e rastreabilidade total por cliente</span></div>
                       <div className="flex items-start gap-2"><span className="text-[#FFB86C] mt-1">✅</span><span className="text-gray-200">Estrutura com isolamento por VPS + criptografia ponta a ponta</span></div>
                       <div className="flex items-start gap-2"><span className="text-[#FFB86C] mt-1">✅</span><span className="text-gray-200">Alertas, backups e fallback automático para garantir resiliência</span></div>
                     </div>
-                    <div className="bg-[#FFB86C]/5 rounded-xl p-4 border border-[#FFB86C]/20 mb-6 flex items-center gap-2">
+                    <div className="bg-[#FFB86C]/5 rounded-xl p-4 border border-[#FFB86C]/20 mb-6 flex items-start gap-2">
                       <span className="text-2xl">🧩</span>
-                      <span className="text-[#FFB86C] font-semibold">Impacto real:</span>
-                      <span className="text-gray-200">Menos dependência de tarefas manuais. Mais tempo e controle para o que importa.</span>
+                       <div>
+                        <span className="text-[#FFB86C] font-semibold">Impacto real:</span>
+                        <span className="text-gray-200 block">Menos dependência de tarefas manuais. Mais tempo e controle para o que importa.</span>
+                      </div>
                     </div>
                   </div>
                   <div className="flex flex-col gap-3">
@@ -341,139 +345,166 @@ export default function Home() {
         </section>
         <div className="divider-animated-gradient my-2"></div>
 
+        {/* Resultados Section */}
+        <section id="resultados" className="py-24 bg-black">
+          <div className="container mx-auto px-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Resultados que se traduzem em crescimento</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              {/* Card de Qualificação */}
+              <div className="lg:col-span-2 rounded-2xl bg-white/5 p-4 sm:p-6 md:p-8 border border-white/10">
+                <h3 className="text-xl font-bold mb-6 text-[#00f0ff]">Taxa de Qualificação</h3>
+                <div className="space-y-6">
+                  <div className="flex justify-between mb-2">
+                    <span className="text-gray-400">Antes</span>
+                    <span className="text-gray-400">72%</span>
+                  </div>
+                  <div className="h-2 bg-black/50 rounded-full overflow-hidden border border-white/10">
+                    <div 
+                      className="h-full bg-[#FF6B6B] rounded-full shadow-[0_0_10px_rgba(255,107,107,0.5)] animate-load-bar"
+                      style={{"--target-width": "72%"}}
+                    ></div>
+                  </div>
+                  <div className="flex justify-between mb-2">
+                    <span className="text-gray-400">Depois</span>
+                    <span className="text-[#00F0FF] drop-shadow-[0_0_3px_rgba(0,240,255,0.5)]">89%</span>
+                  </div>
+                  <div className="h-2 bg-black/50 rounded-full overflow-hidden border border-white/10">
+                    <div 
+                      className="h-full bg-gradient-to-r from-[#00F0FF] to-[#9442FE] rounded-full shadow-[0_0_15px_rgba(0,240,255,0.5)] animate-load-bar"
+                      style={{"--target-width": "89%"}}
+                    ></div>
+                  </div>
+                  <div className="text-right">
+                    <span className="text-[#4ADE80] text-sm drop-shadow-[0_0_3px_rgba(74,222,128,0.5)]">+17%</span>
+                  </div>
+                </div>
+              </div>
+              {/* Cards de Métricas */}
+              <div className="grid grid-cols-2 gap-4">
+                <div className="rounded-2xl bg-gradient-to-br from-green-500/10 to-green-400/5 p-4 flex flex-col justify-center items-center text-center border border-green-400/20">
+                  <span className="text-2xl sm:text-3xl font-bold text-green-400">+23%</span>
+                  <span className="text-xs sm:text-sm text-white/80 mt-1">Conversão</span>
+                </div>
+                <div className="rounded-2xl bg-gradient-to-br from-purple-500/10 to-purple-400/5 p-4 flex flex-col justify-center items-center text-center border border-purple-400/20">
+                  <span className="text-2xl sm:text-3xl font-bold text-purple-400">3 sem</span>
+                  <span className="text-xs sm:text-sm text-white/80 mt-1">Implementação</span>
+                </div>
+                <div className="rounded-2xl bg-gradient-to-br from-cyan-500/10 to-cyan-400/5 p-4 flex flex-col justify-center items-center text-center border border-cyan-400/20">
+                  <span className="text-2xl sm:text-3xl font-bold text-cyan-400">24/7</span>
+                  <span className="text-xs sm:text-sm text-white/80 mt-1">Disponibilidade</span>
+                </div>
+                <div className="rounded-2xl bg-gradient-to-br from-pink-500/10 to-pink-400/5 p-4 flex flex-col justify-center items-center text-center border border-pink-400/20">
+                  <span className="text-2xl sm:text-3xl font-bold text-pink-400">∞</span>
+                  <span className="text-xs sm:text-sm text-white/80 mt-1">Memória</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div className="divider-animated-gradient my-2"></div>
+
         {/* Process Timeline Section */}
         <section className="py-20 bg-black relative">
           <div className="container mx-auto px-4">
             {/* Header */}
             <div className="text-center mb-16">
-              <div className="inline-flex items-center px-6 py-2 rounded-full border neon-border neon-pulse-btn text-white/90 font-semibold text-sm mb-6 shadow-lg">
-                <span className="mr-2 flex items-center">
-                  <svg className="w-5 h-5 text-[#00f0ff] drop-shadow-[0_0_8px_#00f0ff] animate-pulse" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                </span>
-                Metodologia de Entrega
+              <div className="inline-flex items-center px-4 py-2 rounded-full border neon-border mb-4">
+                <span className="mr-2">🗺️</span>
+                <span className="text-sm text-white/90">Nosso Processo</span>
               </div>
-              <h2 className="text-5xl font-extrabold mb-4 neon-gradient-text">
-                Como entregamos resultados
-              </h2>
-              <p className="text-lg text-gray-300 max-w-2xl mx-auto">Nossa metodologia exclusiva garante eficiência, transparência e entregas de alto impacto em cada etapa do projeto.</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-center">Da Ideia à Inteligência Artificial Ativa</h2>
+              <p className="text-lg text-gray-400 mt-2 max-w-2xl mx-auto">Em 6 semanas, transformamos um desafio em uma solução de IA autônoma e de alta performance.</p>
             </div>
-            {/* Timeline */}
-            <div className="relative flex flex-col items-center">
-              {/* Linha vertical neon */}
-              <div className="absolute left-1/2 -translate-x-1/2 top-0 w-1 bg-gradient-to-b from-[#00F0FF] via-[#9442FE] via-[#FFD600] to-[#00FF85] rounded-full z-0" style={{ height: 'calc(100% - 80px)' }}></div>
 
-              {/* Fase 1 - Direita */}
-              <div className="relative w-full flex flex-col md:flex-row mb-10 md:mb-16 items-center">
-                <div className="w-full md:w-1/2 flex justify-center md:justify-end md:pr-8 items-center mb-4 md:mb-0">
-                  <div className="border-2 border-[#3BA3FF] rounded-2xl p-4 md:p-8 w-full max-w-xl text-left text-white bg-black/60" style={{ boxShadow: '0 0 24px 4px #3BA3FF, 0 0 8px 2px #3BA3FF' }}>
-                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2 gap-2">
-                      <span className="bg-[#1A2B4D] text-[#3BA3FF] px-3 py-1 rounded-full text-xs font-semibold">Fase 1 – Arquitetura Estratégica</span>
-                      <span className="text-xs text-[#A3B8D8] font-bold">Semana 1-2</span>
-                    </div>
-                    <div className="font-bold text-lg md:text-2xl mb-2">Arquitetura Estratégica</div>
-                    <div className="text-[#A3B8D8] mb-2 text-sm md:text-base flex items-center gap-2"><span className="text-xl">🎯</span>Propósito: Descoberta técnica profunda + definição da fundação</div>
-                    <div className="italic text-[#A3B8D8] mb-4 text-sm md:text-base">"Mapeamos o que existe, entendemos o que importa e projetamos a fundação técnica da automação."</div>
-                    <div className="font-bold mb-1 text-sm md:text-base">Entregas:</div>
-                    <div className="flex flex-wrap gap-2">
-                      <span className="bg-[#1A2B4D] text-[#3BA3FF] px-3 py-1 rounded-full text-xs font-semibold">Blueprint Estratégico</span>
-                      <span className="bg-[#1A2B4D] text-[#3BA3FF] px-3 py-1 rounded-full text-xs font-semibold">Wireframes Conversacionais</span>
-                      <span className="bg-[#1A2B4D] text-[#3BA3FF] px-3 py-1 rounded-full text-xs font-semibold">Mapa de Integrações</span>
-                      <span className="bg-[#1A2B4D] text-[#3BA3FF] px-3 py-1 rounded-full text-xs font-semibold">Plano de Conhecimento Base</span>
-                    </div>
+            {/* Timeline for Mobile */}
+            <div className="lg:hidden space-y-8">
+              <div className="flex items-stretch">
+                <div className="flex flex-col items-center mr-4 shrink-0">
+                  <div className="flex items-center justify-center w-10 h-10 rounded-full bg-green-500/20 border-2 border-green-500">
+                    <span className="text-lg font-bold">1</span>
                   </div>
+                  <div className="w-px flex-grow bg-white/20 my-2"></div>
                 </div>
-                <div className="flex flex-col items-center z-10 justify-center w-full md:w-32 my-6 md:my-0">
-                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-14 h-14 md:w-16 md:h-16 rounded-full bg-[#FFD600] flex items-center justify-center text-white text-2xl md:text-3xl font-bold shadow-lg border-4 border-[#1A1A14]">
-                    <svg xmlns='http://www.w3.org/2000/svg' className='w-7 h-7 md:w-8 md:h-8' fill='none' viewBox='0 0 24 24' stroke='currentColor'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M12 4.5c-4.5 0-8.25 2.25-8.25 5.25 0 1.5 1.5 2.25 2.25 2.25.75 0 1.5-.75 1.5-1.5s-.75-1.5-1.5-1.5c-.75 0-1.5.75-1.5 1.5 0 3 3.75 5.25 8.25 5.25s8.25-2.25 8.25-5.25c0-.75-.75-1.5-1.5-1.5s-1.5.75-1.5 1.5.75 1.5 1.5 1.5c.75 0 2.25-.75 2.25-2.25 0-3-3.75-5.25-8.25-5.25z' /></svg>
-                  </div>
+                <div className="bg-white/5 border border-white/10 rounded-lg p-4 flex-1 mt-1">
+                  <span className="text-sm font-semibold text-green-400">Semana 1-2</span>
+                  <h3 className="text-xl font-bold mt-1 mb-2">Arquitetura Estratégica</h3>
+                  <p className="text-gray-400 text-sm">Mapeamos o que existe, entendemos o que importa e projetamos a fundação da automação.</p>
                 </div>
               </div>
-
-              {/* Fase 2 - Esquerda */}
-              <div className="relative w-full flex flex-col md:flex-row mb-10 md:mb-16 items-center">
-                <div className="hidden md:block md:w-1/2"></div>
-                <div className="flex flex-col items-center z-10 justify-center w-full md:w-32 my-6 md:my-0">
-                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-14 h-14 md:w-16 md:h-16 rounded-full bg-[#9442FE] flex items-center justify-center text-white text-2xl md:text-3xl font-bold shadow-lg border-4 border-[#2B1A4D]">
-                    <svg xmlns='http://www.w3.org/2000/svg' className='w-7 h-7 md:w-8 md:h-8' fill='none' viewBox='0 0 24 24' stroke='currentColor'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M12 4.5c-4.5 0-8.25 2.25-8.25 5.25 0 1.5 1.5 2.25 2.25 2.25.75 0 1.5-.75 1.5-1.5s-.75-1.5-1.5-1.5c-.75 0-1.5.75-1.5 1.5 0 3 3.75 5.25 8.25 5.25s8.25-2.25 8.25-5.25c0-.75-.75-1.5-1.5-1.5s-1.5.75-1.5 1.5.75 1.5 1.5 1.5c.75 0 2.25-.75 2.25-2.25 0-3-3.75-5.25-8.25-5.25z' /></svg>
+              <div className="flex items-stretch">
+                <div className="flex flex-col items-center mr-4 shrink-0">
+                   <div className="flex items-center justify-center w-10 h-10 rounded-full bg-yellow-500/20 border-2 border-yellow-500">
+                    <span className="text-lg font-bold">2</span>
                   </div>
+                  <div className="w-px flex-grow bg-white/20 my-2"></div>
                 </div>
-                <div className="w-full md:w-1/2 flex justify-center md:justify-start md:pl-8 items-center">
-                  <div className="border-2 border-[#9442FE] rounded-2xl p-4 md:p-8 w-full max-w-xl text-left text-white bg-black/60" style={{ boxShadow: '0 0 24px 4px #9442FE, 0 0 8px 2px #9442FE' }}>
-                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2 gap-2">
-                      <span className="bg-[#2B1A4D] text-[#9442FE] px-3 py-1 rounded-full text-xs font-semibold">Fase 2 – Construção Cognitiva</span>
-                      <span className="text-xs text-[#C3A3D8] font-bold">Semana 3-4</span>
-                    </div>
-                    <div className="font-bold text-lg md:text-2xl mb-2">Construção Cognitiva</div>
-                    <div className="text-[#C3A3D8] mb-2 text-sm md:text-base flex items-center gap-2"><span className="text-xl">🎯</span>Propósito: Criar, treinar e preparar o agente para operar com lógica real</div>
-                    <div className="italic text-[#C3A3D8] mb-4 text-sm md:text-base">"Construímos o cérebro do agente: treinado com os seus dados, falando com a sua linguagem, operando com sua lógica."</div>
-                    <div className="font-bold mb-1 text-sm md:text-base">Entregas:</div>
-                    <div className="flex flex-wrap gap-2">
-                      <span className="bg-[#2B1A4D] text-[#9442FE] px-3 py-1 rounded-full text-xs font-semibold">Agente Treinado com Testes</span>
-                      <span className="bg-[#2B1A4D] text-[#9442FE] px-3 py-1 rounded-full text-xs font-semibold">Integrações Conectadas</span>
-                      <span className="bg-[#2B1A4D] text-[#9442FE] px-3 py-1 rounded-full text-xs font-semibold">Infraestrutura Ativa</span>
-                      <span className="bg-[#2B1A4D] text-[#9442FE] px-3 py-1 rounded-full text-xs font-semibold">Dashboard Inicial de Monitoramento</span>
-                    </div>
-                  </div>
+                <div className="bg-white/5 border border-white/10 rounded-lg p-4 flex-1 mt-1">
+                  <span className="text-sm font-semibold text-yellow-400">Semana 3-4</span>
+                  <h3 className="text-xl font-bold mt-1 mb-2">Construção Cognitiva</h3>
+                  <p className="text-gray-400 text-sm">Construímos o cérebro do seu agente: treinado com seus dados, falando sua linguagem.</p>
                 </div>
               </div>
-
-              {/* Fase 3 - Direita */}
-              <div className="relative w-full flex flex-col md:flex-row mb-10 md:mb-16 items-center">
-                <div className="w-full md:w-1/2 flex justify-end md:pr-8 items-center mb-4 md:mb-0">
-                  <div className="border-2 border-[#FFD600] rounded-2xl p-4 md:p-8 w-full max-w-xl text-left text-white bg-black/60" style={{ boxShadow: '0 0 24px 4px #FFD600, 0 0 8px 2px #FFD600' }}>
-                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2 gap-2">
-                      <span className="bg-[#2B2B1A] text-[#FFD600] px-3 py-1 rounded-full text-xs font-semibold">Fase 3 – Otimização de Performance</span>
-                      <span className="text-xs text-[#E8E6B8] font-bold">Semana 5-6</span>
-                    </div>
-                    <div className="font-bold text-lg md:text-2xl mb-2">Otimização de Performance</div>
-                    <div className="text-[#E8E6B8] mb-2 text-sm md:text-base flex items-center gap-2"><span className="text-xl">🎯</span>Propósito: Garantir estabilidade, segurança e conversão real</div>
-                    <div className="italic text-[#E8E6B8] mb-4 text-sm md:text-base">"Refinamos a performance do agente com testes reais, foco em segurança e otimização das conversões."</div>
-                    <div className="font-bold mb-1 text-sm md:text-base">Entregas:</div>
-                    <div className="flex flex-wrap gap-2">
-                      <span className="bg-[#2B2B1A] text-[#FFD600] px-3 py-1 rounded-full text-xs font-semibold">Checklist de Qualidade Técnica</span>
-                      <span className="bg-[#2B2B1A] text-[#FFD600] px-3 py-1 rounded-full text-xs font-semibold">Relatório de Insights de Ajustes</span>
-                      <span className="bg-[#2B2B1A] text-[#FFD600] px-3 py-1 rounded-full text-xs font-semibold">Agente Otimizado</span>
-                      <span className="bg-[#2B2B1A] text-[#FFD600] px-3 py-1 rounded-full text-xs font-semibold">Validação de Segurança e Conversão</span>
-                    </div>
+              <div className="flex items-stretch">
+                <div className="flex flex-col items-center mr-4 shrink-0">
+                   <div className="flex items-center justify-center w-10 h-10 rounded-full bg-purple-500/20 border-2 border-purple-500">
+                    <span className="text-lg font-bold">3</span>
                   </div>
                 </div>
-                <div className="flex flex-col items-center z-10 justify-center w-full md:w-32 my-6 md:my-0">
-                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-14 h-14 md:w-16 md:h-16 rounded-full bg-[#FFD600] flex items-center justify-center text-white text-2xl md:text-3xl font-bold shadow-lg border-4 border-[#1A1A14]">
-                    <svg xmlns='http://www.w3.org/2000/svg' className='w-7 h-7 md:w-8 md:h-8' fill='none' viewBox='0 0 24 24' stroke='currentColor'><circle cx='12' cy='12' r='8' stroke='currentColor' strokeWidth='2' fill='none'/><circle cx='12' cy='12' r='3' fill='currentColor'/></svg>
-                  </div>
+                <div className="bg-white/5 border border-white/10 rounded-lg p-4 flex-1 mt-1">
+                  <span className="text-sm font-semibold text-purple-500">Semana 5-6</span>
+                  <h3 className="text-xl font-bold mt-1 mb-2">Lançamento e Otimização</h3>
+                  <p className="text-gray-400 text-sm">Seu agente vai a campo. Monitoramos e refinamos para garantir performance máxima.</p>
                 </div>
               </div>
+            </div>
 
-              {/* Fase 4 - Esquerda */}
-              <div className="relative w-full flex flex-col md:flex-row mb-10 md:mb-16 items-center">
-                <div className="hidden md:block md:w-1/2"></div>
-                <div className="flex flex-col items-center z-10 justify-center w-full md:w-32 my-6 md:my-0">
-                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-14 h-14 md:w-16 md:h-16 rounded-full bg-[#00FF85] flex items-center justify-center text-white text-2xl md:text-3xl font-bold shadow-lg border-4 border-[#1A4D2B]">
-                    <svg xmlns='http://www.w3.org/2000/svg' className='w-7 h-7 md:w-8 md:h-8' fill='none' viewBox='0 0 24 24' stroke='currentColor'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M12 4.5c-4.5 0-8.25 2.25-8.25 5.25 0 1.5 1.5 2.25 2.25 2.25.75 0 1.5-.75 1.5-1.5s-.75-1.5-1.5-1.5c-.75 0-1.5.75-1.5 1.5 0 3 3.75 5.25 8.25 5.25s8.25-2.25 8.25-5.25c0-.75-.75-1.5-1.5-1.5s-1.5.75-1.5 1.5.75 1.5 1.5 1.5c.75 0 2.25-.75 2.25-2.25 0-3-3.75-5.25-8.25-5.25z' /></svg>
+            {/* Timeline for Desktop */}
+            <div className="hidden lg:block relative">
+              <div className="absolute top-1/2 left-0 w-full h-0.5 bg-white/20 -translate-y-4"></div>
+              
+              <div className="relative flex justify-between items-start">
+                {/* Item 1 */}
+                <div className="w-1/3 text-center px-4">
+                   <div className="relative mb-4 h-8 flex justify-center items-center">
+                    <div className="absolute top-0 w-8 h-8 rounded-full bg-green-500/20 border-2 border-green-500 flex items-center justify-center">
+                       <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                    </div>
+                  </div>
+                  <div className="mt-8 bg-white/5 p-4 rounded-lg border border-white/10">
+                    <span className="text-sm font-semibold text-green-400">Semana 1-2</span>
+                    <h3 className="text-lg font-bold mt-1">Arquitetura Estratégica</h3>
                   </div>
                 </div>
-                <div className="w-full md:w-1/2 flex justify-center md:justify-start md:pl-8 items-center">
-                  <div className="border-2 border-[#00FF85] rounded-2xl p-4 md:p-8 w-full max-w-xl text-left text-white bg-black/60" style={{ boxShadow: '0 0 24px 4px #00FF85, 0 0 8px 2px #00FF85' }}>
-                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2 gap-2">
-                      <span className="bg-[#1A4D2B] text-[#00FF85] px-3 py-1 rounded-full text-xs font-semibold">Fase 4 – Operação Contínua</span>
-                      <span className="text-xs text-[#A3D8B8] font-bold">Semana 7+</span>
+                {/* Item 2 */}
+                <div className="w-1/3 text-center px-4">
+                   <div className="relative mb-4 h-8 flex justify-center items-center">
+                    <div className="absolute top-0 w-8 h-8 rounded-full bg-yellow-500/20 border-2 border-yellow-500 flex items-center justify-center">
+                       <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                     </div>
-                    <div className="font-bold text-lg md:text-2xl mb-2">Operação Contínua</div>
-                    <div className="text-[#A3D8B8] mb-2 text-sm md:text-base flex items-center gap-2"><span className="text-xl">🎯</span>Propósito: Lançar com controle, treinar o time e manter a performance</div>
-                    <div className="italic text-[#A3D8B8] mb-4 text-sm md:text-base">"Transformamos o projeto em operação: rodando 24/7 com alertas, KPIs e time capacitado."</div>
-                    <div className="font-bold mb-1 text-sm md:text-base">Entregas:</div>
-                    <div className="flex flex-wrap gap-2">
-                      <span className="bg-[#1A4D2B] text-[#00FF85] px-3 py-1 rounded-full text-xs font-semibold">Agente em Produção</span>
-                      <span className="bg-[#1A4D2B] text-[#00FF85] px-3 py-1 rounded-full text-xs font-semibold">Manual de Acesso Seguro</span>
-                      <span className="bg-[#1A4D2B] text-[#00FF85] px-3 py-1 rounded-full text-xs font-semibold">Painel de Monitoramento</span>
-                      <span className="bg-[#1A4D2B] text-[#00FF85] px-3 py-1 rounded-full text-xs font-semibold">Suporte Contínuo 24/7</span>
+                  </div>
+                  <div className="mt-8 bg-white/5 p-4 rounded-lg border border-white/10">
+                    <span className="text-sm font-semibold text-yellow-400">Semana 3-4</span>
+                    <h3 className="text-lg font-bold mt-1">Construção Cognitiva</h3>
+                  </div>
+                </div>
+                {/* Item 3 */}
+                <div className="w-1/3 text-center px-4">
+                   <div className="relative mb-4 h-8 flex justify-center items-center">
+                    <div className="absolute top-0 w-8 h-8 rounded-full bg-purple-500/20 border-2 border-purple-500 flex items-center justify-center">
+                       <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
                     </div>
+                  </div>
+                  <div className="mt-8 bg-white/5 p-4 rounded-lg border border-white/10">
+                    <span className="text-sm font-semibold text-purple-500">Semana 5-6</span>
+                    <h3 className="text-lg font-bold mt-1">Lançamento e Otimização</h3>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
+
         <div className="divider-animated-gradient my-2"></div>
 
         {/* Featured Agents Section */}
