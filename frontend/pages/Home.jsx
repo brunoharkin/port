@@ -223,7 +223,7 @@ export default function Home() {
         </section>
 
         {/* Produtos & Serviços Section */}
-        <section id="produtos-servicos" className="pb-24 bg-black relative overflow-hidden">
+        <section id="produtos-servicos" className="pt-8 pb-24 bg-black relative overflow-hidden">
           {/* Glow de fundo */}
           <div className="absolute -left-32 -top-32 w-96 h-96 bg-[#00f0ff]/10 blur-[120px] rounded-full pointer-events-none"></div>
           <div className="absolute -right-32 -bottom-32 w-96 h-96 bg-[#9442fe]/10 blur-[120px] rounded-full pointer-events-none"></div>
