@@ -118,7 +118,7 @@ export default function Home() {
     <>
       <div className="min-h-screen" ref={scrollRef}>
         {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center justify-center bg-black overflow-hidden">
+        <section className="relative flex items-center justify-center bg-black overflow-hidden py-40 sm:min-h-screen sm:py-0">
           <div className="absolute inset-0">
             {/* Background Image */}
             <div className="absolute inset-0">
