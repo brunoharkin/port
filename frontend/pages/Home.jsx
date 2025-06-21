@@ -118,7 +118,7 @@ export default function Home() {
     <>
       <div className="min-h-screen" ref={scrollRef}>
         {/* Hero Section */}
-        <section className="relative flex items-center justify-center bg-black overflow-hidden py-40 sm:min-h-screen sm:py-0">
+        <section className="relative flex items-center justify-center bg-black overflow-hidden pt-40 sm:min-h-screen sm:py-0">
           <div className="absolute inset-0">
             {/* Background Image */}
             <div className="absolute inset-0">
@@ -223,7 +223,7 @@ export default function Home() {
         </section>
 
         {/* Produtos & Serviços Section */}
-        <section id="produtos-servicos" className="py-24 bg-black relative overflow-hidden">
+        <section id="produtos-servicos" className="pb-24 bg-black relative overflow-hidden">
           {/* Glow de fundo */}
           <div className="absolute -left-32 -top-32 w-96 h-96 bg-[#00f0ff]/10 blur-[120px] rounded-full pointer-events-none"></div>
           <div className="absolute -right-32 -bottom-32 w-96 h-96 bg-[#9442fe]/10 blur-[120px] rounded-full pointer-events-none"></div>
