@@ -195,7 +195,7 @@ export default function Home() {
               </div>
 
               {/* Botões */}
-              <div className="flex flex-wrap justify-center gap-4">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -528,21 +528,18 @@ export default function Home() {
                 title="🛒 Agente de Vendas para E-commerce – Atendimento que Vende Antes do Clique"
                 description="Seu melhor vendedor. Ativo 24/7. Preciso, simpático e impossível de ignorar."
                 image="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80"
-                buttonText="Ver em ação"
                 delay={0}
               />
               <AgentCard
                 title="📆 Agente de Agendamentos para Consultoria – Sua Agenda, Inteligente e Autônoma"
                 description="Você foca em entregar valor. Ele cuida do resto."
                 image="https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1769&q=80"
-                buttonText="Ver em ação"
                 delay={0.2}
               />
               <AgentCard
                 title="🩺 SDR para Clínicas – Atendimento Inteligente que Agenda e Converte"
                 description="Consultas marcadas. Leads qualificados. Sem esforço."
                 image="https://images.unsplash.com/photo-1597852074816-d933c7d2b988?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80"
-                buttonText="Ver em ação"
                 delay={0.4}
               />
             </div>
@@ -809,14 +806,14 @@ const FeatureCard = ({ icon, title, description, delay }) => {
 const AgentCard = ({ title, description, image, delay }) => {
   return (
     <motion.div
-      className="relative rounded-xl overflow-hidden group min-h-[350px] aspect-[4/3]"
+      className="relative rounded-xl overflow-hidden group border border-slate-800 bg-gradient-to-br from-slate-900 to-black"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ delay, duration: 0.8 }}
-      whileHover={{ y: -5 }}
+      whileHover={{ y: -5, borderColor: '#00f0ff' }}
     >
-      <div className="relative h-48 overflow-hidden flex items-center justify-center bg-gradient-to-br from-black via-gray-900 to-black">
+      <div className="relative h-48 overflow-hidden flex items-center justify-center bg-black/50">
         <div className="w-full px-4">
           <TypewriterText
             text={
@@ -826,15 +823,15 @@ const AgentCard = ({ title, description, image, delay }) => {
               '// Agente Inteligente'
             }
             speed={22}
-            className="block text-xs sm:text-sm md:text-base text-left font-mono text-[#00f0ff] whitespace-pre-line min-h-[6.5rem]"
+            className="block text-xs sm:text-sm text-left font-mono text-[#00f0ff] whitespace-pre-line min-h-[6.5rem]"
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
       </div>
       
-      <div className="absolute bottom-0 left-0 right-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform">
-        <h3 className="text-2xl font-bold mb-3">{title}</h3>
-        <p className="text-gray-300 mb-6 opacity-0 group-hover:opacity-100 transition-opacity">{description}</p>
+      <div className="p-6">
+        <h3 className="text-xl font-bold mb-2 text-white">{title}</h3>
+        <p className="text-gray-400 mb-6 text-sm">{description}</p>
         <Link to={createPageUrl("Portfolio")}> 
           <motion.button
             initial={{ scale: 0.96, boxShadow: '0 0 0px 0px #fff0' }}
