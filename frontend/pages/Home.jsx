@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "../utils";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ChevronDown, ArrowRight, Zap, Brain, Sparkles, BarChart3 } from "lucide-react";
+import { ChevronDown, ArrowRight, Zap, Brain, Sparkles, BarChart3, Target, Code, Wrench, FlaskConical, Rocket, TrendingUp, CheckCircle, CircleDot } from "lucide-react";
 import UgaritLogo from "../assets/logos/UgaritLogo.svg";
 import UgaritLogoImgPng from "../assets/images/Screenshot_2025-05-14_13.42.23-removebg-preview.png";
 import HeroBg from "../assets/images/hero-bg.svg";
@@ -13,12 +13,17 @@ import TypewriterText from "../components/TypewriterText";
 export default function Home() {
   const heroRef = useRef(null);
   const aboutRef = useRef(null);
-  const { scrollYProgress } = useScroll();
+  const scrollRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: scrollRef,
+    offset: ["start start", "end end"],
+  });
   const [isLoaded, setIsLoaded] = useState(false);
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.25], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 2.5]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
   const heroY = useTransform(scrollYProgress, [0, 0.25], [0, 100]);
 
   const scrollToAbout = () => {
@@ -34,9 +39,84 @@ export default function Home() {
     }
   }, [count, isVisible]);
 
+  const processSteps = [
+    {
+      number: '01',
+      icon: <Target className="w-7 h-7 text-teal-400" />,
+      title: 'Imersão Estratégica',
+      tagline: 'O Começo da Transformação',
+      description: 'Entendemos sua alma antes de escrever uma linha de código.',
+      checklist: [
+        'Diagnóstico profundo do seu negócio, cultura e desafios',
+        'Coleta de dados reais (conversas, documentos, histórico de atendimento)',
+        'Definição do arquétipo e personalidade do agente'
+      ]
+    },
+    {
+      number: '02',
+      icon: <FlaskConical className="w-7 h-7 text-rose-400" />,
+      title: 'Co-Criação do MVP',
+      tagline: 'A Hipótese Ganha Forma',
+      description: 'Construímos um protótipo funcional com foco em impacto rápido.',
+      checklist: [
+        'Definição do escopo mínimo viável da automação ou agente',
+        'Criação do fluxo inicial com foco na dor prioritária',
+        'Validação do modelo com feedback rápido'
+      ]
+    },
+    {
+      number: '03',
+      icon: <Wrench className="w-7 h-7 text-indigo-400" />,
+      title: 'Implementação Técnica Inicial',
+      tagline: 'A Máquina Começa a Rodar',
+      description: 'Tecnologia com propósito, integração com estratégia.',
+      checklist: [
+        'Construção da estrutura técnica e lógica de operação',
+        'Integração com CRMs, APIs, banco de dados e sistemas existentes',
+        'Segurança, resiliência e padronização na arquitetura'
+      ]
+    },
+    {
+      number: '04',
+      icon: <Code className="w-7 h-7 text-sky-400" />,
+      title: 'Testes com Dados Reais',
+      tagline: 'Do Laboratório para o Campo de Batalha',
+      description: 'Validação real antes da escala.',
+      checklist: [
+        'Inserção de dados reais em ambiente de testes',
+        'Ajuste fino da lógica e da comunicação do agente',
+        'Correção de falhas e otimização da performance'
+      ]
+    },
+    {
+      number: '05',
+      icon: <Rocket className="w-7 h-7 text-amber-400" />,
+      title: 'Ativação em Produção',
+      tagline: 'O Agente Entra em Cena',
+      description: 'Chegou a hora de performar no mundo real.',
+      checklist: [
+        'Lançamento em ambiente produtivo com acompanhamento ativo',
+        'Treinamento e handoff para times internos',
+        'Monitoramento inicial de interações e resultados'
+      ]
+    },
+    {
+      number: '06',
+      icon: <TrendingUp className="w-7 h-7 text-lime-400" />,
+      title: 'Métricas & Evolução Contínua',
+      tagline: 'Tudo que é Vivo, Evolui',
+      description: 'Performance se mede, impacto se escala.',
+      checklist: [
+        'Monitoramento contínuo de KPIs e interações',
+        'Relatórios com insights e plano de evolução',
+        'Otimizações recorrentes com base em dados concretos'
+      ]
+    }
+  ];
+
   return (
     <>
-      <div className="min-h-screen">
+      <div className="min-h-screen" ref={scrollRef}>
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center bg-black overflow-hidden">
           <div className="absolute inset-0">
@@ -54,7 +134,7 @@ export default function Home() {
           <div className="container mx-auto px-6 relative z-10">
             <motion.div 
               className="max-w-4xl mx-auto text-center"
-              style={{ opacity: heroOpacity, y: heroY }}
+              style={{ opacity: opacity, y: heroY }}
             >
               {/* Badge */}
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8 neon-animated-border">
@@ -119,7 +199,7 @@ export default function Home() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="laser-btn px-8 py-4 bg-gradient-to-r from-[#0a2328]/30 to-[#1a1a2b]/30 border border-[#00f0ff]/30 text-white font-medium rounded-full flex items-center space-x-2 group hover:shadow-[0_0_25px_rgba(0,240,255,0.2)] transition-all duration-300"
+                  className="animated-gradient-button px-8 py-4 text-black font-bold rounded-full flex items-center space-x-2 group transition-all duration-300"
                   onClick={() => window.gtmTrack('clique_diagnostico')}
                 >
                   <span>Quero um diagnóstico gratuito</span>
@@ -139,7 +219,6 @@ export default function Home() {
             </motion.div>
           </div>
         </section>
-        <div className="divider-animated-gradient my-2"></div>
 
         {/* Produtos & Serviços Section */}
         <section id="produtos-servicos" className="py-24 bg-black relative overflow-hidden">
@@ -147,7 +226,7 @@ export default function Home() {
           <div className="absolute -left-32 -top-32 w-96 h-96 bg-[#00f0ff]/10 blur-[120px] rounded-full pointer-events-none"></div>
           <div className="absolute -right-32 -bottom-32 w-96 h-96 bg-[#9442fe]/10 blur-[120px] rounded-full pointer-events-none"></div>
           <div className="container mx-auto px-6 relative z-10">
-            <div className="flex justify-center mb-8">
+            <div className="flex justify-center mb-16">
               <div className="inline-flex items-center px-4 py-2 rounded-full border neon-border neon-pulse-btn">
                 <span className="mr-2 flex items-center">
                   <BarChart3 className="w-5 h-5 text-[#00f0ff] drop-shadow-[0_0_8px_#00f0ff] animate-pulse" strokeWidth={2.2} />
@@ -158,7 +237,7 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 bg-gradient-to-r from-[#00f0ff] via-[#6B8AFF] to-[#9442fe] text-transparent bg-clip-text drop-shadow-[0_0_8px_rgba(0,240,255,0.3)]">
               Produtos e Serviços com Automação Real. Sem rótulos. Sem atalhos.
             </h2>
-            <p className="text-base md:text-lg text-[#FFB86C] text-center mb-4 max-w-2xl mx-auto font-medium">
+            <p className="text-base md:text-lg text-gray-200 text-center mb-4 max-w-2xl mx-auto font-medium">
               Do código aberto à entrega isolada: tudo seu — com performance, segurança, identidade e serviço dedicado.
             </p>
 
@@ -253,28 +332,28 @@ export default function Home() {
                 <span className="text-2xl">💡</span> Por que marcas exigentes escolhem a Ugarit?
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="flex items-start gap-4 p-4 bg-black/40 rounded-xl border border-white/10 transition-all duration-300 hover:scale-104 hover:shadow-[0_0_8px_1px_#fff4] hover:border-white/30">
+                <div className="flex items-start gap-4 p-4 bg-black/40 rounded-xl border subtle-neon-border transition-all duration-300 hover:scale-104">
                   <span className="text-2xl">🔍</span>
                   <div>
                     <span className="font-bold text-white block mb-1">Transparência técnica</span>
                     <span className="text-sm text-gray-300">Open source auditável. Sem caixa-preta.</span>
                   </div>
                 </div>
-                <div className="flex items-start gap-4 p-4 bg-black/40 rounded-xl border border-white/10 transition-all duration-300 hover:scale-104 hover:shadow-[0_0_8px_1px_#fff4] hover:border-white/30">
+                <div className="flex items-start gap-4 p-4 bg-black/40 rounded-xl border subtle-neon-border transition-all duration-300 hover:scale-104">
                   <span className="text-2xl">🧠</span>
                   <div>
                     <span className="font-bold text-white block mb-1">Engenharia aplicada</span>
                     <span className="text-sm text-gray-300">Automação construída sob sua lógica.</span>
                   </div>
                 </div>
-                <div className="flex items-start gap-4 p-4 bg-black/40 rounded-xl border border-white/10 transition-all duration-300 hover:scale-104 hover:shadow-[0_0_8px_1px_#fff4] hover:border-white/30">
+                <div className="flex items-start gap-4 p-4 bg-black/40 rounded-xl border subtle-neon-border transition-all duration-300 hover:scale-104">
                   <span className="text-2xl">🔐</span>
                   <div>
                     <span className="font-bold text-white block mb-1">Segurança por design</span>
                     <span className="text-sm text-gray-300">Dados isolados, criptografados, controláveis.</span>
                   </div>
                 </div>
-                <div className="flex items-start gap-4 p-4 bg-black/40 rounded-xl border border-white/10 transition-all duration-300 hover:scale-104 hover:shadow-[0_0_8px_1px_#fff4] hover:border-white/30">
+                <div className="flex items-start gap-4 p-4 bg-black/40 rounded-xl border subtle-neon-border transition-all duration-300 hover:scale-104">
                   <span className="text-2xl">⚙️</span>
                   <div>
                     <span className="font-bold text-white block mb-1">Alinhamento com quem decide</span>
@@ -290,32 +369,32 @@ export default function Home() {
                 <span className="text-2xl">🧠</span> Você não compra acesso. Você recebe controle.
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
-                <div className="flex flex-col items-center text-center p-4 bg-black/40 rounded-xl border border-white/10 transition-all duration-300 hover:scale-104 hover:shadow-[0_0_8px_1px_#fff4] hover:border-white/30">
+                <div className="flex flex-col items-center text-center p-4 bg-black/40 rounded-xl border subtle-neon-border transition-all duration-300 hover:scale-104">
                   <span className="text-3xl mb-3">🌐</span>
                   <span className="font-bold text-white mb-2">Domínio próprio</span>
                   <span className="text-sm text-gray-300">Sua marca, sua identidade</span>
                 </div>
-                <div className="flex flex-col items-center text-center p-4 bg-black/40 rounded-xl border border-white/10 transition-all duration-300 hover:scale-104 hover:shadow-[0_0_8px_1px_#fff4] hover:border-white/30">
+                <div className="flex flex-col items-center text-center p-4 bg-black/40 rounded-xl border subtle-neon-border transition-all duration-300 hover:scale-104">
                   <span className="text-3xl mb-3">🖥️</span>
                   <span className="font-bold text-white mb-2">Infra VPS dedicada</span>
                   <span className="text-sm text-gray-300">Performance e segurança garantidas</span>
                 </div>
-                <div className="flex flex-col items-center text-center p-4 bg-black/40 rounded-xl border border-white/10 transition-all duration-300 hover:scale-104 hover:shadow-[0_0_8px_1px_#fff4] hover:border-white/30">
+                <div className="flex flex-col items-center text-center p-4 bg-black/40 rounded-xl border subtle-neon-border transition-all duration-300 hover:scale-104">
                   <span className="text-3xl mb-3">🎨</span>
                   <span className="font-bold text-white mb-2">Personalização total</span>
                   <span className="text-sm text-gray-300">Visual e funcional sob medida</span>
                 </div>
-                <div className="flex flex-col items-center text-center p-4 bg-black/40 rounded-xl border border-white/10 transition-all duration-300 hover:scale-104 hover:shadow-[0_0_8px_1px_#fff4] hover:border-white/30">
+                <div className="flex flex-col items-center text-center p-4 bg-black/40 rounded-xl border subtle-neon-border transition-all duration-300 hover:scale-104">
                   <span className="text-3xl mb-3">🤖</span>
                   <span className="font-bold text-white mb-2">IA embarcada desde o início</span>
                   <span className="text-sm text-gray-300">Inteligência desde o primeiro dia</span>
                 </div>
-                <div className="flex flex-col items-center text-center p-4 bg-black/40 rounded-xl border border-white/10 transition-all duration-300 hover:scale-104 hover:shadow-[0_0_8px_1px_#fff4] hover:border-white/30">
+                <div className="flex flex-col items-center text-center p-4 bg-black/40 rounded-xl border subtle-neon-border transition-all duration-300 hover:scale-104">
                   <span className="text-3xl mb-3">🔐</span>
                   <span className="font-bold text-white mb-2">Criptografia por Camada</span>
                   <span className="text-sm text-gray-300">Dados protegidos em múltiplas camadas</span>
                 </div>
-                <div className="flex flex-col items-center text-center p-4 bg-black/40 rounded-xl border border-white/10 transition-all duration-300 hover:scale-104 hover:shadow-[0_0_8px_1px_#fff4] hover:border-white/30">
+                <div className="flex flex-col items-center text-center p-4 bg-black/40 rounded-xl border subtle-neon-border transition-all duration-300 hover:scale-104">
                   <span className="text-3xl mb-3">🔁</span>
                   <span className="font-bold text-white mb-2">Fallback automático</span>
                   <span className="text-sm text-gray-300">Resiliência garantida em caso de falhas</span>
@@ -332,9 +411,9 @@ export default function Home() {
             </div>
 
             {/* CTA Final */}
-            <div className="mt-12 flex justify-center">
+            <div className="mt-8 flex justify-center">
               <button
-                className="px-8 py-4 rounded-full bg-gradient-to-r from-[#00f0ff] to-[#9442fe] text-white font-bold flex items-center justify-center gap-2 shadow-[0_0_10px_#00f0ff30] hover:shadow-[0_0_20px_#00f0ff50] hover:scale-[1.02] transition-all"
+                className="animated-gradient-button px-8 py-4 rounded-full text-white font-bold flex items-center justify-center gap-2 shadow-[0_0_10px_#00f0ff30] hover:shadow-[0_0_20px_#00f0ff50] hover:scale-[1.02] transition-all"
                 onClick={() => window.gtmTrack('clique_agendar_diagnostico')}
               >
                 🔍 Agendar diagnóstico da minha infraestrutura SaaS
@@ -343,168 +422,71 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <div className="divider-animated-gradient my-2"></div>
 
-        {/* Resultados Section - A VERSÃO CORRETA QUE DEVE FICAR */}
-        <section id="resultados" className="py-24 bg-black">
+        {/* Nova Seção Nosso Processo de Transformação */}
+        <section className="py-16 sm:py-24 bg-black">
           <div className="container mx-auto px-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Resultados que se traduzem em crescimento</h2>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              {/* Card de Qualificação */}
-              <div className="lg:col-span-2 rounded-2xl bg-white/5 p-4 sm:p-6 md:p-8 border border-white/10">
-                <h3 className="text-xl font-bold mb-6 text-[#00f0ff]">Taxa de Qualificação</h3>
-                <div className="space-y-6">
-                  <div className="flex justify-between mb-2">
-                    <span className="text-gray-400">Antes</span>
-                    <span className="text-gray-400">72%</span>
-                  </div>
-                  <div className="h-2 bg-black/50 rounded-full overflow-hidden border border-white/10">
-                    <div 
-                      className="h-full bg-[#FF6B6B] rounded-full shadow-[0_0_10px_rgba(255,107,107,0.5)] animate-load-bar"
-                      style={{"--target-width": "72%"}}
-                    ></div>
-                  </div>
-                  <div className="flex justify-between mb-2">
-                    <span className="text-gray-400">Depois</span>
-                    <span className="text-[#00F0FF] drop-shadow-[0_0_3px_rgba(0,240,255,0.5)]">89%</span>
-                  </div>
-                  <div className="h-2 bg-black/50 rounded-full overflow-hidden border border-white/10">
-                    <div 
-                      className="h-full bg-gradient-to-r from-[#00F0FF] to-[#9442FE] rounded-full shadow-[0_0_15px_rgba(0,240,255,0.5)] animate-load-bar"
-                      style={{"--target-width": "89%"}}
-                    ></div>
-                  </div>
-                  <div className="text-right">
-                    <span className="text-[#4ADE80] text-sm drop-shadow-[0_0_3px_rgba(74,222,128,0.5)]">+17%</span>
-                  </div>
-                </div>
-              </div>
-              {/* Cards de Métricas */}
-              <div className="grid grid-cols-2 gap-4">
-                <div className="rounded-2xl bg-gradient-to-br from-green-500/10 to-green-400/5 p-4 flex flex-col justify-center items-center text-center border border-green-400/20">
-                  <span className="text-2xl sm:text-3xl font-bold text-green-400">+23%</span>
-                  <span className="text-xs sm:text-sm text-white/80 mt-1">Conversão</span>
-                </div>
-                <div className="rounded-2xl bg-gradient-to-br from-purple-500/10 to-purple-400/5 p-4 flex flex-col justify-center items-center text-center border border-purple-400/20">
-                  <span className="text-2xl sm:text-3xl font-bold text-purple-400">3 sem</span>
-                  <span className="text-xs sm:text-sm text-white/80 mt-1">Implementação</span>
-                </div>
-                <div className="rounded-2xl bg-gradient-to-br from-cyan-500/10 to-cyan-400/5 p-4 flex flex-col justify-center items-center text-center border border-cyan-400/20">
-                  <span className="text-2xl sm:text-3xl font-bold text-cyan-400">24/7</span>
-                  <span className="text-xs sm:text-sm text-white/80 mt-1">Disponibilidade</span>
-                </div>
-                <div className="rounded-2xl bg-gradient-to-br from-pink-500/10 to-pink-400/5 p-4 flex flex-col justify-center items-center text-center border border-pink-400/20">
-                  <span className="text-2xl sm:text-3xl font-bold text-pink-400">∞</span>
-                  <span className="text-xs sm:text-sm text-white/80 mt-1">Memória</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <div className="divider-animated-gradient my-2"></div>
-
-        {/* Process Timeline Section - A VERSÃO CORRETA QUE DEVE FICAR */}
-        <section className="py-20 bg-black relative">
-          <div className="container mx-auto px-4">
-            {/* Header */}
             <div className="text-center mb-16">
-              <div className="inline-flex items-center px-4 py-2 rounded-full border neon-border mb-4">
-                <span className="mr-2">🗺️</span>
-                <span className="text-sm text-white/90">Nosso Processo</span>
+              <div className="flex justify-center mb-16">
+                <div className="inline-flex items-center px-4 py-2 rounded-full border neon-border neon-pulse-btn">
+                  <span className="mr-2 flex items-center">
+                    <Rocket className="w-5 h-5 text-[#00f0ff] drop-shadow-[0_0_8px_#00f0ff] animate-pulse" strokeWidth={2.2} />
+                  </span>
+                  <span className="text-sm text-white/90">Nossos Serviços</span>
+                </div>
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-center">Da Ideia à Inteligência Artificial Ativa</h2>
-              <p className="text-lg text-gray-400 mt-2 max-w-2xl mx-auto">Em 6 semanas, transformamos um desafio em uma solução de IA autônoma e de alta performance.</p>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#00f0ff] via-[#6B8AFF] to-[#9442fe] text-transparent bg-clip-text drop-shadow-[0_0_8px_rgba(0,240,255,0.3)]">Nosso Processo de Transformação</h2>
+              <p className="text-base sm:text-lg text-gray-200 max-w-3xl mx-auto">Seis etapas cuidadosamente planejadas para criar o agente perfeito para seu negócio</p>
             </div>
 
-            {/* Timeline for Mobile */}
-            <div className="lg:hidden space-y-8">
-              <div className="flex items-stretch">
-                <div className="flex flex-col items-center mr-4 shrink-0">
-                  <div className="flex items-center justify-center w-10 h-10 rounded-full bg-green-500/20 border-2 border-green-500">
-                    <span className="text-lg font-bold">1</span>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {processSteps.map((step) => (
+                <div key={step.number} className="animated-gradient-background-subtle subtle-neon-border border rounded-2xl p-6 sm:p-8 relative overflow-hidden flex flex-col">
+                  <div className="flex justify-between items-start mb-6">
+                    <div className="w-14 h-14 rounded-lg flex items-center justify-center bg-slate-800/60 border border-slate-700">
+                      {step.icon}
+                    </div>
+                    <span className="text-5xl sm:text-6xl font-bold text-white/20 absolute top-4 right-8">{step.number}</span>
                   </div>
-                  <div className="w-px flex-grow bg-white/20 my-2"></div>
-                </div>
-                <div className="bg-white/5 border border-white/10 rounded-lg p-4 flex-1 mt-1">
-                  <span className="text-sm font-semibold text-green-400">Semana 1-2</span>
-                  <h3 className="text-xl font-bold mt-1 mb-2">Arquitetura Estratégica</h3>
-                  <p className="text-gray-400 text-sm">Mapeamos o que existe, entendemos o que importa e projetamos a fundação da automação.</p>
-                </div>
-              </div>
-              <div className="flex items-stretch">
-                <div className="flex flex-col items-center mr-4 shrink-0">
-                   <div className="flex items-center justify-center w-10 h-10 rounded-full bg-yellow-500/20 border-2 border-yellow-500">
-                    <span className="text-lg font-bold">2</span>
-                  </div>
-                  <div className="w-px flex-grow bg-white/20 my-2"></div>
-                </div>
-                <div className="bg-white/5 border border-white/10 rounded-lg p-4 flex-1 mt-1">
-                  <span className="text-sm font-semibold text-yellow-400">Semana 3-4</span>
-                  <h3 className="text-xl font-bold mt-1 mb-2">Construção Cognitiva</h3>
-                  <p className="text-gray-400 text-sm">Construímos o cérebro do seu agente: treinado com seus dados, falando sua linguagem.</p>
-                </div>
-              </div>
-              <div className="flex items-stretch">
-                <div className="flex flex-col items-center mr-4 shrink-0">
-                   <div className="flex items-center justify-center w-10 h-10 rounded-full bg-purple-500/20 border-2 border-purple-500">
-                    <span className="text-lg font-bold">3</span>
+                  
+                  <div className="flex-grow">
+                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">{step.title}</h3>
+                    <span className="inline-block bg-slate-800 text-slate-300 px-3 py-1 rounded-md text-sm mb-4 border border-slate-700">{step.tagline}</span>
+                    <p className="text-sm sm:text-base text-gray-400 mb-6">{step.description}</p>
+                    
+                    <ul className="space-y-3 mb-8">
+                      {step.checklist.map((item, index) => (
+                        <li key={index} className="flex items-center gap-3">
+                          <CheckCircle className="w-5 h-5 text-green-400 shrink-0" />
+                          <span className="text-sm sm:text-base text-gray-300">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
-                <div className="bg-white/5 border border-white/10 rounded-lg p-4 flex-1 mt-1">
-                  <span className="text-sm font-semibold text-purple-500">Semana 5-6</span>
-                  <h3 className="text-xl font-bold mt-1 mb-2">Lançamento e Otimização</h3>
-                  <p className="text-gray-400 text-sm">Seu agente vai a campo. Monitoramos e refinamos para garantir performance máxima.</p>
-                </div>
-              </div>
+              ))}
             </div>
 
-            {/* Timeline for Desktop */}
-            <div className="hidden lg:block relative">
-              <div className="absolute top-1/2 left-0 w-full h-0.5 bg-white/20 -translate-y-4"></div>
-              
-              <div className="relative flex justify-between items-start">
-                {/* Item 1 */}
-                <div className="w-1/3 text-center px-4">
-                   <div className="relative mb-4 h-8 flex justify-center items-center">
-                    <div className="absolute top-0 w-8 h-8 rounded-full bg-green-500/20 border-2 border-green-500 flex items-center justify-center">
-                       <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                    </div>
-                  </div>
-                  <div className="mt-8 bg-white/5 p-4 rounded-lg border border-white/10">
-                    <span className="text-sm font-semibold text-green-400">Semana 1-2</span>
-                    <h3 className="text-lg font-bold mt-1">Arquitetura Estratégica</h3>
-                  </div>
-                </div>
-                {/* Item 2 */}
-                <div className="w-1/3 text-center px-4">
-                   <div className="relative mb-4 h-8 flex justify-center items-center">
-                    <div className="absolute top-0 w-8 h-8 rounded-full bg-yellow-500/20 border-2 border-yellow-500 flex items-center justify-center">
-                       <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                    </div>
-                  </div>
-                  <div className="mt-8 bg-white/5 p-4 rounded-lg border border-white/10">
-                    <span className="text-sm font-semibold text-yellow-400">Semana 3-4</span>
-                    <h3 className="text-lg font-bold mt-1">Construção Cognitiva</h3>
-                  </div>
-                </div>
-                {/* Item 3 */}
-                <div className="w-1/3 text-center px-4">
-                   <div className="relative mb-4 h-8 flex justify-center items-center">
-                    <div className="absolute top-0 w-8 h-8 rounded-full bg-purple-500/20 border-2 border-purple-500 flex items-center justify-center">
-                       <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
-                    </div>
-                  </div>
-                  <div className="mt-8 bg-white/5 p-4 rounded-lg border border-white/10">
-                    <span className="text-sm font-semibold text-purple-500">Semana 5-6</span>
-                    <h3 className="text-lg font-bold mt-1">Lançamento e Otimização</h3>
-                  </div>
-                </div>
-              </div>
+            <div className="mt-16 text-center">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="animated-gradient-button px-8 py-4 text-black font-bold rounded-full inline-flex items-center space-x-2 group transition-all duration-300"
+                onClick={() => { 
+                  window.gtmTrack('clique_iniciar_transformacao');
+                  const el = document.getElementById('contato'); 
+                  if (el) el.scrollIntoView({ behavior: 'smooth' }); 
+                }}
+              >
+                <span>Inicie sua transformação agora</span>
+                <Rocket className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </motion.button>
             </div>
+
           </div>
         </section>
 
+        {/* O restante do arquivo continua a partir daqui, como a seção "Featured Agents" */}
         <div className="divider-animated-gradient my-2"></div>
 
         {/* Featured Agents Section */}
@@ -571,9 +553,6 @@ export default function Home() {
         {/* Case de Sucesso Section */}
         <section className="py-24 bg-black relative">
           <div className="container mx-auto px-6 relative">
-            {/* Decorative gradient line at top */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-px bg-gradient-to-r from-transparent via-[#00F0FF] to-transparent opacity-50 mt-8 mb-4"></div>
-
             <div className="flex justify-center mb-12">
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-black backdrop-blur-md border border-[#00F0FF]/30 shadow-[0_0_15px_rgba(0,240,255,0.2)] neon-pulse-btn">
                 <svg className="w-4 h-4 mr-2 text-[#00F0FF] drop-shadow-[0_0_3px_rgba(0,240,255,0.6)]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
