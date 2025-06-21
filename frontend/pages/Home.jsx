@@ -345,7 +345,7 @@ export default function Home() {
         </section>
         <div className="divider-animated-gradient my-2"></div>
 
-        {/* Resultados Section */}
+        {/* Resultados Section - A VERSÃO CORRETA QUE DEVE FICAR */}
         <section id="resultados" className="py-24 bg-black">
           <div className="container mx-auto px-6">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Resultados que se traduzem em crescimento</h2>
@@ -404,7 +404,7 @@ export default function Home() {
 
         <div className="divider-animated-gradient my-2"></div>
 
-        {/* Process Timeline Section */}
+        {/* Process Timeline Section - A VERSÃO CORRETA QUE DEVE FICAR */}
         <section className="py-20 bg-black relative">
           <div className="container mx-auto px-4">
             {/* Header */}
