@@ -138,7 +138,7 @@ export default function Home() {
                   {/* Ícone Brain Lucide com cor de cérebro humano */}
                   <Brain className="w-5 h-5 text-[#FF6F91] drop-shadow-[0_0_6px_#FF6F91]" strokeWidth={2.2} />
                 </span>
-                <span className="text-sm text-white/90">Laboratório de Automação Inteligente</span>
+                <span className="text-sm text-white/90 whitespace-nowrap">Laboratório de Automação Inteligente</span>
               </div>
           </div>
 
