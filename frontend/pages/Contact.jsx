@@ -127,27 +127,40 @@ export default function Contact() {
                   />
                   <ContactInfoItem 
                     icon={<Phone className="w-6 h-6 text-[#00f0ff]" />}
-                    title="Telefone"
-                    content="+55 11 99999-9999"
+                    title="WhatsApp"
+                    content="+55 73 8836-0017"
                   />
                   <ContactInfoItem 
                     icon={<MapPin className="w-6 h-6 text-[#00f0ff]" />}
                     title="Endereço"
-                    content="São Paulo, SP - Brasil"
+                    content="Mogi das Cruzes, SP - Brasil"
                   />
                   <ContactInfoItem 
                     icon={<MessageSquare className="w-6 h-6 text-[#00f0ff]" />}
-                    title="Horário de Atendimento"
-                    content="Segunda à Sexta, 9h às 18h"
+                    title="Suporte Contínuo"
+                    content="Atendimento 24/7"
                   />
                 </div>
                 
                 <div className="mt-12">
                   <h3 className="text-xl font-bold mb-4">Siga-nos</h3>
                   <div className="flex space-x-4">
-                    <SocialIcon name="linkedin" />
-                    <SocialIcon name="twitter" />
-                    <SocialIcon name="instagram" />
+                    <a
+                      href="https://www.instagram.com/accounts/login/?next=%2Fugarit_digital%2F&source=omni_redirect"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-full flex items-center justify-center bg-black/80 border-2 border-[#E4405F] shadow-[0_0_12px_#E4405F55] hover:shadow-[0_0_24px_#E4405F] transition-all duration-300 hover:scale-110 group"
+                    >
+                      <svg className="w-6 h-6 text-[#E4405F] group-hover:drop-shadow-[0_0_8px_#E4405F] transition-all duration-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5"/></svg>
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/authwall?trk=bf&trkInfo=AQH9pQeeojmnngAAAZethRMIXLFoSGlZFN-n-JY99wppWEd595XR-WUCa6mTBQnaLCQN20g_mZpTSfnpLigS1nmnJZNIxj047spzr2GiU3b7_U5H1yX4uMYosi08RrWtliKY4rs=&original_referer=&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fbruno-harkin-914a73359%2F"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-full flex items-center justify-center bg-black/80 border-2 border-[#0077B5] shadow-[0_0_12px_#0077B555] hover:shadow-[0_0_24px_#0077B5] transition-all duration-300 hover:scale-110 group"
+                    >
+                      <svg className="w-6 h-6 text-[#0077B5] group-hover:drop-shadow-[0_0_8px_#0077B5] transition-all duration-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M7 10v7M7 7v.01M12 10v7m0 0v-4a2 2 0 1 1 4 0v4"/></svg>
+                    </a>
                   </div>
                 </div>
               </div>
