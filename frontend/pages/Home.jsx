@@ -42,116 +42,113 @@ export default function Home() {
   const processSteps = [
     {
       number: '01',
-      icon: <Target className="w-7 h-7 text-teal-400" />,
-      title: 'Imersão Estratégica',
-      tagline: 'O Começo da Transformação',
+      icon: <Target className="w-7 h-7 text-teal-400" />, 
+      title: '🎯 Imersão Estratégica',
+      tagline: 'Mergulho Profundo na Sua Realidade: Entendendo Sua Alma Para Escrever Seu Futuro.',
       description: 'Entendemos sua alma antes de escrever uma linha de código.',
       checklist: [
-        'Diagnóstico profundo do seu negócio, cultura e desafios',
-        'Coleta de dados reais (conversas, documentos, histórico de atendimento)',
-        'Definição do arquétipo e personalidade do agente'
+        'Diagnóstico Estratégico Completo: Revelamos as oportunidades ocultas e os pontos de alavancagem no seu negócio, cultura e desafios atuais.',
+        'Extração de Inteligência Pura dos Seus Dados: Transformamos suas conversas, documentos e históricos em combustível para um agente que realmente entende seus clientes e seu mercado.',
+        'Criação da Identidade Única do Seu Agente: Forjamos um arquétipo e uma personalidade que personificam sua marca, garantindo que cada interação seja autêntica e memorável.'
       ]
     },
     {
       number: '02',
-      icon: <FlaskConical className="w-7 h-7 text-rose-400" />,
-      title: 'Co-Criação do MVP',
-      tagline: 'A Hipótese Ganha Forma',
-      description: 'Construímos um protótipo funcional com foco em impacto rápido.',
+      icon: <FlaskConical className="w-7 h-7 text-rose-400" />, 
+      title: '🧪 Co-Criação do MVP',
+      tagline: 'A Hipótese Ganha Forma, o Impacto Nasce Rápido: Seu Primeiro Agente em Ação, Gerando Valor Imediato.',
+      description: 'Juntos, damos vida ao seu primeiro Agente Humanizado: um protótipo funcional desenhado para entregar resultados visíveis e validar o poder da nossa inteligência, rapidamente.',
       checklist: [
-        'Definição do escopo mínimo viável da automação ou agente',
-        'Criação do fluxo inicial com foco na dor prioritária',
-        'Validação do modelo com feedback rápido'
+        'Escopo Inteligente e Enxuto, Foco no Essencial: Definimos juntos o MVP ideal para resolver sua maior dor e gerar o máximo impacto com agilidade.',
+        'Desenho do Primeiro Fluxo de Impacto: Criamos a jornada inicial do seu agente, priorizando a solução da sua dor mais urgente e a entrega de resultados rápidos.',
+        'Validação Colaborativa e Ágil do Protótipo: Você testa, nós ouvimos. Seu feedback rápido é o combustível para refinar o agente e garantir que ele nasça pronto para vencer.'
       ]
     },
     {
       number: '03',
       icon: <Wrench className="w-7 h-7 text-indigo-400" />,
-      title: 'Implementação Técnica Inicial',
-      tagline: 'A Máquina Começa a Rodar',
-      description: 'Tecnologia com propósito, integração com estratégia.',
+      title: '🔧 Implementação Técnica Inicial',
+      tagline: 'A Máquina Começa a Rodar: Engenharia de Precisão Para Sua Visão.',
+      description: 'Aqui, a estratégia se transforma em código robusto. Construímos a espinha dorsal tecnológica do seu agente, garantindo que cada componente opere com inteligência e em perfeita sintonia com seus objetivos.',
       checklist: [
-        'Construção da estrutura técnica e lógica de operação',
-        'Integração com CRMs, APIs, banco de dados e sistemas existentes',
-        'Segurança, resiliência e padronização na arquitetura'
+        'Arquitetura Técnica Superior e Lógica de Decisão Impecável: Desenvolvemos a fundação sólida e a inteligência central que capacitarão seu agente a operar com máxima eficiência e precisão.',
+        'Integração Perfeita e Estratégica Com Seu Ecossistema: Conectamos seu novo agente de forma fluida e inteligente aos seus CRMs, APIs e sistemas legados, transformando dados isolados em poder de ação.',
+        'Fortaleza Digital: Segurança, Resiliência e Padrões de Elite: Implementamos desde o início uma arquitetura que garante proteção robusta, operação contínua e a excelência que sua marca merece.'
       ]
     },
     {
       number: '04',
       icon: <Code className="w-7 h-7 text-sky-400" />,
-      title: 'Testes com Dados Reais',
-      tagline: 'Do Laboratório para o Campo de Batalha',
-      description: 'Validação real antes da escala.',
+      title: '</> Testes com Dados Reais',
+      tagline: 'Do Laboratório Para o Campo de Batalha: Validando a Inteligência Com Seus Dados Reais.',
+      description: 'Aqui, seu agente enfrenta o teste de fogo. Validamos cada aspecto de sua performance com seus dados reais, garantindo que ele esteja não apenas pronto, mas otimizado para superar suas expectativas em produção.',
       checklist: [
-        'Inserção de dados reais em ambiente de testes',
-        'Ajuste fino da lógica e da comunicação do agente',
-        'Correção de falhas e otimização da performance'
+        'Confronto Estratégico com a Realidade: Submetemos seu agente ao volume e à complexidade dos seus dados reais em um ambiente seguro, simulando os desafios da operação diária.',
+        'Refinamento de Elite da Lógica e Comunicação: Calibramos cada nuance da lógica de decisão e do tom de comunicação do seu agente, assegurando respostas precisas e interações que refletem sua marca.',
+        'Otimização Implacável Para Performance Máxima: Identificamos e eliminamos proativamente qualquer falha, otimizando cada detalhe para garantir que seu agente opere com velocidade, estabilidade e eficácia superiores'
       ]
     },
     {
       number: '05',
       icon: <Rocket className="w-7 h-7 text-amber-400" />,
-      title: 'Ativação em Produção',
-      tagline: 'O Agente Entra em Cena',
-      description: 'Chegou a hora de performar no mundo real.',
+      title: '🚀 Ativação em Produção',
+      tagline: 'O Agente Entra em Cena: Performance Máxima no Mundo Real.',
+      description: 'Seu Agente Humanizado está pronto. É hora de liberar seu poder no seu ambiente de produção e testemunhar a transformação começar, com nosso suporte total ao seu lado.',
       checklist: [
-        'Lançamento em ambiente produtivo com acompanhamento ativo',
-        'Treinamento e handoff para times internos',
-        'Monitoramento inicial de interações e resultados'
+        'Lançamento Estratégico e Assistido em Produção: Ativamos seu agente no ambiente real com monitoramento proativo e acompanhamento intensivo da nossa equipe, garantindo uma estreia impecável.',
+        'Capacitação e Empoderamento da Sua Equipe: Conduzimos treinamentos detalhados e um handoff completo para seus times, assegurando que eles dominem a colaboração com o novo agente e maximizem seu potencial.',
+        'Análise Imediata de Performance e Primeiros Resultados: Desde o primeiro dia em produção, monitoramos de perto cada interação e os resultados gerados, identificando quick wins e oportunidades de otimização inicial.'
       ]
     },
     {
       number: '06',
       icon: <TrendingUp className="w-7 h-7 text-lime-400" />,
-      title: 'Métricas & Evolução Contínua',
-      tagline: 'Tudo que é Vivo, Evolui',
-      description: 'Performance se mede, impacto se escala.',
+      title: '📈 Métricas & Evolução Contínua',
+      tagline: 'Tudo Que é Vivo, Evolui: Performance Que Se Mede, Impacto Que Se Escala.',
+      description: 'Vigilância Estratégica Contínua de KPIs e Interações: Mantemos um olhar atento e analítico sobre cada indicador chave e interação, garantindo que seu agente não apenas performe, mas supere as metas consistentemente.',
       checklist: [
-        'Monitoramento contínuo de KPIs e interações',
-        'Relatórios com insights e plano de evolução',
-        'Otimizações recorrentes com base em dados concretos'
+        'Inteligência Acionável e Roadmap de Evolução Personalizado: Transformamos dados brutos em insights estratégicos e, em parceria com você, traçamos o plano para a próxima fase de crescimento e sofisticação do seu agente.',
+        'Ciclos de Otimização Proativa e Inteligente: Com base em dados reais e aprendizado contínuo, implementamos melhorias recorrentes que mantêm seu agente sempre à frente, adaptando-se e evoluindo com seu negócio.'
       ]
     }
   ];
 
   return (
     <>
+      {/* Badge fixo logo abaixo do menu */}
+      <div className="w-full flex justify-center mt-4 sm:mt-6 z-30 relative">
+        <div className="inline-flex items-center px-3 sm:px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 neon-animated-border">
+          <span className="mr-2 flex items-center">
+            {/* Ícone Brain Lucide com cor de cérebro humano */}
+            <Brain className="w-5 h-5 text-[#FF6F91] drop-shadow-[0_0_6px_#FF6F91]" strokeWidth={2.2} />
+          </span>
+          <span className="text-sm text-white/90 whitespace-nowrap">Laboratório de Automação Inteligente</span>
+        </div>
+      </div>
       <div className="min-h-screen" ref={scrollRef}>
         {/* Hero Section */}
-        <section className="relative flex items-center justify-center bg-black pt-40 pb-20 sm:min-h-screen sm:py-0">
+        <section className="relative flex items-center justify-center pt-28 sm:pt-40 pb-12 sm:pb-20 min-h-[80vh] sm:min-h-screen sm:py-0">
           <div className="absolute inset-0">
             {/* Background Image */}
             <div className="absolute inset-0">
               <img src={HeroBg} alt="" className="w-full h-full object-cover opacity-30" />
             </div>
-            <div className="absolute inset-0 bg-gradient-to-b from-black via-black/50 to-black"></div>
-            
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-transparent"></div>
             {/* Gradientes de fundo */}
-            <div className="absolute top-0 right-0 w-1/3 h-64 bg-[#9442fe]/20 blur-[120px]"></div>
-            <div className="absolute bottom-0 left-0 w-1/3 h-64 bg-[#00f0ff]/20 blur-[120px]"></div>
+            <div className="absolute top-0 right-0 w-1/3 h-64 bg-transparent blur-[120px]"></div>
+            <div className="absolute bottom-0 left-0 w-1/3 h-64 bg-transparent blur-[120px]"></div>
           </div>
 
-          {/* Badge - Moved for independent positioning */}
-          <div className="absolute top-20 sm:top-24 left-1/2 -translate-x-1/2 z-20">
-              <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 neon-animated-border">
-                <span className="mr-2 flex items-center">
-                  {/* Ícone Brain Lucide com cor de cérebro humano */}
-                  <Brain className="w-5 h-5 text-[#FF6F91] drop-shadow-[0_0_6px_#FF6F91]" strokeWidth={2.2} />
-                </span>
-                <span className="text-sm text-white/90 whitespace-nowrap">Laboratório de Automação Inteligente</span>
-              </div>
-          </div>
-
-          <div className="container mx-auto px-6 relative z-10">
+          <div className="container mx-auto px-4 sm:px-6 relative z-10">
             <motion.div 
               className="max-w-4xl mx-auto text-center pt-16"
               style={{ opacity: opacity, y: heroY }}
             >
               {/* Título Principal */}
               <div className="mb-6">
-                <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-2">
+                <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-2 leading-tight sm:leading-tight">
                   <TypewriterText
-                    text={"Automação Inteligente e Agentes Humanizados para Empresas Inovadoras"}
+                    text={"Sua Empresa Merece Inteligência Que Pensa, Age e Lucra Como Você. Chega de Automação Genérica"}
                     speed={45}
                     className="text-4xl sm:text-5xl md:text-6xl font-bold text-center"
                   />
@@ -159,12 +156,12 @@ export default function Home() {
               </div>
 
               {/* Subtítulo */}
-              <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10">
-                Não somos uma agência de chatbots. Somos um laboratório que cria <span className="font-semibold text-[#6B8AFF]">agentes humanizados</span> que decidem com lógica, sentem com linguagem e aprendem com dados reais.
+              <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8 sm:mb-10">
+                Imagine ter o know-how dos seus melhores especialistas multiplicado, operando 24/7 com a precisão de um algoritmo e a alma da sua marca. Na Ugarit Digital, não vendemos software. Cocriamos o futuro do seu negócio, linha por linha de código inteligente e interação humanizada.
               </p>
 
               {/* Cards de Benefícios */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-10">
                 <div className="rounded-2xl bg-white/10 border border-[#00f0ff]/30 p-4 md:p-6 text-center shadow-lg backdrop-blur-md">
                   <div className="flex justify-center mb-3">
                     <Brain className="w-8 h-8 text-[#00f0ff] drop-shadow-[0_0_8px_#00f0ff] animate-pulse" strokeWidth={2.2} />
@@ -189,30 +186,35 @@ export default function Home() {
               </div>
 
               {/* Frase Destacada */}
-              <div className="max-w-3xl mx-auto mb-10 flex items-center">
-                <div className="w-1 h-16 bg-yellow-400 mr-4 rounded"></div>
-                <p className="italic text-lg text-gray-200">
+              <div className="max-w-3xl mx-auto mb-8 sm:mb-10 flex flex-col sm:flex-row items-center">
+                <div className="w-1 h-10 sm:h-16 bg-yellow-400 mr-0 sm:mr-4 mb-3 sm:mb-0 rounded"></div>
+                <p className="italic text-base sm:text-lg text-gray-200 text-center sm:text-left">
                   "Liberamos o tempo dos visionários impacientes. Como um laboratório de automação, nossa missão é desacelerar o tempo para você, permitindo que seu negócio salte uma década à frente."
                 </p>
               </div>
 
               {/* Botões */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+                <a
+                  href="https://wa.me/557388360017?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20meu%20diagn%C3%B3stico%20gratuito%20com%20a%20Ugarit%20Digital"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="animated-gradient-button px-8 py-4 text-black font-bold rounded-full flex items-center space-x-2 group transition-all duration-300"
                   onClick={() => window.gtmTrack('clique_diagnostico')}
                 >
                   <span>Quero um diagnóstico gratuito</span>
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </motion.button>
+                </a>
 
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="px-8 py-4 bg-white text-black font-medium rounded-full flex items-center space-x-2 group hover:bg-opacity-90 transition-all duration-300"
-                  onClick={() => window.gtmTrack('clique_saiba_mais')}
+                  onClick={() => {
+                    window.gtmTrack('clique_saiba_mais');
+                    const el = document.getElementById('produtos-servicos');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }}
                 >
                   <span>Saiba Mais</span>
                   <ChevronDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
@@ -223,28 +225,27 @@ export default function Home() {
         </section>
 
         {/* Produtos & Serviços Section */}
-        <section id="produtos-servicos" className="pt-8 pb-24 bg-black relative overflow-hidden">
-          {/* Glow de fundo */}
-          <div className="absolute -left-32 -top-32 w-96 h-96 bg-[#00f0ff]/10 blur-[120px] rounded-full pointer-events-none"></div>
-          <div className="absolute -right-32 -bottom-32 w-96 h-96 bg-[#9442fe]/10 blur-[120px] rounded-full pointer-events-none"></div>
-          <div className="container mx-auto px-6 relative z-10">
-            <div className="flex justify-center mb-16">
+        <section id="produtos-servicos" className="pt-6 sm:pt-8 pb-16 sm:pb-24 relative overflow-hidden">
+          <div className="absolute -left-32 -top-32 w-96 h-96 bg-transparent blur-[120px] rounded-full pointer-events-none"></div>
+          <div className="absolute -right-32 -bottom-32 w-96 h-96 bg-transparent blur-[120px] rounded-full pointer-events-none"></div>
+          <div className="container mx-auto px-4 sm:px-6 relative z-10">
+            <div className="flex justify-center mb-10 sm:mb-16 mt-8 sm:mt-12">
               <div className="inline-flex items-center px-4 py-2 rounded-full border neon-border neon-pulse-btn">
                 <span className="mr-2 flex items-center">
-                  <BarChart3 className="w-5 h-5 text-[#00f0ff] drop-shadow-[0_0_8px_#00f0ff] animate-pulse" strokeWidth={2.2} />
+                  <Wrench className="w-5 h-5 text-[#00f0ff] drop-shadow-[0_0_8px_#00f0ff] animate-pulse" strokeWidth={2.2} />
                 </span>
-                <span className="text-sm text-white/90">Produtos e Serviços</span>
+                <span className="text-sm text-white/90 font-bold">Arsenal Ugarit</span>
               </div>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 bg-gradient-to-r from-[#00f0ff] via-[#6B8AFF] to-[#9442fe] text-transparent bg-clip-text drop-shadow-[0_0_8px_rgba(0,240,255,0.3)]">
-              Produtos e Serviços com Automação Real. Sem rótulos. Sem atalhos.
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-4 sm:mb-6 bg-gradient-to-r from-[#00f0ff] via-[#6B8AFF] to-[#9442fe] text-transparent bg-clip-text drop-shadow-[0_0_8px_rgba(0,240,255,0.3)]">
+              Inteligência Esculpida Para Sua Liderança de Mercado.
             </h2>
-            <p className="text-base md:text-lg text-gray-200 text-center mb-4 max-w-2xl mx-auto font-medium">
-              Do código aberto à entrega isolada: tudo seu — com performance, segurança, identidade e serviço dedicado.
+            <p className="text-sm sm:text-base md:text-lg text-gray-200 text-center mb-3 sm:mb-4 max-w-2xl mx-auto font-medium">
+              Mais que produtos, são extensões da sua visão. Criamos os Agentes Humanizados e as Plataformas que não apenas resolvem seus desafios, mas amplificam sua genialidade e o colocam no comando do futuro.
             </p>
 
             {/* Cards dos Produtos */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-8 mb-8 sm:mb-12">
               {/* Card Synapse */}
               <div className="relative rounded-2xl overflow-hidden shadow-xl border-2 border-[#00f0ff]/20 bg-transparent group transition-all duration-300 hover:shadow-[0_0_20px_#00f0ff55] hover:border-[#00f0ff] hover:scale-[1.015] flex flex-col h-full justify-between">
                 <div className="flex items-center gap-3 px-4 sm:px-8 py-6 bg-transparent">
@@ -252,36 +253,41 @@ export default function Home() {
                   <span className="text-2xl font-bold bg-gradient-to-r from-[#00f0ff] to-[#9442fe] bg-clip-text text-transparent drop-shadow-[0_0_8px_#00f0ff]">Ugarit Synapse</span>
                 </div>
                 {/* Para quem é */}
-                <div className="flex items-start gap-2 px-4 sm:px-8 pb-2">
+                <div className="flex items-start gap-2 px-3 sm:px-4 pb-1 sm:pb-2">
                   <span className="text-[#00f0ff] text-lg mt-1">📌</span>
                   <span className="text-sm text-[#00f0ff] font-semibold">Ideal para empresas que precisam de atendimento inteligente e personalizado</span>
                 </div>
-                <div className="flex-1 flex flex-col px-4 sm:px-8 py-6 justify-between">
+                <div className="flex-1 flex flex-col px-3 sm:px-8 py-4 sm:py-6 justify-between">
                   <div>
                     <p className="text-gray-200 mb-6">CRM conversacional com IA que fala como sua marca e organiza o caos.</p>
                     <div className="space-y-2 mb-6">
-                      <div className="flex items-start gap-2"><span className="text-[#00f0ff] mt-1">✅</span><span className="text-gray-200">Centraliza WhatsApp, Instagram, E-mail e outros canais</span></div>
-                      <div className="flex items-start gap-2"><span className="text-[#00f0ff] mt-1">✅</span><span className="text-gray-200">Utiliza linguagem treinada com o DNA da sua empresa</span></div>
-                      <div className="flex items-start gap-2"><span className="text-[#00f0ff] mt-1">✅</span><span className="text-gray-200">Gera métricas acionáveis: tempo de resposta, engajamento, conversões por canal</span></div>
-                      <div className="flex items-start gap-2"><span className="text-[#00f0ff] mt-1">✅</span><span className="text-gray-200">Visual sob medida, com domínio próprio e estrutura isolada</span></div>
-                      <div className="flex items-start gap-2"><span className="text-[#00f0ff] mt-1">✅</span><span className="text-gray-200">Criptografia em múltiplas camadas: os dados do seu cliente ficam onde devem estar — sob controle</span></div>
+                      <div className="flex items-start gap-2"><span className="text-[#00f0ff] mt-1">✅</span><span className="text-gray-200">Dominar o atendimento, controlar o caos. <span className='font-semibold text-[#00f0ff]'>(Poder, Alívio)</span></span></div>
+                      <div className="flex items-start gap-2"><span className="text-[#00f0ff] mt-1">✅</span><span className="text-gray-200">Liberar a equipe de tarefas repetitivas, focar no estratégico. <span className='font-semibold text-[#00f0ff]'>(Liberdade)</span></span></div>
+                      <div className="flex items-start gap-2"><span className="text-[#00f0ff] mt-1">✅</span><span className="text-gray-200">Criar relacionamentos mais fortes com os clientes. <span className='font-semibold text-[#00f0ff]'>(Conexão)</span></span></div>
+                      <div className="flex items-start gap-2"><span className="text-[#00f0ff] mt-1">✅</span><span className="text-gray-200">Ter um atendimento que reflete a excelência da empresa. <span className='font-semibold text-[#00f0ff]'>(Autoestima da Marca)</span></span></div>
+                      <div className="flex items-start gap-2"><span className="text-[#00f0ff] mt-1">✅</span><span className="text-gray-200">Saber que o atendimento está funcionando de forma eficiente e personalizada. <span className='font-semibold text-[#00f0ff]'>(Segurança)</span></span></div>
+                      <div className="flex items-start gap-2"><span className="text-[#00f0ff] mt-1">✅</span><span className="text-gray-200">A sensação de ter o "caos" organizado, de ver clientes satisfeitos. <span className='font-semibold text-[#00f0ff]'>(Prazer, Alívio)</span></span></div>
+                      <div className="flex items-start gap-2"><span className="text-[#00f0ff] mt-1">✅</span><span className="text-gray-200">Entender como essa "mágica" pode ser aplicada ao seu negócio. <span className='font-semibold text-[#00f0ff]'>(Curiosidade, Poder)</span></span></div>
                     </div>
                     <div className="bg-[#00f0ff]/5 rounded-xl p-4 border border-[#00f0ff]/20 mb-6 flex items-start gap-2">
                       <span className="text-2xl">🧩</span>
                       <div>
                         <span className="text-[#00f0ff] font-semibold">Impacto real:</span>
-                        <span className="text-gray-200 block">Atenda melhor com menos esforço operacional.</span>
+                        <span className="text-gray-200 block">Descubra a inteligência que libera sua equipe para o que importa.</span>
                       </div>
                     </div>
                   </div>
                   <div className="flex flex-col gap-3">
-                    <button
+                    <a
+                      href="https://wa.me/557388360017?text=Ol%C3%A1%20Ugarit%20Digital!%20Tenho%20interesse%20em%20ver%20o%20Synapse%20funcionando%20na%20pr%C3%A1tica%20e%20como%20ele%20pode%20transformar%20meu%20atendimento."
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-full px-6 py-3 rounded-full bg-gradient-to-r from-[#00F0FF] via-[#6B8AFF] to-[#9442FE] text-white font-bold flex items-center justify-center gap-2 shadow-[0_0_20px_#00F0FF60] hover:shadow-[0_0_40px_#00F0FF90] transition-all"
-                      onClick={() => { window.gtmTrack('clique_synapse'); const el = document.getElementById('contato'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }}
+                      onClick={() => window.gtmTrack('clique_synapse')}
                     >
                       🔮 Quero ver como o Synapse funciona na prática
                       <ArrowRight className="w-5 h-5" />
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -293,19 +299,19 @@ export default function Home() {
                   <span className="text-2xl font-bold bg-gradient-to-r from-[#FFB86C] to-[#FF6F91] bg-clip-text text-transparent drop-shadow-[0_0_8px_#FFB86C]">Ugarit Machina</span>
                 </div>
                 {/* Para quem é */}
-                <div className="flex items-start gap-2 px-4 sm:px-8 pb-2">
+                <div className="flex items-start gap-2 px-3 sm:px-4 pb-1 sm:pb-2">
                   <span className="text-[#FFB86C] text-lg mt-1">📌</span>
-                  <span className="text-sm text-[#FFB86C] font-semibold">Ideal para empresas com processos recorrentes e integração entre sistemas</span>
+                  <span className="text-sm text-[#FFB86C] font-semibold">Sua Lógica de Negócio, Executada com Precisão Implacável 24/7. Liberte Sua Equipe, Amplifique Seus Resultados.</span>
                 </div>
-                <div className="flex-1 flex flex-col px-4 sm:px-8 py-6 justify-between">
+                <div className="flex-1 flex flex-col px-3 sm:px-8 py-4 sm:py-6 justify-between">
                   <div>
                     <p className="text-gray-200 mb-6">Plataforma de automação que executa decisões com a lógica do seu negócio.</p>
                     <div className="space-y-2 mb-6">
-                      <div className="flex items-start gap-2"><span className="text-[#FFB86C] mt-1">✅</span><span className="text-gray-200">Criação de fluxos inteligentes sob medida (no-code ou código puro)</span></div>
-                      <div className="flex items-start gap-2"><span className="text-[#FFB86C] mt-1">✅</span><span className="text-gray-200">Integração com APIs, CRMs, bancos de dados e sistemas internos</span></div>
-                      <div className="flex items-start gap-2"><span className="text-[#FFB86C] mt-1">✅</span><span className="text-gray-200">Logs e rastreabilidade total por cliente</span></div>
-                      <div className="flex items-start gap-2"><span className="text-[#FFB86C] mt-1">✅</span><span className="text-gray-200">Estrutura com isolamento por VPS + criptografia ponta a ponta</span></div>
-                      <div className="flex items-start gap-2"><span className="text-[#FFB86C] mt-1">✅</span><span className="text-gray-200">Alertas, backups e fallback automático para garantir resiliência</span></div>
+                      <div className="flex items-start gap-2"><span className="text-[#FFB86C] mt-1">✅</span><span className="text-gray-200">Construa a inteligência que seus processos exigem (no-code ou código puro). <span className='font-semibold text-[#FFB86C]'>(Poder, Personalização)</span></span></div>
+                      <div className="flex items-start gap-2"><span className="text-[#FFB86C] mt-1">✅</span><span className="text-gray-200">Conecte Machina ao coração da sua operação (APIs, CRMs, bancos de dados). <span className='font-semibold text-[#FFB86C]'>(Controle, Integração)</span></span></div>
+                      <div className="flex items-start gap-2"><span className="text-[#FFB86C] mt-1">✅</span><span className="text-gray-200">Tenha visibilidade e controle absoluto sobre cada execução. <span className='font-semibold text-[#FFB86C]'>(Segurança, Poder)</span></span></div>
+                      <div className="flex items-start gap-2"><span className="text-[#FFB86C] mt-1">✅</span><span className="text-gray-200">Opere com a máxima segurança e privacidade em sua VPS dedicada. <span className='font-semibold text-[#FFB86C]'>(Segurança Exclusiva)</span></span></div>
+                      <div className="flex items-start gap-2"><span className="text-[#FFB86C] mt-1">✅</span><span className="text-gray-200">Garanta a continuidade do seu negócio, mesmo diante do inesperado. <span className='font-semibold text-[#FFB86C]'>(Segurança, Paz de Espírito)</span></span></div>
                     </div>
                     <div className="bg-[#FFB86C]/5 rounded-xl p-4 border border-[#FFB86C]/20 mb-6 flex items-start gap-2">
                       <span className="text-2xl">🧩</span>
@@ -316,75 +322,78 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="flex flex-col gap-3">
-                    <button
-                      className="w-full px-6 py-3 rounded-full bg-gradient-to-r from-[#FFB86C] to-[#FF6F91] text-white font-bold flex items-center justify-center gap-2 shadow-[0_0_20px_#FFB86C60] hover:shadow-[0_0_40px_#FFB86C90] transition-all"
-                      onClick={() => { window.gtmTrack('clique_machina'); const el = document.getElementById('contato'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }}
+                    <a
+                      href="https://wa.me/557388360017?text=Ol%C3%A1%20Ugarit%20Digital!%20Quero%20descobrir%20como%20o%20Machina%20pode%20ser%20o%20motor%20inteligente%20da%20minha%20opera%C3%A7%C3%A3o."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full px-8 py-3 rounded-full bg-gradient-to-r from-[#FFB86C] to-[#FF6F91] text-white font-bold flex items-center justify-center gap-2 shadow-[0_0_20px_#FFB86C60] hover:shadow-[0_0_40px_#FFB86C90] transition-all"
+                      onClick={() => window.gtmTrack('clique_machina')}
                     >
-                      ⚙️ Me envie um exemplo real do Machina
+                      ⚙️ Descubra o Motor Inteligente da Sua Operação!
                       <ArrowRight className="w-5 h-5" />
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Seção Por que Funciona */}
-            <div className="bg-gradient-to-br from-[#00f0ff]/5 to-[#9442fe]/5 rounded-2xl p-8 border border-white/10">
+            <div className="bg-gradient-to-br from-[#00f0ff]/5 to-[#9442fe]/5 rounded-2xl p-4 sm:p-8 border border-white/10">
               <h3 className="text-2xl font-bold text-center mb-8 bg-gradient-to-r from-[#00f0ff] to-[#9442fe] text-transparent bg-clip-text flex items-center justify-center gap-2">
                 <span className="text-2xl">💡</span> Por que marcas exigentes escolhem a Ugarit?
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
                 <div className="flex items-start gap-4 p-4 bg-black/40 rounded-xl border subtle-neon-border transition-all duration-300 hover:scale-104">
                   <span className="text-2xl">🔍</span>
                   <div>
                     <span className="font-bold text-white block mb-1">Transparência técnica</span>
-                    <span className="text-sm text-gray-300">Open source auditável. Sem caixa-preta.</span>
+                    <span className="text-sm text-gray-300">Com nosso código aberto e auditável, você não apenas confia: você sabe exatamente como sua inteligência opera. Poder e clareza em cada linha.</span>
                   </div>
                 </div>
                 <div className="flex items-start gap-4 p-4 bg-black/40 rounded-xl border subtle-neon-border transition-all duration-300 hover:scale-104">
                   <span className="text-2xl">🧠</span>
                   <div>
                     <span className="font-bold text-white block mb-1">Engenharia aplicada</span>
-                    <span className="text-sm text-gray-300">Automação construída sob sua lógica.</span>
+                    <span className="text-sm text-gray-300">Não adaptamos sua empresa à nossa tecnologia. Forjamos automação que pensa e age segundo a sua lógica de negócio, multiplicando sua expertise única.</span>
                   </div>
                 </div>
                 <div className="flex items-start gap-4 p-4 bg-black/40 rounded-xl border subtle-neon-border transition-all duration-300 hover:scale-104">
                   <span className="text-2xl">🔐</span>
                   <div>
                     <span className="font-bold text-white block mb-1">Segurança por design</span>
-                    <span className="text-sm text-gray-300">Dados isolados, criptografados, controláveis.</span>
+                    <span className="text-sm text-gray-300">Desde o design, seus dados são um tesouro protegido. Isolamento total, criptografia de nível militar e controle absoluto. Sua tranquilidade é nossa prioridade.</span>
                   </div>
                 </div>
                 <div className="flex items-start gap-4 p-4 bg-black/40 rounded-xl border subtle-neon-border transition-all duration-300 hover:scale-104">
                   <span className="text-2xl">⚙️</span>
                   <div>
                     <span className="font-bold text-white block mb-1">Alinhamento com quem decide</span>
-                    <span className="text-sm text-gray-300">Atrai decisores técnicos que valorizam estrutura.</span>
+                    <span className="text-sm text-gray-300">Líderes técnicos e estratégicos nos escolhem porque reconhecem a solidez da nossa estrutura e a audácia da nossa visão. Junte-se a quem não apenas segue tendências, mas as define.</span>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Seção de Diferenciais */}
-            <div className="mt-8 bg-black/40 rounded-2xl p-8 border border-white/10">
+            <div className="mt-6 sm:mt-8 bg-black/40 rounded-2xl p-4 sm:p-8 border border-white/10">
               <h3 className="text-2xl font-bold text-center mb-8 bg-gradient-to-r from-[#00f0ff] to-[#9442fe] text-transparent bg-clip-text flex items-center justify-center gap-2">
                 <span className="text-2xl">🧠</span> Você não compra acesso. Você recebe controle.
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 md:gap-6">
                 <div className="flex flex-col items-center text-center p-4 bg-black/40 rounded-xl border subtle-neon-border transition-all duration-300 hover:scale-104">
                   <span className="text-3xl mb-3">🌐</span>
                   <span className="font-bold text-white mb-2">Domínio próprio</span>
-                  <span className="text-sm text-gray-300">Sua marca, sua identidade</span>
+                  <span className="text-sm text-gray-300">Controle Total da Marca.</span>
                 </div>
                 <div className="flex flex-col items-center text-center p-4 bg-black/40 rounded-xl border subtle-neon-border transition-all duration-300 hover:scale-104">
                   <span className="text-3xl mb-3">🖥️</span>
                   <span className="font-bold text-white mb-2">Infra VPS dedicada</span>
-                  <span className="text-sm text-gray-300">Performance e segurança garantidas</span>
+                  <span className="text-sm text-gray-300">Performance Dedicada, Paz Total.</span>
                 </div>
                 <div className="flex flex-col items-center text-center p-4 bg-black/40 rounded-xl border subtle-neon-border transition-all duration-300 hover:scale-104">
                   <span className="text-3xl mb-3">🎨</span>
                   <span className="font-bold text-white mb-2">Personalização total</span>
-                  <span className="text-sm text-gray-300">Visual e funcional sob medida</span>
+                  <span className="text-sm text-gray-300">Sua Visão, Nossa Realidade</span>
                 </div>
                 <div className="flex flex-col items-center text-center p-4 bg-black/40 rounded-xl border subtle-neon-border transition-all duration-300 hover:scale-104">
                   <span className="text-3xl mb-3">🤖</span>
@@ -394,12 +403,12 @@ export default function Home() {
                 <div className="flex flex-col items-center text-center p-4 bg-black/40 rounded-xl border subtle-neon-border transition-all duration-300 hover:scale-104">
                   <span className="text-3xl mb-3">🔐</span>
                   <span className="font-bold text-white mb-2">Criptografia por Camada</span>
-                  <span className="text-sm text-gray-300">Dados protegidos em múltiplas camadas</span>
+                  <span className="text-sm text-gray-300">Proteção Robusta e Total.</span>
                 </div>
                 <div className="flex flex-col items-center text-center p-4 bg-black/40 rounded-xl border subtle-neon-border transition-all duration-300 hover:scale-104">
                   <span className="text-3xl mb-3">🔁</span>
                   <span className="font-bold text-white mb-2">Fallback automático</span>
-                  <span className="text-sm text-gray-300">Resiliência garantida em caso de falhas</span>
+                  <span className="text-sm text-gray-300">Resiliência Total Garantida.</span>
                 </div>
               </div>
             </div>
@@ -414,53 +423,56 @@ export default function Home() {
 
             {/* CTA Final */}
             <div className="mt-8 flex justify-center">
-              <button
-                className="animated-gradient-button px-8 py-4 rounded-full text-white font-bold flex items-center justify-center gap-2 shadow-[0_0_10px_#00f0ff30] hover:shadow-[0_0_20px_#00f0ff50] hover:scale-[1.02] transition-all"
+              <a
+                href="https://wa.me/557388360017?text=Ol%C3%A1%20Ugarit%20Digital!%20Acabei%20de%20ler%20no%20site%20sobre%20como%20posso%20receber%20controle%20da%20minha%20automa%C3%A7%C3%A3o%20e%20gostaria%20de%20receber%20minha%20Estrat%C3%A9gia%20de%20Automa%C3%A7%C3%A3o%20Sob%20Controle."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="animated-gradient-button px-6 py-4 rounded-full text-white font-bold flex items-center justify-center gap-2 shadow-[0_0_10px_#00f0ff30] hover:shadow-[0_0_20px_#00f0ff50] hover:scale-[1.02] transition-all"
                 onClick={() => window.gtmTrack('clique_agendar_diagnostico')}
               >
-                🔍 Agendar diagnóstico da minha infraestrutura SaaS
+                Receba Sua Estratégia de Automação Sob Controle!
                 <ArrowRight className="w-5 h-5" />
-              </button>
+              </a>
             </div>
           </div>
         </section>
 
         {/* Nova Seção Nosso Processo de Transformação */}
-        <section className="py-16 sm:py-24 bg-black">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-              <div className="flex justify-center mb-16">
+        <section className="py-12 sm:py-16 md:py-24 bg-black">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="text-center mb-10 sm:mb-16">
+              <div className="flex justify-center mb-10 sm:mb-16">
                 <div className="inline-flex items-center px-4 py-2 rounded-full border neon-border neon-pulse-btn">
                   <span className="mr-2 flex items-center">
                     <Rocket className="w-5 h-5 text-[#00f0ff] drop-shadow-[0_0_8px_#00f0ff] animate-pulse" strokeWidth={2.2} />
                   </span>
-                  <span className="text-sm text-white/90">Nossos Serviços</span>
+                  <span className="text-sm text-white/90">Sua Jornada Rumo à Inteligência de Elite</span>
                 </div>
               </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#00f0ff] via-[#6B8AFF] to-[#9442fe] text-transparent bg-clip-text drop-shadow-[0_0_8px_rgba(0,240,255,0.3)]">Nosso Processo de Transformação</h2>
-              <p className="text-base sm:text-lg text-gray-200 max-w-3xl mx-auto">Seis etapas cuidadosamente planejadas para criar o agente perfeito para seu negócio</p>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-[#00f0ff] via-[#6B8AFF] to-[#9442fe] text-transparent bg-clip-text drop-shadow-[0_0_8px_rgba(0,240,255,0.3)]">Nosso Processo de Transformação</h2>
+              <p className="text-sm sm:text-base md:text-lg text-gray-200 max-w-3xl mx-auto">Seis etapas cuidadosamente planejadas para criar o agente perfeito para seu negócio</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
               {processSteps.map((step) => (
                 <div key={step.number} className="animated-gradient-background-subtle subtle-neon-border border rounded-2xl p-6 sm:p-8 relative overflow-hidden flex flex-col">
                   <div className="flex justify-between items-start mb-6">
-                    <div className="w-14 h-14 rounded-lg flex items-center justify-center bg-slate-800/60 border border-slate-700">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg flex items-center justify-center bg-slate-800/60 border border-slate-700">
                       {step.icon}
                     </div>
-                    <span className="text-5xl sm:text-6xl font-bold text-white/20 absolute top-4 right-8">{step.number}</span>
+                    <span className="text-4xl sm:text-5xl md:text-6xl font-bold text-white/20 absolute top-2 sm:top-4 right-4 sm:right-8">{step.number}</span>
                   </div>
                   
                   <div className="flex-grow">
-                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">{step.title}</h3>
-                    <span className="inline-block bg-slate-800 text-slate-300 px-3 py-1 rounded-md text-sm mb-4 border border-slate-700">{step.tagline}</span>
-                    <p className="text-sm sm:text-base text-gray-400 mb-6">{step.description}</p>
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-1 sm:mb-2">{step.title}</h3>
+                    <span className="inline-block bg-slate-800 text-slate-300 px-2 sm:px-3 py-1 rounded-md text-xs sm:text-sm mb-2 sm:mb-4 border border-slate-700">{step.tagline}</span>
+                    <p className="text-xs sm:text-sm md:text-base text-gray-400 mb-4 sm:mb-6">{step.description}</p>
                     
-                    <ul className="space-y-3 mb-8">
+                    <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
                       {step.checklist.map((item, index) => (
-                        <li key={index} className="flex items-center gap-3">
-                          <CheckCircle className="w-5 h-5 text-green-400 shrink-0" />
-                          <span className="text-sm sm:text-base text-gray-300">{item}</span>
+                        <li key={index} className="flex items-center gap-2 sm:gap-3">
+                          <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 shrink-0" />
+                          <span className="text-xs sm:text-sm md:text-base text-gray-300">{item}</span>
                         </li>
                       ))}
                     </ul>
@@ -469,20 +481,17 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="mt-16 text-center">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="animated-gradient-button px-8 py-4 text-black font-bold rounded-full inline-flex items-center space-x-2 group transition-all duration-300"
-                onClick={() => { 
-                  window.gtmTrack('clique_iniciar_transformacao');
-                  const el = document.getElementById('contato'); 
-                  if (el) el.scrollIntoView({ behavior: 'smooth' }); 
-                }}
+            <div className="mt-10 sm:mt-16 text-center">
+              <a
+                href="https://wa.me/557388360017?text=Ol%C3%A1%20Ugarit%20Digital!%20Percorri%20o%20Processo%20de%20Transforma%C3%A7%C3%A3o%20no%20site%20e%20estou%20pronto%20para%20iniciar%20a%20minha%20jornada.%20Vamos%20conversar%3F"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="animated-gradient-button px-6 sm:px-8 py-3 sm:py-4 text-black font-bold rounded-full inline-flex items-center space-x-2 group transition-all duration-300 text-sm sm:text-base"
+                onClick={() => window.gtmTrack('clique_iniciar_transformacao')}
               >
                 <span>Inicie sua transformação agora</span>
                 <Rocket className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </motion.button>
+              </a>
             </div>
 
           </div>
@@ -492,10 +501,10 @@ export default function Home() {
         <div className="divider-animated-gradient my-2"></div>
 
         {/* Featured Agents Section */}
-        <section className="py-24 bg-black relative">
-          <div className="container mx-auto px-6">
+        <section className="py-16 sm:py-24 bg-black relative">
+          <div className="container mx-auto px-4 sm:px-6">
             <motion.div 
-              className="max-w-4xl mx-auto text-center mb-16"
+              className="max-w-4xl mx-auto text-center mb-10 sm:mb-16"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -515,17 +524,17 @@ export default function Home() {
                 </motion.div>
               </div>
 
-              <h2 className="text-4xl md:text-5xl font-bold text-center mb-6">
+              <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-center mb-4 sm:mb-6">
                 <span className="text-[#6B8AFF]">Agentes Humanizados</span>{" "}
                 <span className="text-white">em Ação</span>
               </h2>
-              <p className="text-xl text-gray-300">
+              <p className="text-base sm:text-xl text-gray-300">
                 Cada agente é único, desenhado com lógica de negócio e linguagem personalizada.<br/>
                 Testes reais, sem bots genéricos — veja como a inteligência aplicada funciona no seu fluxo.
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 md:gap-8">
               <AgentCard
                 title="🛒 Agente de Vendas para E-commerce – Atendimento que Vende Antes do Clique"
                 description="Seu melhor vendedor. Ativo 24/7. Preciso, simpático e impossível de ignorar."
@@ -550,8 +559,8 @@ export default function Home() {
         <div className="divider-animated-gradient my-2"></div>
 
         {/* Case de Sucesso Section */}
-        <section className="py-24 bg-black relative">
-          <div className="container mx-auto px-6 relative">
+        <section className="py-16 sm:py-24 bg-black relative">
+          <div className="container mx-auto px-4 sm:px-6 relative">
             <div className="flex justify-center mb-12">
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-black backdrop-blur-md border border-[#00F0FF]/30 shadow-[0_0_15px_rgba(0,240,255,0.2)] neon-pulse-btn">
                 <svg className="w-4 h-4 mr-2 text-[#00F0FF] drop-shadow-[0_0_3px_rgba(0,240,255,0.6)]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -561,16 +570,16 @@ export default function Home() {
               </div>
             </div>
 
-            <h2 className="text-4xl md:text-6xl font-bold text-center mb-16">
+            <h2 className="text-2xl sm:text-4xl md:text-6xl font-bold text-center mb-8 sm:mb-16">
               <span className="text-[#00F0FF] drop-shadow-[0_0_8px_rgba(0,240,255,0.5)]">OakLab:</span>{" "}
               <span className="bg-gradient-to-r from-[#00F0FF] to-[#9442FE] text-transparent bg-clip-text">
                 De 72% a 89% de qualificação
               </span>
             </h2>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
               {/* Lado Esquerdo - Informações */}
-              <div className="bg-black backdrop-blur-xl rounded-2xl p-8 border border-[#00F0FF]/20 shadow-[0_0_25px_rgba(0,240,255,0.1)]">
+              <div className="bg-black backdrop-blur-xl rounded-2xl p-4 sm:p-8 border border-[#00F0FF]/20 shadow-[0_0_25px_rgba(0,240,255,0.1)]">
                 <div className="space-y-8">
                   <div>
                     <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-[#00F0FF] to-[#9442FE] text-transparent bg-clip-text">O Desafio</h3>
@@ -601,9 +610,9 @@ export default function Home() {
               </div>
 
               {/* Lado Direito - Métricas */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-8">
                 {/* Taxa de Qualificação */}
-                <div className="col-span-1 lg:col-span-2 bg-black backdrop-blur-xl rounded-2xl p-8 border border-[#00F0FF]/20 shadow-[0_0_25px_rgba(0,240,255,0.1)]">
+                <div className="col-span-1 lg:col-span-2 bg-black backdrop-blur-xl rounded-2xl p-4 sm:p-8 border border-[#00F0FF]/20 shadow-[0_0_25px_rgba(0,240,255,0.1)]">
                   <style jsx>{`
                     @keyframes loadBar {
                       0% { width: 0%; }
@@ -698,7 +707,7 @@ export default function Home() {
                 </div>
 
                 {/* Citação */}
-                <div className="col-span-1 lg:col-span-2 bg-black backdrop-blur-xl rounded-2xl p-8 border border-[#00F0FF]/20 shadow-[0_0_25px_rgba(0,240,255,0.1)]">
+                <div className="col-span-1 lg:col-span-2 bg-black backdrop-blur-xl rounded-2xl p-4 sm:p-8 border border-[#00F0FF]/20 shadow-[0_0_25px_rgba(0,240,255,0.1)]">
                   <blockquote className="text-center">
                     <p className="text-xl text-gray-300 italic mb-4">
                       "Foi como adicionar um vendedor técnico com memória infinita — sem custo fixo."
@@ -723,10 +732,10 @@ export default function Home() {
         <div className="divider-animated-gradient my-2"></div>
 
         {/* CTA Section */}
-        <section className="py-24 bg-black relative">
-          <div className="container mx-auto px-6">
+        <section className="py-12 sm:py-24 bg-black relative">
+          <div className="container mx-auto px-4 sm:px-6">
             <motion.div 
-              className="max-w-5xl mx-auto bg-gradient-to-r from-[#111111] to-[#1a1a1a] p-12 rounded-2xl border border-gray-800 relative overflow-hidden"
+              className="max-w-5xl mx-auto bg-gradient-to-r from-[#111111] to-[#1a1a1a] p-6 sm:p-12 rounded-2xl border border-gray-800 relative overflow-hidden"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -735,12 +744,12 @@ export default function Home() {
               <div className="absolute -right-20 -top-20 w-64 h-64 bg-[#9442fe]/20 blur-[100px] rounded-full"></div>
               <div className="absolute -left-20 -bottom-20 w-64 h-64 bg-[#00f0ff]/20 blur-[100px] rounded-full"></div>
               
-              <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+              <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
                 <div className="text-center md:text-left">
-                  <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
                     Pronto para decolar?
                   </h2>
-                  <p className="text-xl text-gray-300">
+                  <p className="text-base sm:text-xl text-gray-300">
                     Fale com a Ugarit e transforme seu negócio com automação de outro nível.
                   </p>
                 </div>
@@ -749,7 +758,7 @@ export default function Home() {
                     href="https://wa.me/5511989354601?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20a%20Ugarit%20Digital!"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-8 py-4 bg-gradient-to-r from-[#00f0ff] to-[#9442fe] text-black font-bold rounded-full whitespace-nowrap flex items-center space-x-2"
+                    className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#00f0ff] to-[#9442fe] text-black font-bold rounded-full whitespace-nowrap flex items-center space-x-2 text-sm sm:text-base"
                     onClick={() => window.gtmTrack('clique_inovar_home')}
                   >
                     <span>Quero Inovar com a Ugarit</span>
@@ -890,7 +899,7 @@ const IconComponent = ({ name, className }) => {
             strokeWidth={1.5}
             initial={{ scale: 0.5, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }}
           />
         </svg>
       );

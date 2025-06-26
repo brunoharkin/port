@@ -248,7 +248,7 @@ const Layout = ({ children }) => {
 
       {/* WhatsApp Button */}
       <a
-        href="https://wa.me/5511989354601?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20a%20Ugarit%20Digital!"
+        href="https://wa.me/557388360017?text=Ol%C3%A1%2C%20equipe%20Ugarit%20Digital!%20Estou%20no%20site%20e%20gostaria%20de%20tirar%20uma%20d%C3%BAvida"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-8 right-8 z-50 p-3 bg-white/10 backdrop-blur-sm rounded-full shadow-[0_0_20px_rgba(37,211,102,0.3)] hover:shadow-[0_0_30px_rgba(37,211,102,0.6)] transition-all duration-300 hover:scale-110 group border border-[#25D366]/30 hover:border-[#25D366]/60"
@@ -343,7 +343,7 @@ const Layout = ({ children }) => {
             {/* Informações de Contato */}
             <div className="text-center space-y-2">
               <p className="text-gray-400 text-sm">contato@ugarit.digital</p>
-              <p className="text-gray-400 text-sm">São Paulo, SP</p>
+              <p className="text-gray-400 text-sm">Mogi das Cruzes, SP</p>
             </div>
 
             {/* Copyright */}
