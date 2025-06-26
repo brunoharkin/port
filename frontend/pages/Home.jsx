@@ -117,8 +117,8 @@ export default function Home() {
     <>
       {/* Badge fixo logo abaixo do menu */}
       <div className="w-full flex justify-center mt-4 sm:mt-6 z-30 relative">
-        <div className="inline-flex items-center px-3 sm:px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 neon-animated-border">
-          <span className="mr-2 flex items-center">
+        <div className="inline-flex items-center gap-0 px-3 sm:px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 neon-animated-border">
+          <span className="flex items-center">
             {/* Ícone Brain Lucide com cor de cérebro humano */}
             <Brain className="w-5 h-5 text-[#FF6F91] drop-shadow-[0_0_6px_#FF6F91]" strokeWidth={2.2} />
           </span>

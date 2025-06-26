@@ -373,119 +373,93 @@ const ChatInterface = ({
     return new Date(date).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
   };
 
+  // Modal centralizado
   return (
-    <div className="flex flex-col h-full">
-      {/* Preload audio elements */}
-      <audio ref={openAudioRef} src={openChatSound} preload="auto"></audio>
-      <audio ref={closeAudioRef} src={closeChatSound} preload="auto"></audio>
-      <audio ref={sendAudioRef} src={sendMessageSound} preload="auto"></audio>
-      <audio ref={receiveAudioRef} src={receiveMessageSound} preload="auto"></audio>
-
-      {/* Chat Header */}
-      <div className="flex items-center justify-between p-4 border-b border-gray-800 bg-gradient-to-r from-gray-900 to-black">
-        <div className="flex items-center space-x-3">
-          <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-[#00f0ff]">
-            <img
-              src={agentAvatar}
-              alt={agentName}
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div>
-            <h3 className="font-bold text-white">{agentName}</h3>
-            <div className="flex items-center">
-              <div className="w-2 h-2 rounded-full bg-green-500 mr-2"></div>
-              <span className="text-xs text-gray-400">Online</span>
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
+      <div className="w-full max-w-2xl h-[80vh] flex flex-col rounded-2xl shadow-2xl border border-gray-800 bg-[#181A20] relative">
+        {/* Cabeçalho escuro com avatar, nome, status e ícones */}
+        <div className="flex items-center justify-between p-4 border-b border-gray-800 bg-[#23272F] rounded-t-2xl">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-[#00f0ff] bg-black flex items-center justify-center">
+              {typeof agentAvatar === 'string' ? (
+                <img
+                  src={agentAvatar}
+                  alt={agentName}
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                agentAvatar
+              )}
             </div>
+            <div>
+              <h3 className="font-bold text-white text-lg">{agentName || 'Assistente IA'}</h3>
+              <span className="text-xs text-gray-400">Online agora</span>
+            </div>
+          </div>
+          <div className="flex items-center gap-3">
+            <button className="p-2 rounded-full hover:bg-[#23272F]/60 transition-colors">
+              <svg width="20" height="20" fill="none" stroke="#6B8AFF" strokeWidth="2" viewBox="0 0 24 24"><path d="M22 16.92V19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v2.08M16 7l-4 4-4-4"/></svg>
+            </button>
+            <button className="p-2 rounded-full hover:bg-[#23272F]/60 transition-colors">
+              <svg width="20" height="20" fill="none" stroke="#6B8AFF" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
+            </button>
+            <button onClick={handleCloseChat} className="p-2 rounded-full hover:bg-[#23272F]/60 transition-colors">
+              <X className="w-5 h-5 text-gray-400" />
+            </button>
           </div>
         </div>
-        <button
-          onClick={handleCloseChat} // Use the new handler for closing
-          className="p-2 rounded-full hover:bg-gray-800 transition-colors"
-        >
-          <X className="w-5 h-5 text-gray-400" />
-        </button>
-      </div>
-
-      {/* Chat Messages */}
-      <div className="flex-grow overflow-y-auto p-4 space-y-4 bg-gradient-to-b from-gray-900 to-black">
-        {messages.map((message) => (
-          <div
-            key={message.id}
-            className={`flex ${message.sender === "user" ? "justify-end" : "justify-start"}`}
-          >
+        {/* Mensagens */}
+        <div className="flex-grow overflow-y-auto p-6 space-y-4 bg-[#181A20]">
+          {messages.map((message) => (
             <div
-              className={`max-w-[80%] rounded-2xl p-3 ${
-                message.sender === "user"
-                  ? "bg-gradient-to-r from-[#00f0ff] to-[#9442fe] text-black rounded-tr-none"
-                  : message.isError
-                  ? "bg-red-900/30 border border-red-800 text-white rounded-tl-none"
-                  : "bg-gray-800 text-white rounded-tl-none"
-              }`}
+              key={message.id}
+              className={`flex ${message.sender === "user" ? "justify-end" : "justify-start"}`}
             >
-              {/* Text Message */}
-              {message.text && <p className="mb-1">{message.text}</p>}
-
-              {/* Audio Message */}
-              {message.isAudio && message.audioUrl && (
-                <audio controls src={message.audioUrl} className="max-w-full"></audio>
-              )}
-
-              {/* Image Message */}
-              {message.isImage && message.imageUrl && (
-                <img
-                  src={message.imageUrl}
-                  alt="Message with image"
-                  className="max-w-full rounded"
-                />
-              )}
-
-              {/* Timestamp */}
-              <div className={`text-xs mt-1 ${message.sender === "user" ? "text-gray-800" : "text-gray-400"}`}>
-                {formatTime(message.timestamp)}
+              <div
+                className={`max-w-[70%] rounded-2xl p-4 shadow-md text-base"
+                  ${message.sender === "user"
+                    ? "bg-gradient-to-r from-[#6B8AFF] to-[#9442FE] text-white rounded-br-none"
+                    : message.isError
+                      ? "bg-red-200 border border-red-400 text-red-900 rounded-bl-none"
+                      : "bg-[#23272F] text-gray-100 rounded-bl-none"
+                  }`}
+              >
+                {message.text && <p className="mb-1 whitespace-pre-line">{message.text}</p>}
+                {message.isAudio && message.audioUrl && (
+                  <audio controls src={message.audioUrl} className="max-w-full"></audio>
+                )}
+                {message.isImage && message.imageUrl && (
+                  <img
+                    src={message.imageUrl}
+                    alt="Message with image"
+                    className="max-w-full rounded"
+                  />
+                )}
+                <div className={`text-xs mt-1 ${message.sender === "user" ? "text-white/80" : "text-gray-400"}`}>
+                  {formatTime(message.timestamp)}
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-
-        {/* Typing Indicator */}
-        {isTyping && (
-          <div className="flex justify-start">
-            <div className="bg-gray-800 rounded-2xl rounded-tl-none p-3 max-w-[80%]">
-              <div className="flex space-x-2">
-                <div className="w-2 h-2 rounded-full bg-gray-300 animate-bounce" style={{ animationDelay: "0ms" }}></div>
-                <div className="w-2 h-2 rounded-full bg-gray-300 animate-bounce" style={{ animationDelay: "300ms" }}></div>
-                <div className="w-2 h-2 rounded-full bg-gray-300 animate-bounce" style={{ animationDelay: "600ms" }}></div>
+          ))}
+          {isTyping && (
+            <div className="flex justify-start">
+              <div className="bg-[#23272F] rounded-2xl rounded-bl-none p-4 max-w-[70%] shadow-md">
+                <div className="flex space-x-2">
+                  <div className="w-2 h-2 rounded-full bg-gray-400 animate-bounce" style={{ animationDelay: "0ms" }}></div>
+                  <div className="w-2 h-2 rounded-full bg-gray-400 animate-bounce" style={{ animationDelay: "300ms" }}></div>
+                  <div className="w-2 h-2 rounded-full bg-gray-400 animate-bounce" style={{ animationDelay: "600ms" }}></div>
+                </div>
               </div>
             </div>
-          </div>
-        )}
-
-        {/* Scroll anchor */}
-        <div ref={messagesEndRef} />
-      </div>
-
-      {/* Chat Input */}
-      <div className="p-4 border-t border-gray-800 bg-gradient-to-r from-gray-900 to-black">
-        <div className="flex items-center space-x-2">
-          {/* Audio Recording Button */}
-          <button
-            onClick={isRecording ? stopRecording : startRecording}
-            disabled={isLoading}
-            className={`p-2 rounded-full ${
-              isRecording
-                ? "bg-red-600 text-white animate-pulse"
-                : "bg-gray-800 text-gray-300 hover:bg-gray-700"
-            }`}
-          >
-            <Mic className="w-5 h-5" />
-          </button>
-
-          {/* Image Upload Button */}
+          )}
+          <div ref={messagesEndRef} />
+        </div>
+        {/* Input fixo */}
+        <div className="p-4 border-t border-gray-800 bg-[#23272F] rounded-b-2xl flex items-center gap-2">
           <button
             onClick={handleImageSelect}
             disabled={isLoading || isRecording}
-            className="p-2 rounded-full bg-gray-800 text-gray-300 hover:bg-gray-700"
+            className="p-2 rounded-full bg-[#181A20] text-gray-300 hover:bg-[#23272F]"
           >
             <Image className="w-5 h-5" />
             <input
@@ -496,8 +470,6 @@ const ChatInterface = ({
               onChange={handleImageChange}
             />
           </button>
-
-          {/* Text Input */}
           <div className="flex-grow">
             <input
               type="text"
@@ -505,22 +477,16 @@ const ChatInterface = ({
               onChange={(e) => setInputMessage(e.target.value)}
               onKeyPress={handleKeyPress}
               disabled={isLoading || isRecording}
-              placeholder="Type your message..."
-              className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-full focus:outline-none focus:ring-2 focus:ring-[#00f0ff]/50 focus:border-transparent"
+              placeholder="Digite sua mensagem..."
+              className="w-full px-4 py-2 bg-[#23272F] border border-[#23272F] rounded-full focus:outline-none focus:ring-2 focus:ring-[#6B8AFF]/50 focus:border-[#6B8AFF] text-gray-100"
             />
           </div>
-
-          {/* Send Button */}
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={handleSendMessage}
             disabled={!inputMessage.trim() || isLoading || isRecording}
-            className={`p-2 rounded-full ${
-              !inputMessage.trim() || isLoading || isRecording
-                ? "bg-gray-800 text-gray-500"
-                : "bg-gradient-to-r from-[#00f0ff] to-[#9442fe] text-black"
-            }`}
+            className={`p-2 rounded-full bg-gradient-to-r from-[#6B8AFF] to-[#9442FE] text-white ml-2 ${(!inputMessage.trim() || isLoading || isRecording) ? 'opacity-50' : ''}`}
           >
             <Send className="w-5 h-5" />
           </motion.button>

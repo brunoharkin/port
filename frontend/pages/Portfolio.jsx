@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Plus, X, ChevronRight, ChevronLeft } from "lucide-react";
 import ChatInterface from "../components/ChatInterface";
 import TypewriterText from "../components/TypewriterText";
+import agenteEcommerce from '../assets/images/agente-ecommerce.png';
 
 export default function Portfolio() {
   const [selectedAgent, setSelectedAgent] = useState(null);
@@ -49,7 +50,7 @@ export default function Portfolio() {
       ],
       webhookUrl: "https://portfolio.n8n.ugaritdigital.com/webhook/atendimento",
       initialMessage: "Olá! Sou o agente de vendas do seu e-commerce. O que você procura hoje?",
-      ctaFooter: "Quer ver um produto em ação? Fale com ele.\nConverse com o agente e-commerce agora e veja como ele vende por você."
+      ctaFooter: "Seu melhor vendedor não dorme. Ele conversa, entende e converte. Fale com a Ugarit e ative o seu agora."
     },
     {
       id: 2,
@@ -239,8 +240,8 @@ export default function Portfolio() {
                 {showChat ? (
                   <div className="h-[80vh]">
                     <ChatInterface 
-                      agentName={selectedAgent.title}
-                      agentAvatar={selectedAgent.image} // Still using image for avatar in chat
+                      agentName={selectedAgent.title.replace(/^\W+/, '')}
+                      agentAvatar={agenteEcommerce}
                       onClose={() => setShowChat(false)}
                       webhookUrl={selectedAgent.webhookUrl}
                       initialMessage={selectedAgent.initialMessage}
@@ -332,28 +333,30 @@ export default function Portfolio() {
 
                           {/* Botões minimalistas e modernos com gradiente animado para todos os agentes */}
                           <div className="pt-8 text-center flex flex-col items-center gap-4">
-                            {selectedAgent.id === 6 ? (
+                            {selectedAgent.id !== 6 && (
+                              <button
+                                onClick={() => { handleOpenChat(); window.gtmTrack('clique_solicitar_agente', { agente: selectedAgent?.title }); }}
+                                className="animated-gradient-btn w-64 py-3 rounded-full font-bold text-lg text-white shadow-lg mb-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#00f0ff]/50 transition-all duration-300"
+                              >
+                                Testar Agora
+                              </button>
+                            )}
+                            {selectedAgent.id === 1 ? (
+                              <a
+                                href="https://wa.me/557388360017?text=Ol%C3%A1%20Ugarit%20Digital!%20Acabei%20de%20testar%20o%20Agente%20de%20Vendas%20para%20E-commerce%20e%20quero%20um%20vendedor%20inteligente%20como%20esse%20para%20o%20meu%20neg%C3%B3cio.%20Como%20podemos%20come%C3%A7ar%3F"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="animated-gradient-btn w-80 py-3 rounded-full font-bold text-lg text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#00f0ff]/50 transition-all duration-300"
+                              >
+                                Agendar minha Reunião
+                              </a>
+                            ) : (
                               <button
                                 onClick={() => alert('Em breve!')}
                                 className="animated-gradient-btn w-80 py-3 rounded-full font-bold text-lg text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#00f0ff]/50 transition-all duration-300"
                               >
                                 Agendar minha Reunião
                               </button>
-                            ) : (
-                              <>
-                                <button
-                                  onClick={() => { handleOpenChat(); window.gtmTrack('clique_solicitar_agente', { agente: selectedAgent?.title }); }}
-                                  className="animated-gradient-btn w-64 py-3 rounded-full font-bold text-lg text-white shadow-lg mb-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#00f0ff]/50 transition-all duration-300"
-                                >
-                                  Testar Agora
-                                </button>
-                                <button
-                                  onClick={() => alert('Em breve!')}
-                                  className="animated-gradient-btn w-80 py-3 rounded-full font-bold text-lg text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#00f0ff]/50 transition-all duration-300"
-                                >
-                                  Agendar minha Reunião
-                                </button>
-                              </>
                             )}
                             <div className="mt-6 text-center text-gray-300 text-base font-medium max-w-md">
                               {selectedAgent.ctaFooter?.split('\n').map((line, idx) => (
@@ -411,8 +414,7 @@ export default function Portfolio() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.8 }}
                   transition={{ duration: 0.3 }}
-                  className="bg-gray-900 rounded-2xl overflow-hidden shadow-lg border border-gray-800 flex flex-col h-full group cursor-pointer"
-                  onClick={() => { handleAgentClick(agent); window.gtmTrack('clique_ver_detalhes', { agente: agent.title }); }}
+                  className="bg-gray-900 rounded-2xl overflow-hidden shadow-lg border border-gray-800 flex flex-col h-full group"
                 >
                   <div className="relative h-48 overflow-hidden flex items-center justify-center bg-gradient-to-br from-black via-gray-900 to-black">
                     <div className="w-full px-4">
@@ -439,10 +441,13 @@ export default function Portfolio() {
                     <h3 className="text-xl font-semibold mb-2">{agent.title}</h3>
                     <p className="text-gray-400 text-sm mb-4 flex-grow">{agent.description}</p>
                     <div className="mt-auto">
-                      <span className="inline-flex items-center text-sm font-medium text-[#00f0ff] group-hover:text-[#9442fe] transition-colors">
+                      <button
+                        className="inline-flex items-center text-sm font-medium text-[#00f0ff] group-hover:text-[#9442fe] transition-colors"
+                        onClick={() => { handleAgentClick(agent); window.gtmTrack('clique_ver_detalhes', { agente: agent.title }); }}
+                      >
                         Ver Detalhes
                         <ArrowRight className="ml-1 h-4 w-4" />
-                      </span>
+                      </button>
                     </div>
                   </div>
                 </motion.div>
