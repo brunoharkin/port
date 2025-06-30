@@ -613,17 +613,10 @@ export default function Home() {
               <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-8">
                 {/* Taxa de Qualificação */}
                 <div className="col-span-1 lg:col-span-2 bg-black backdrop-blur-xl rounded-2xl p-4 sm:p-8 border border-[#00F0FF]/20 shadow-[0_0_25px_rgba(0,240,255,0.1)]">
-                  <style jsx>{`
+                  <style>{`
                     @keyframes loadBar {
                       0% { width: 0%; }
                       100% { width: var(--target-width); }
-                    }
-                    @keyframes pulse {
-                      0%, 100% { opacity: 1; }
-                      50% { opacity: 0.7; }
-                    }
-                    .animate-load-bar {
-                      animation: loadBar 1.5s ease-out forwards, pulse 2s ease-in-out infinite;
                     }
                   `}</style>
 
