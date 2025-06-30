@@ -107,7 +107,7 @@ export default function Portfolio() {
         "Envio automático de lembrete 30 min antes",
         "Opção de reagendamento"
       ],
-      webhookUrl: "https://workflow.ugaritdigital.com/webhook/sdrpara-clínicas",
+      webhookUrl: "https://workflow.ugaritdigital.com/webhook/srd-clinica",
       initialMessage: "Olá! Sou o SDR da sua clínica. Vamos agendar sua consulta?",
       ctaText: "Testar este Agente Agora +",
       ctaFooter: "Receba um atendimento de verdade. Teste o agente SDR para clínicas — como se fosse um novo paciente da sua."
@@ -136,7 +136,7 @@ export default function Portfolio() {
         "Contraoferta ou sugestão personalizada",
         "Agendamento de visita ou contato com corretor"
       ],
-      webhookUrl: "https://workflow.ugaritdigital.com/webhook/agente-sdr-Imobiliária",
+      webhookUrl: "https://workflow.ugaritdigital.com/webhook/srd-imobiliaria",
       initialMessage: "Olá! Sou o agente imobiliário inteligente. Vamos encontrar o imóvel ideal para você?",
       ctaFooter: "Simule sua busca, teste propostas e veja como o agente imobiliário pode negociar por você."
     },
@@ -190,7 +190,7 @@ export default function Portfolio() {
         "Monitoramento em tempo real",
         "Geração de relatórios e logs"
       ],
-      webhookUrl: "https://portfolio.n8n.ugaritdigital.com/webhook/agenda",
+      webhookUrl: "https://workflow.ugaritdigital.com/webhook/agenda",
       initialMessage: "Olá! Sou o agente de disparo automático. Qual campanha você quer enviar hoje?",
       ctaFooter: "Pronto para escalar sua comunicação? Fale com a Ugarit."
     }
