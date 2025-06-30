@@ -48,7 +48,7 @@ export default function Portfolio() {
         "Geração de link de compra ou finalização por API",
         "Registro da interação no CRM ou painel personalizado"
       ],
-      webhookUrl: "https://portfolio.n8n.ugaritdigital.com/webhook/atendimento",
+      webhookUrl: "https://workflow.ugaritdigital.com/webhook/ecommerce",
       initialMessage: "Olá! Sou o agente de vendas do seu e-commerce. O que você procura hoje?",
       ctaFooter: "Seu melhor vendedor não dorme. Ele conversa, entende e converte. Fale com a Ugarit e ative o seu agora."
     },
@@ -77,7 +77,7 @@ export default function Portfolio() {
         "Lembrete automático com link de reunião",
         "Registro da interação no CRM"
       ],
-      webhookUrl: "https://portfolio.n8n.ugaritdigital.com/webhook/atendimento",
+      webhookUrl: "https://workflow.ugaritdigital.com/webhook/agendamentos-para-consultoria",
       initialMessage: "Olá! Sou o agente de agendamentos da sua consultoria. Como posso ajudar?",
       ctaFooter: "Veja como ele organiza a agenda por você."
     },
@@ -107,7 +107,7 @@ export default function Portfolio() {
         "Envio automático de lembrete 30 min antes",
         "Opção de reagendamento"
       ],
-      webhookUrl: "https://portfolio.n8n.ugaritdigital.com/webhook/sdr",
+      webhookUrl: "https://workflow.ugaritdigital.com/webhook/sdrpara-clínicas",
       initialMessage: "Olá! Sou o SDR da sua clínica. Vamos agendar sua consulta?",
       ctaText: "Testar este Agente Agora +",
       ctaFooter: "Receba um atendimento de verdade. Teste o agente SDR para clínicas — como se fosse um novo paciente da sua."
@@ -136,7 +136,7 @@ export default function Portfolio() {
         "Contraoferta ou sugestão personalizada",
         "Agendamento de visita ou contato com corretor"
       ],
-      webhookUrl: "https://portfolio.n8n.ugaritdigital.com/webhook/imoveis",
+      webhookUrl: "https://workflow.ugaritdigital.com/webhook/agente-sdr-Imobiliária",
       initialMessage: "Olá! Sou o agente imobiliário inteligente. Vamos encontrar o imóvel ideal para você?",
       ctaFooter: "Simule sua busca, teste propostas e veja como o agente imobiliário pode negociar por você."
     },
@@ -161,7 +161,7 @@ export default function Portfolio() {
         "Caso necessário, ele pergunta se precisa escalar para atendimento humano",
         "Gera um ticket ou registra a solicitação (simulado)"
       ],
-      webhookUrl: "https://portfolio.n8n.ugaritdigital.com/webhook/conteudo",
+      webhookUrl: "https://workflow.ugaritdigital.com/webhook/suporte-rh",
       initialMessage: "Olá! Sou o agente de suporte do RH. Qual sua dúvida?",
       ctaFooter: "Deixe seu time focar em gestão.\nA gente cuida das perguntas repetidas."
     },
@@ -245,6 +245,7 @@ export default function Portfolio() {
                       onClose={() => setShowChat(false)}
                       webhookUrl={selectedAgent.webhookUrl}
                       initialMessage={selectedAgent.initialMessage}
+                      agentId={selectedAgent.id}
                     />
                   </div>
                 ) : (
@@ -335,7 +336,7 @@ export default function Portfolio() {
                           <div className="pt-8 text-center flex flex-col items-center gap-4">
                             {selectedAgent.id !== 6 && (
                               <button
-                                onClick={() => { handleOpenChat(); window.gtmTrack('clique_solicitar_agente', { agente: selectedAgent?.title }); }}
+                                onClick={handleOpenChat}
                                 className="animated-gradient-btn w-64 py-3 rounded-full font-bold text-lg text-white shadow-lg mb-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#00f0ff]/50 transition-all duration-300"
                               >
                                 Testar Agora

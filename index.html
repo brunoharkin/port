@@ -37,9 +37,6 @@
         ]
       }
     </script>
-    <!-- Proteções extras -->
-    <meta http-equiv="X-Frame-Options" content="DENY" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; connect-src 'self'; font-src 'self' https://fonts.cdnfonts.com; frame-ancestors 'none';" />
   </head>
   <body>
     <div id="root"></div>
@@ -52,17 +49,6 @@
           window.location.href = 'https://' + dominioOficial;
         }
       })();
-    </script>
-    <script>
-      // Bloqueio de clique direito e atalhos comuns de cópia/inspeção
-      document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
-      document.addEventListener('keydown', function(e) {
-        if ((e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 'c' || e.key === 'C')) ||
-            (e.ctrlKey && e.shiftKey && (e.key === 'i' || e.key === 'I' || e.key === 'j' || e.key === 'J')) ||
-            (e.key === 'F12')) {
-          e.preventDefault();
-        }
-      });
     </script>
   </body>
 </html> 
