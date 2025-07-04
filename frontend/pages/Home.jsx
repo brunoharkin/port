@@ -208,8 +208,9 @@ export default function Home() {
               </div>
 
               {/* Frase Destacada */}
-              <div className="max-w-3xl mx-auto mb-8 sm:mb-10 flex flex-col sm:flex-row items-center gap-3 sm:gap-0">
-                <div className="w-1 h-10 sm:h-16 bg-yellow-400 mx-auto sm:mx-0 rounded hidden sm:block"></div>
+              <div className="max-w-3xl mx-auto mb-8 sm:mb-10 flex flex-col sm:flex-row items-center gap-0">
+                {/* Barra amarela: só aparece em sm+ ao lado do texto, com espaçamento à direita */}
+                <div className="w-1 h-16 bg-yellow-400 rounded hidden sm:block sm:mr-4" />
                 <p className="italic text-base sm:text-lg text-gray-200 text-center sm:text-left">
                   "Liberamos o tempo dos visionários impacientes. Como um laboratório de automação, nossa missão é desacelerar o tempo para você, permitindo que seu negócio salte uma década à frente."
                 </p>
