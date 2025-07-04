@@ -5,6 +5,9 @@ import HeroBg from "../assets/images/hero-bg.svg";
 import TypewriterText from "../components/TypewriterText";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "../utils";
+import AgenteEcommerce from "../assets/images/agente-ecommerce.png";
+import AgenteAgendamento from "../assets/images/agente-agendamento.png";
+import AgenteClinica from "../assets/images/agente-clinica.png";
 
 export default function Home() {
   const heroRef = useRef(null);
@@ -132,6 +135,28 @@ export default function Home() {
         'Inteligência Acionável e Roadmap de Evolução Personalizado: Transformamos dados brutos em insights estratégicos e, em parceria com você, traçamos o plano para a próxima fase de crescimento e sofisticação do seu agente.',
         'Ciclos de Otimização Proativa e Inteligente: Com base em dados reais e aprendizado contínuo, implementamos melhorias recorrentes que mantêm seu agente sempre à frente, adaptando-se e evoluindo com seu negócio.'
       ]
+    }
+  ];
+
+  // Substituir os dados dos agentes pelos mesmos do Portfolio.jsx
+  const agents = [
+    {
+      id: 1,
+      title: "🛒 Agente de Vendas para E-commerce – Atendimento que Vende Antes do Clique",
+      description: "Seu melhor vendedor. Ativo 24/7. Preciso, simpático e impossível de ignorar.",
+      image: AgenteEcommerce
+    },
+    {
+      id: 2,
+      title: "📆 Agente de Agendamentos para Consultoria – Sua Agenda, Inteligente e Autônoma",
+      description: "Você foca em entregar valor. Ele cuida do resto.",
+      image: AgenteAgendamento
+    },
+    {
+      id: 3,
+      title: "🩺 SDR para Clínicas – Atendimento Inteligente que Agenda e Converte",
+      description: "Consultas marcadas. Leads qualificados. Sem esforço.",
+      image: AgenteClinica
     }
   ];
 
@@ -560,24 +585,15 @@ export default function Home() {
             </motion.div>
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 md:gap-8">
-              <AgentCard
-                title="🛒 Agente de Vendas para E-commerce – Atendimento que Vende Antes do Clique"
-                description="Seu melhor vendedor. Ativo 24/7. Preciso, simpático e impossível de ignorar."
-                image="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80"
-                delay={0}
-              />
-              <AgentCard
-                title="📆 Agente de Agendamentos para Consultoria – Sua Agenda, Inteligente e Autônoma"
-                description="Você foca em entregar valor. Ele cuida do resto."
-                image="https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1769&q=80"
-                delay={0.2}
-              />
-              <AgentCard
-                title="🩺 SDR para Clínicas – Atendimento Inteligente que Agenda e Converte"
-                description="Consultas marcadas. Leads qualificados. Sem esforço."
-                image="https://images.unsplash.com/photo-1597852074816-d933c7d2b988?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80"
-                delay={0.4}
-              />
+              {agents.map((agent, idx) => (
+                <AgentCard
+                  key={agent.id}
+                  title={agent.title}
+                  description={agent.description}
+                  image={agent.image}
+                  delay={idx * 0.2}
+                />
+              ))}
             </div>
           </div>
         </section>
@@ -830,33 +846,17 @@ const AgentCard = ({ title, description, image, delay }) => {
       transition={{ delay, duration: 0.8 }}
       whileHover={{ y: -5, borderColor: '#00f0ff' }}
     >
-      <div className="relative h-48 overflow-hidden flex flex-col items-center justify-center bg-black/50">
-        {/* Imagem do agente */}
-        <div className="w-full aspect-[16/9] flex items-center justify-center bg-black/30">
-          <img 
-            src={image.replace('.jpg', '.webp')}
-            alt={title}
-            width="320"
-            height="180"
-            loading="lazy"
-            className="rounded-lg mb-2 object-cover w-full h-full"
-          />
-        </div>
-        <div className="w-full px-4">
-          <TypewriterText
-            text={
-              title.includes('E-commerce') ? 'function VenderProduto(produto) {\n  if (estoque) {\n    AdicionarAoCarrinho(produto);\n    FinalizarCompra();\n  } else {\n    NotificarIndisponibilidade();\n  }\n}' :
-              title.includes('Consultoria') ? 'function AgendarConsultoria(lead) {\n  if (lead.qualificado) {\n    SugerirHorarios();\n    ConfirmarAgendamento();\n  } else {\n    SolicitarMaisInformacoes();\n  }\n}' :
-              title.includes('Clínicas') ? 'function AgendarConsulta(paciente) {\n  if (dadosValidos) {\n    MarcarConsulta();\n    EnviarLembrete();\n  } else {\n    SolicitarDados();\n  }\n}' :
-              '// Agente Inteligente'
-            }
-            speed={22}
-            className="block text-xs sm:text-sm text-left font-mono text-[#00f0ff] whitespace-pre-line min-h-[6.5rem]"
-          />
-        </div>
+      <div className="relative h-48 overflow-hidden flex items-center justify-center bg-black/50">
+        <img
+          src={image}
+          alt={title}
+          width="320"
+          height="180"
+          loading="lazy"
+          className="object-cover w-full h-full"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
       </div>
-      
       <div className="p-6">
         <h3 className="text-xl font-bold mb-2 text-white">{title}</h3>
         <p className="text-gray-400 mb-6 text-sm">{description}</p>

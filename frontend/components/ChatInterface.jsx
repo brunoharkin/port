@@ -386,12 +386,12 @@ const ChatInterface = ({
     const message = messages[index];
     return (
       <div
-        style={style}
+        style={{ ...style, marginBottom: 10, marginTop: index === 0 ? 0 : 2 }}
         key={message.id}
         className={`flex ${message.sender === "user" ? "justify-end" : "justify-start"}`}
       >
         <div
-          className={`max-w-[70%] rounded-2xl p-4 shadow-md text-base"
+          className={`max-w-[80vw] sm:max-w-[70%] rounded-2xl p-3 sm:p-4 shadow-md text-base"
             ${message.sender === "user"
               ? "bg-gradient-to-r from-[#6B8AFF] to-[#9442FE] text-white rounded-br-none"
               : message.isError
@@ -463,7 +463,7 @@ const ChatInterface = ({
           </div>
         </div>
         {/* Mensagens */}
-        <div className="flex-grow overflow-y-auto p-6 space-y-4 bg-[#181A20]" aria-live="polite" style={{padding:0}}>
+        <div className="flex-grow overflow-y-auto p-3 sm:p-6 space-y-3 sm:space-y-4 bg-[#181A20]" aria-live="polite">
           <List
             height={window.innerHeight * 0.6} // 60% da viewport
             itemCount={messages.length}
@@ -527,12 +527,6 @@ const ChatInterface = ({
               disabled={isLoading || isRecording}
               placeholder="Digite sua mensagem..."
               className="w-full px-4 py-2 bg-[#23272F] border border-[#23272F] rounded-full focus:outline-none focus:ring-2 focus:ring-[#6B8AFF]/50 focus:border-[#6B8AFF] text-gray-100"
-              ref={el => {
-                // Foco automático ao abrir o chat
-                if (el && document.activeElement !== el) {
-                  el.focus();
-                }
-              }}
             />
           </div>
           <motion.button
