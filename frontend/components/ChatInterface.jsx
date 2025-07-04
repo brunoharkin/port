@@ -185,16 +185,20 @@ const ChatInterface = ({
   const handleSendAudio = async (audioBlob) => {
     if (!audioBlob) return;
 
+    const audioUrlTemp = URL.createObjectURL(audioBlob);
     const newMessage = {
       id: Date.now(),
       sender: "user",
       isAudio: true,
-      audioUrl: URL.createObjectURL(audioBlob),
+      audioUrl: audioUrlTemp,
       timestamp: new Date()
     };
 
     setMessages((prev) => [...prev, newMessage]);
     playSound(sendAudioRef); // Play send sound
+
+    // Libera a URL após um tempo para evitar vazamento de memória
+    setTimeout(() => URL.revokeObjectURL(audioUrlTemp), 10000);
 
     // Show typing indicator
     setIsTyping(true);
@@ -236,16 +240,20 @@ const ChatInterface = ({
   const handleSendImage = async (imageFile) => {
     if (!imageFile) return;
 
+    const imageUrlTemp = URL.createObjectURL(imageFile);
     const newMessage = {
       id: Date.now(),
       sender: "user",
       isImage: true,
-      imageUrl: URL.createObjectURL(imageFile),
+      imageUrl: imageUrlTemp,
       timestamp: new Date()
     };
 
     setMessages((prev) => [...prev, newMessage]);
     playSound(sendAudioRef); // Play send sound
+
+    // Libera a URL após um tempo para evitar vazamento de memória
+    setTimeout(() => URL.revokeObjectURL(imageUrlTemp), 10000);
 
     // Show typing indicator
     setIsTyping(true);
@@ -291,38 +299,42 @@ const ChatInterface = ({
 
   // Send to webhook using the provided webhookUrl prop
   const sendToWebhook = async (payload) => {
-    // Ensure webhookUrl is provided before fetching
     if (!webhookUrl) {
       console.error("Webhook URL is not defined for this agent.");
-      // Optionally, show an error message to the user
       setMessages((prev) => [
         ...prev,
         {
           id: Date.now(),
           sender: "agent",
-          text: "Configuration error: Webhook URL is missing.",
+          text: "Erro de configuração: Webhook URL não definida.",
           timestamp: new Date(),
           isError: true
         }
       ]);
-      return; // Stop execution if URL is missing
+      return { error: true, message: "Webhook URL não definida." };
     }
-    
+
     console.log(`[DEBUG] Sending to webhook: ${webhookUrl}`, payload);
 
-    const res = await fetch(webhookUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
-    });
-    const json = await res.json();
-    console.log("[DEBUG] Response JSON:", json);
-    return json;
+    let res, text, json;
+    try {
+      res = await fetch(webhookUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+      text = await res.text();
+      json = text ? JSON.parse(text) : {};
+      console.log("[DEBUG] Response JSON:", json);
+      return json;
+    } catch (e) {
+      console.error("[ERRO] Falha ao enviar para o webhook ou resposta inválida:", e);
+      return { error: true, message: "Erro ao conectar ao servidor. Verifique sua conexão ou tente novamente mais tarde." };
+    }
   };
 
   // Function to handle agent response
   const handleAgentResponse = (response) => {
-    // Simulate typing delay (between 1-2 seconds)
     const typingDelay = Math.floor(Math.random() * 1000) + 1000;
 
     setTimeout(() => {
@@ -332,20 +344,21 @@ const ChatInterface = ({
         timestamp: new Date()
       };
 
-      // Process response from n8n webhook which comes as an array with reply field
-      if (Array.isArray(response) && response.length > 0 && response[0].reply) {
+      if (response && response.error) {
+        newMessage.text = response.message || "Erro ao processar sua mensagem. Tente novamente mais tarde.";
+        newMessage.isError = true;
+      } else if (Array.isArray(response) && response.length > 0 && response[0].reply) {
         newMessage.text = response[0].reply;
       } else if (typeof response === "object" && response !== null && "reply" in response) {
-        // Handle cases where response is an object with a 'reply' key
         newMessage.text = response.reply;
       } else {
-        // Fallback if the response format is unexpected
-        newMessage.text = "I received your message. How can I help you?";
+        newMessage.text = "Desculpe, houve um erro ao processar sua mensagem. Tente novamente mais tarde.";
+        newMessage.isError = true;
         console.warn("Unexpected webhook response format:", response);
       }
 
       setMessages((prev) => [...prev, newMessage]);
-      playSound(receiveAudioRef); // Play receive sound
+      playSound(receiveAudioRef);
     }, typingDelay);
   };
 
@@ -375,17 +388,28 @@ const ChatInterface = ({
 
   // Modal centralizado
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60"
+      role="dialog"
+      aria-modal="true"
+      onClick={(e) => {
+        // Fecha o chat se clicar fora do bloco principal
+        if (e.target === e.currentTarget) {
+          handleCloseChat();
+        }
+      }}
+    >
       <div className="w-full max-w-2xl h-[80vh] flex flex-col rounded-2xl shadow-2xl border border-gray-800 bg-[#181A20] relative">
         {/* Cabeçalho escuro com avatar, nome, status e ícones */}
         <div className="flex items-center justify-between p-4 border-b border-gray-800 bg-[#23272F] rounded-t-2xl">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-[#00f0ff] bg-black flex items-center justify-center">
+            <div className="w-14 h-14 flex items-center justify-center">
               {typeof agentAvatar === 'string' ? (
                 <img
                   src={agentAvatar}
-                  alt={agentName}
-                  className="w-full h-full object-cover"
+                  alt={agentName ? `Avatar do agente ${agentName}` : 'Avatar do agente'}
+                  className="w-full h-full object-contain"
+                  loading="lazy"
                 />
               ) : (
                 agentAvatar
@@ -393,23 +417,20 @@ const ChatInterface = ({
             </div>
             <div>
               <h3 className="font-bold text-white text-lg">{agentName || 'Assistente IA'}</h3>
-              <span className="text-xs text-gray-400">Online agora</span>
+              <span className="text-xs text-gray-400 flex items-center gap-1">
+                <span className="inline-block w-2 h-2 rounded-full bg-green-500"></span>
+                Online agora
+              </span>
             </div>
           </div>
           <div className="flex items-center gap-3">
-            <button className="p-2 rounded-full hover:bg-[#23272F]/60 transition-colors">
-              <svg width="20" height="20" fill="none" stroke="#6B8AFF" strokeWidth="2" viewBox="0 0 24 24"><path d="M22 16.92V19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v2.08M16 7l-4 4-4-4"/></svg>
-            </button>
-            <button className="p-2 rounded-full hover:bg-[#23272F]/60 transition-colors">
-              <svg width="20" height="20" fill="none" stroke="#6B8AFF" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
-            </button>
-            <button onClick={handleCloseChat} className="p-2 rounded-full hover:bg-[#23272F]/60 transition-colors">
+            <button onClick={handleCloseChat} className="p-2 rounded-full hover:bg-[#23272F]/60 transition-colors" title="Fechar" aria-label="Fechar chat">
               <X className="w-5 h-5 text-gray-400" />
             </button>
           </div>
         </div>
         {/* Mensagens */}
-        <div className="flex-grow overflow-y-auto p-6 space-y-4 bg-[#181A20]">
+        <div className="flex-grow overflow-y-auto p-6 space-y-4 bg-[#181A20]" aria-live="polite">
           {messages.map((message) => (
             <div
               key={message.id}
@@ -431,8 +452,9 @@ const ChatInterface = ({
                 {message.isImage && message.imageUrl && (
                   <img
                     src={message.imageUrl}
-                    alt="Message with image"
+                    alt="Mensagem com imagem"
                     className="max-w-full rounded"
+                    loading="lazy"
                   />
                 )}
                 <div className={`text-xs mt-1 ${message.sender === "user" ? "text-white/80" : "text-gray-400"}`}>
@@ -460,6 +482,7 @@ const ChatInterface = ({
             onClick={handleImageSelect}
             disabled={isLoading || isRecording}
             className="p-2 rounded-full bg-[#181A20] text-gray-300 hover:bg-[#23272F]"
+            aria-label="Enviar imagem"
           >
             <Image className="w-5 h-5" />
             <input
@@ -470,15 +493,35 @@ const ChatInterface = ({
               onChange={handleImageChange}
             />
           </button>
+          <button
+            onClick={isRecording ? stopRecording : startRecording}
+            disabled={isLoading}
+            className={`p-2 rounded-full bg-[#181A20] text-gray-300 hover:bg-[#23272F] transition-colors ${isRecording ? 'animate-pulse bg-[#23272F]' : ''}`}
+            title={isRecording ? 'Parar gravação' : 'Gravar áudio'}
+            aria-label={isRecording ? 'Parar gravação de áudio' : 'Gravar áudio'}
+          >
+            <Mic className={`w-5 h-5 ${isRecording ? 'text-red-500' : ''}`} />
+          </button>
           <div className="flex-grow">
             <input
               type="text"
               value={inputMessage}
               onChange={(e) => setInputMessage(e.target.value)}
-              onKeyPress={handleKeyPress}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && !e.shiftKey) {
+                  e.preventDefault();
+                  handleSendMessage();
+                }
+              }}
               disabled={isLoading || isRecording}
               placeholder="Digite sua mensagem..."
               className="w-full px-4 py-2 bg-[#23272F] border border-[#23272F] rounded-full focus:outline-none focus:ring-2 focus:ring-[#6B8AFF]/50 focus:border-[#6B8AFF] text-gray-100"
+              ref={el => {
+                // Foco automático ao abrir o chat
+                if (el && document.activeElement !== el) {
+                  el.focus();
+                }
+              }}
             />
           </div>
           <motion.button
@@ -487,6 +530,7 @@ const ChatInterface = ({
             onClick={handleSendMessage}
             disabled={!inputMessage.trim() || isLoading || isRecording}
             className={`p-2 rounded-full bg-gradient-to-r from-[#6B8AFF] to-[#9442FE] text-white ml-2 ${(!inputMessage.trim() || isLoading || isRecording) ? 'opacity-50' : ''}`}
+            aria-label="Enviar mensagem"
           >
             <Send className="w-5 h-5" />
           </motion.button>

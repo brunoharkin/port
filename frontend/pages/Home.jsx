@@ -1,14 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ChevronDown, ArrowRight, Zap, Brain, Sparkles, Target, Code, Wrench, FlaskConical, Rocket, TrendingUp, CheckCircle } from "lucide-react";
+import HeroBg from "../assets/images/hero-bg.svg";
+import TypewriterText from "../components/TypewriterText";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "../utils";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { ChevronDown, ArrowRight, Zap, Brain, Sparkles, BarChart3, Target, Code, Wrench, FlaskConical, Rocket, TrendingUp, CheckCircle, CircleDot } from "lucide-react";
-import UgaritLogo from "../assets/logos/UgaritLogo.svg";
-import UgaritLogoImgPng from "../assets/images/Screenshot_2025-05-14_13.42.23-removebg-preview.png";
-import HeroBg from "../assets/images/hero-bg.svg";
-import LogoMarquee from "../components/LogoMarquee";
-import TestimonialCarousel from "../components/TestimonialCarousel";
-import TypewriterText from "../components/TypewriterText";
 
 export default function Home() {
   const heroRef = useRef(null);
@@ -116,7 +112,7 @@ export default function Home() {
   return (
     <>
       {/* Badge fixo logo abaixo do menu */}
-      <div className="w-full flex justify-center mt-4 sm:mt-6 z-30 relative">
+      <div className="w-full flex justify-center mt-2 sm:mt-3 z-30 relative">
         <div className="inline-flex items-center gap-0 px-3 sm:px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 neon-animated-border">
           <span className="flex items-center">
             {/* Ícone Brain Lucide com cor de cérebro humano */}
@@ -127,11 +123,11 @@ export default function Home() {
       </div>
       <div className="min-h-screen" ref={scrollRef}>
         {/* Hero Section */}
-        <section className="relative flex items-center justify-center pt-28 sm:pt-40 pb-12 sm:pb-20 min-h-[80vh] sm:min-h-screen sm:py-0">
+        <section className="relative flex items-center justify-center pt-12 sm:pt-20 pb-12 sm:pb-20 min-h-[80vh] sm:min-h-screen sm:py-0">
           <div className="absolute inset-0">
             {/* Background Image */}
             <div className="absolute inset-0">
-              <img src={HeroBg} alt="" className="w-full h-full object-cover opacity-30" />
+              <img src={HeroBg} alt="" className="w-full h-full object-cover opacity-30" loading="lazy" />
             </div>
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-transparent"></div>
             {/* Gradientes de fundo */}
@@ -498,7 +494,6 @@ export default function Home() {
         </section>
 
         {/* O restante do arquivo continua a partir daqui, como a seção "Featured Agents" */}
-        <div className="divider-animated-gradient my-2"></div>
 
         {/* Featured Agents Section */}
         <section className="py-16 sm:py-24 bg-black relative">
@@ -556,7 +551,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <div className="divider-animated-gradient my-2"></div>
 
         {/* Case de Sucesso Section */}
         <section className="py-16 sm:py-24 bg-black relative">
@@ -722,7 +716,6 @@ export default function Home() {
           {/* Decorative gradient line at bottom */}
           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/3 h-px bg-gradient-to-r from-transparent via-[#9442FE] to-transparent opacity-50"></div>
         </section>
-        <div className="divider-animated-gradient my-2"></div>
 
         {/* CTA Section */}
         <section className="py-12 sm:py-24 bg-black relative">
@@ -746,23 +739,20 @@ export default function Home() {
                     Fale com a Ugarit e transforme seu negócio com automação de outro nível.
                   </p>
                 </div>
-                <Link to={createPageUrl("Contact")}>
-                  <motion.a
-                    href="https://wa.me/5511989354601?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20a%20Ugarit%20Digital!"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#00f0ff] to-[#9442fe] text-black font-bold rounded-full whitespace-nowrap flex items-center space-x-2 text-sm sm:text-base"
-                    onClick={() => window.gtmTrack('clique_inovar_home')}
-                  >
-                    <span>Quero Inovar com a Ugarit</span>
-                    <Zap className="w-5 h-5" />
-                  </motion.a>
-                </Link>
+                <motion.a
+                  href={createPageUrl("Contact")}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#00f0ff] to-[#9442fe] text-black font-bold rounded-full whitespace-nowrap flex items-center space-x-2 text-sm sm:text-base"
+                  onClick={() => window.gtmTrack('clique_inovar_home')}
+                >
+                  <span>Quero Inovar com a Ugarit</span>
+                  <Zap className="w-5 h-5" />
+                </motion.a>
               </div>
             </motion.div>
           </div>
         </section>
-        <div className="divider-animated-gradient my-2"></div>
       </div>
     </>
   );

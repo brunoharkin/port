@@ -76,7 +76,11 @@ const NeonButton = ({
   // Se for um link interno (usando react-router)
   if (to) {
     return (
-      <Link to={to} className={buttonClasses}>
+      <Link to={to} className={buttonClasses} onClick={(e) => {
+        if (window.fbq) window.fbq('track', 'Lead');
+        if (window.gtmTrack) window.gtmTrack('clique_botao');
+        if (onClick) onClick(e);
+      }}>
         {buttonContent}
       </Link>
     );
@@ -90,6 +94,11 @@ const NeonButton = ({
         target="_blank" 
         rel="noopener noreferrer" 
         className={buttonClasses}
+        onClick={(e) => {
+          if (window.fbq) window.fbq('track', 'Lead');
+          if (window.gtmTrack) window.gtmTrack('clique_botao');
+          if (onClick) onClick(e);
+        }}
       >
         {buttonContent}
       </a>
@@ -104,6 +113,11 @@ const NeonButton = ({
         target="_blank" 
         rel="noopener noreferrer" 
         className={buttonClasses}
+        onClick={(e) => {
+          if (window.fbq) window.fbq('track', 'Lead');
+          if (window.gtmTrack) window.gtmTrack('clique_botao');
+          if (onClick) onClick(e);
+        }}
       >
         {buttonContent}
       </a>
@@ -116,7 +130,11 @@ const NeonButton = ({
       whileHover={!disabled && !loading ? { scale: 1.05 } : {}}
       whileTap={!disabled && !loading ? { scale: 0.95 } : {}}
       type={type}
-      onClick={onClick}
+      onClick={(e) => {
+        if (window.fbq) window.fbq('track', 'Lead');
+        if (window.gtmTrack) window.gtmTrack('clique_botao');
+        if (onClick) onClick(e);
+      }}
       disabled={disabled || loading}
       className={buttonClasses}
     >

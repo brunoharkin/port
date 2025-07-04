@@ -20,6 +20,11 @@ export default function GradientButton({ children, leftIcon, rightIcon, classNam
         target="_blank" 
         rel="noopener noreferrer" 
         className={`${baseClasses} ${variantClasses} ${className}`}
+        onClick={(e) => {
+          if (window.fbq) window.fbq('track', 'Lead');
+          if (window.gtmTrack) window.gtmTrack('clique_botao');
+          if (props.onClick) props.onClick(e);
+        }}
         {...props}
       >
         {leftIcon && <span className="mr-2 flex items-center">{leftIcon}</span>}
@@ -32,6 +37,11 @@ export default function GradientButton({ children, leftIcon, rightIcon, classNam
   return (
     <button
       className={`${baseClasses} ${variantClasses} ${className}`}
+      onClick={(e) => {
+        if (window.fbq) window.fbq('track', 'Lead');
+        if (window.gtmTrack) window.gtmTrack('clique_botao');
+        if (props.onClick) props.onClick(e);
+      }}
       {...props}
     >
       {leftIcon && <span className="mr-2 flex items-center">{leftIcon}</span>}

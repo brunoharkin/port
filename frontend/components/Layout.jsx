@@ -5,11 +5,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import UgaritLogo from '../assets/logos/UgaritLogo.svg';
 import WhatsAppIcon from '../assets/icons/whatsapp.svg';
 
-const Layout = ({ children }) => {
+const Layout = ({ children, isChatOpen = false }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const [loading, setLoading] = useState(true);
   const [logoRotation, setLogoRotation] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   const menuItems = [
     { title: 'Home', path: '/' },
@@ -36,6 +37,13 @@ const Layout = ({ children }) => {
     }
   }, [loading]);
 
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col bg-black">
       {/* Header */}
@@ -43,7 +51,7 @@ const Layout = ({ children }) => {
         <div className="responsive-container">
           <nav className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
-            <Link to="/" className="flex items-center space-x-3">
+            <Link to="/" aria-label="Ir para a página inicial" className="flex items-center space-x-3">
               <div className="flex items-center">
                 <svg 
                   width="40" 
@@ -136,7 +144,7 @@ const Layout = ({ children }) => {
             <button
               onClick={toggleMenu}
               aria-label={isMenuOpen ? 'Fechar menu' : 'Abrir menu'}
-              className="md:hidden p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#00F0FF]"
+              className="md:hidden p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#00F0FF] focus-visible:ring-4"
             >
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -247,18 +255,21 @@ const Layout = ({ children }) => {
       </div>
 
       {/* WhatsApp Button */}
-      <a
-        href="https://wa.me/557388360017?text=Ol%C3%A1%2C%20equipe%20Ugarit%20Digital!%20Estou%20no%20site%20e%20gostaria%20de%20tirar%20uma%20d%C3%BAvida"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-8 right-8 z-50 p-3 bg-white/10 backdrop-blur-sm rounded-full shadow-[0_0_20px_rgba(37,211,102,0.3)] hover:shadow-[0_0_30px_rgba(37,211,102,0.6)] transition-all duration-300 hover:scale-110 group border border-[#25D366]/30 hover:border-[#25D366]/60"
-      >
-        <img 
-          src={WhatsAppIcon} 
-          alt="WhatsApp" 
-          className="w-6 h-6 group-hover:animate-pulse" 
-        />
-      </a>
+      {!(isMobile && isChatOpen) && (
+        <a
+          href="https://wa.me/557388360017?text=Ol%C3%A1%2C%20equipe%20Ugarit%20Digital!%20Estou%20no%20site%20e%20gostaria%20de%20tirar%20uma%20d%C3%BAvida"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="fixed bottom-8 right-8 z-50 p-3 bg-white/10 backdrop-blur-sm rounded-full shadow-[0_0_20px_rgba(37,211,102,0.3)] hover:shadow-[0_0_30px_rgba(37,211,102,0.6)] transition-all duration-300 hover:scale-110 group border border-[#25D366]/30 hover:border-[#25D366]/60"
+        >
+          <img 
+            src={WhatsAppIcon} 
+            alt="Ícone do WhatsApp" 
+            className="w-6 h-6 group-hover:animate-pulse" 
+            loading="lazy"
+          />
+        </a>
+      )}
 
       {/* Footer */}
       <footer className="bg-black border-t border-white/10">

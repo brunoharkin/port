@@ -11,6 +11,7 @@ const ComparisonTable = () => {
       <div className="relative overflow-hidden rounded-2xl bg-black/40 backdrop-blur-sm border border-white/10">
         <div className="overflow-x-auto">
           <table className="w-full">
+            <caption className="sr-only">Tabela comparativa entre Ugarit Digital, Chatbots Genéricos e Plataformas No-Code</caption>
             <thead>
               <tr className="border-b border-white/10">
                 <th className="p-6 text-left text-gray-400">Característica</th>
