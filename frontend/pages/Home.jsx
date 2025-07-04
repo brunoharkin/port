@@ -6,8 +6,6 @@ import TypewriterText from "../components/TypewriterText";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "../utils";
 import AgenteEcommerce from "../assets/images/agente-ecommerce.png";
-import AgenteAgendamento from "../assets/images/agente-agendamento.png";
-import AgenteClinica from "../assets/images/agente-clinica.png";
 
 export default function Home() {
   const heroRef = useRef(null);
@@ -144,19 +142,19 @@ export default function Home() {
       id: 1,
       title: "🛒 Agente de Vendas para E-commerce – Atendimento que Vende Antes do Clique",
       description: "Seu melhor vendedor. Ativo 24/7. Preciso, simpático e impossível de ignorar.",
-      image: AgenteEcommerce
+      image: AgenteEcommerce,
     },
     {
       id: 2,
       title: "📆 Agente de Agendamentos para Consultoria – Sua Agenda, Inteligente e Autônoma",
       description: "Você foca em entregar valor. Ele cuida do resto.",
-      image: AgenteAgendamento
+      image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1769&q=80"
     },
     {
       id: 3,
       title: "🩺 SDR para Clínicas – Atendimento Inteligente que Agenda e Converte",
       description: "Consultas marcadas. Leads qualificados. Sem esforço.",
-      image: AgenteClinica
+      image: "https://images.unsplash.com/photo-1597852074816-d933c7d2b988?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80"
     }
   ];
 
@@ -588,6 +586,7 @@ export default function Home() {
               {agents.map((agent, idx) => (
                 <AgentCard
                   key={agent.id}
+                  id={agent.id}
                   title={agent.title}
                   description={agent.description}
                   image={agent.image}
@@ -836,7 +835,7 @@ const FeatureCard = ({ icon, title, description, delay }) => {
   );
 };
 
-const AgentCard = ({ title, description, image, delay }) => {
+const AgentCard = ({ id, title, description, image, delay }) => {
   return (
     <motion.div
       className="relative rounded-xl overflow-hidden group border border-slate-800 bg-gradient-to-br from-slate-900 to-black"
@@ -846,16 +845,18 @@ const AgentCard = ({ title, description, image, delay }) => {
       transition={{ delay, duration: 0.8 }}
       whileHover={{ y: -5, borderColor: '#00f0ff' }}
     >
-      <div className="relative h-48 overflow-hidden flex items-center justify-center bg-black/50">
-        <img
-          src={image}
-          alt={title}
-          width="320"
-          height="180"
-          loading="lazy"
-          className="object-cover w-full h-full"
+      <div className="relative h-48 overflow-hidden flex items-center justify-center bg-gradient-to-br from-black via-gray-900 to-black">
+        <TypewriterText
+          text={
+            id === 1 ? 'function VenderProduto(produto) {\n  if (estoque) {\n    AdicionarAoCarrinho(produto);\n    FinalizarCompra();\n  } else {\n    NotificarIndisponibilidade();\n  }\n}' :
+            id === 2 ? 'function AgendarConsultoria(lead) {\n  if (lead.qualificado) {\n    SugerirHorarios();\n    ConfirmarAgendamento();\n  } else {\n    SolicitarMaisInformacoes();\n  }\n}' :
+            id === 3 ? 'function AgendarConsulta(paciente) {\n  if (dadosValidos) {\n    MarcarConsulta();\n    EnviarLembrete();\n  } else {\n    SolicitarDados();\n  }\n}' :
+            '// Agente Inteligente'
+          }
+          speed={22}
+          className="block text-xs sm:text-sm md:text-base text-left font-mono text-[#00f0ff] whitespace-pre-line min-h-[6.5rem]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
       </div>
       <div className="p-6">
         <h3 className="text-xl font-bold mb-2 text-white">{title}</h3>
