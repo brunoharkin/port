@@ -261,7 +261,7 @@ export default function Home() {
               </div>
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-4 sm:mb-6 bg-gradient-to-r from-[#00f0ff] via-[#6B8AFF] to-[#9442fe] text-transparent bg-clip-text drop-shadow-[0_0_8px_rgba(0,240,255,0.3)]">
-              Inteligência Esculpida Para Sua Liderança de Mercado.
+              Você não está comprando um chatbot. Está contratando um time digital que trabalha, vende e escala por você.
             </h2>
             <p className="text-sm sm:text-base md:text-lg text-gray-200 text-center mb-3 sm:mb-4 max-w-2xl mx-auto font-medium">
               Mais que produtos, são extensões da sua visão. Criamos os Agentes Humanizados e as Plataformas que não apenas resolvem seus desafios, mas amplificam sua genialidade e o colocam no comando do futuro.
@@ -284,13 +284,13 @@ export default function Home() {
                   <div>
                     <p className="text-gray-200 mb-6">CRM conversacional com IA que fala como sua marca e organiza o caos.</p>
                     <div className="space-y-2 mb-6">
-                      <div className="flex items-start gap-2"><span className="text-[#00f0ff] mt-1">✅</span><span className="text-gray-200">Dominar o atendimento, controlar o caos. <span className='font-semibold text-[#00f0ff]'>(Poder, Alívio)</span></span></div>
-                      <div className="flex items-start gap-2"><span className="text-[#00f0ff] mt-1">✅</span><span className="text-gray-200">Liberar a equipe de tarefas repetitivas, focar no estratégico. <span className='font-semibold text-[#00f0ff]'>(Liberdade)</span></span></div>
-                      <div className="flex items-start gap-2"><span className="text-[#00f0ff] mt-1">✅</span><span className="text-gray-200">Criar relacionamentos mais fortes com os clientes. <span className='font-semibold text-[#00f0ff]'>(Conexão)</span></span></div>
-                      <div className="flex items-start gap-2"><span className="text-[#00f0ff] mt-1">✅</span><span className="text-gray-200">Ter um atendimento que reflete a excelência da empresa. <span className='font-semibold text-[#00f0ff]'>(Autoestima da Marca)</span></span></div>
-                      <div className="flex items-start gap-2"><span className="text-[#00f0ff] mt-1">✅</span><span className="text-gray-200">Saber que o atendimento está funcionando de forma eficiente e personalizada. <span className='font-semibold text-[#00f0ff]'>(Segurança)</span></span></div>
-                      <div className="flex items-start gap-2"><span className="text-[#00f0ff] mt-1">✅</span><span className="text-gray-200">A sensação de ter o "caos" organizado, de ver clientes satisfeitos. <span className='font-semibold text-[#00f0ff]'>(Prazer, Alívio)</span></span></div>
-                      <div className="flex items-start gap-2"><span className="text-[#00f0ff] mt-1">✅</span><span className="text-gray-200">Entender como essa "mágica" pode ser aplicada ao seu negócio. <span className='font-semibold text-[#00f0ff]'>(Curiosidade, Poder)</span></span></div>
+                      <div className="flex items-start gap-2"><span className="text-[#00f0ff] mt-1">✅</span><span className="text-gray-200">Dominar o atendimento, controlar o caos.</span></div>
+                      <div className="flex items-start gap-2"><span className="text-[#00f0ff] mt-1">✅</span><span className="text-gray-200">Liberar a equipe de tarefas repetitivas, focar no estratégico.</span></div>
+                      <div className="flex items-start gap-2"><span className="text-[#00f0ff] mt-1">✅</span><span className="text-gray-200">Criar relacionamentos mais fortes com os clientes.</span></div>
+                      <div className="flex items-start gap-2"><span className="text-[#00f0ff] mt-1">✅</span><span className="text-gray-200">Ter um atendimento que reflete a excelência da empresa.</span></div>
+                      <div className="flex items-start gap-2"><span className="text-[#00f0ff] mt-1">✅</span><span className="text-gray-200">Saber que o atendimento está funcionando de forma eficiente e personalizada.</span></div>
+                      <div className="flex items-start gap-2"><span className="text-[#00f0ff] mt-1">✅</span><span className="text-gray-200">A sensação de ter o "caos" organizado, de ver clientes satisfeitos.</span></div>
+                      <div className="flex items-start gap-2"><span className="text-[#00f0ff] mt-1">✅</span><span className="text-gray-200">Entender como essa "mágica" pode ser aplicada ao seu negócio.</span></div>
                     </div>
                     <div className="bg-[#00f0ff]/5 rounded-xl p-4 border border-[#00f0ff]/20 mb-6 flex items-start gap-2">
                       <span className="text-2xl">🧩</span>
@@ -300,15 +300,15 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                  <div className="flex flex-col gap-3">
+                  <div className="flex flex-col gap-3 items-center">
                     <a
-                      href="https://wa.me/557388360017?text=Ol%C3%A1%20Ugarit%20Digital!%20Tenho%20interesse%20em%20ver%20o%20Synapse%20funcionando%20na%20pr%C3%A1tica%20e%20como%20ele%20pode%20transformar%20meu%20atendimento."
+                      href="https://wa.me/557388360017?text=Ol%C3%A1%20Ugarit%20Digital!%20Quero%20ver%20como%20o%20Synapse%20funciona%20na%20prática."
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full px-6 py-3 rounded-full bg-gradient-to-r from-[#00F0FF] via-[#6B8AFF] to-[#9442FE] text-white font-bold flex items-center justify-center gap-2 shadow-[0_0_20px_#00F0FF60] hover:shadow-[0_0_40px_#00F0FF90] transition-all"
+                      className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#00f0ff] to-[#9442fe] text-white font-bold flex items-center justify-center gap-2 shadow-[0_0_10px_#00f0ff40] hover:shadow-[0_0_20px_#00f0ff70] transition-all text-center sm:text-left text-base sm:text-base md:text-base"
                       onClick={() => window.gtmTrack('clique_synapse')}
                     >
-                      🔮 Quero ver como o Synapse funciona na prática
+                      ⚡ Sentir a inteligência no fluxo
                       <ArrowRight className="w-5 h-5" />
                     </a>
                   </div>
@@ -330,11 +330,11 @@ export default function Home() {
                   <div>
                     <p className="text-gray-200 mb-6">Plataforma de automação que executa decisões com a lógica do seu negócio.</p>
                     <div className="space-y-2 mb-6">
-                      <div className="flex items-start gap-2"><span className="text-[#FFB86C] mt-1">✅</span><span className="text-gray-200">Construa a inteligência que seus processos exigem (no-code ou código puro). <span className='font-semibold text-[#FFB86C]'>(Poder, Personalização)</span></span></div>
-                      <div className="flex items-start gap-2"><span className="text-[#FFB86C] mt-1">✅</span><span className="text-gray-200">Conecte Machina ao coração da sua operação (APIs, CRMs, bancos de dados). <span className='font-semibold text-[#FFB86C]'>(Controle, Integração)</span></span></div>
-                      <div className="flex items-start gap-2"><span className="text-[#FFB86C] mt-1">✅</span><span className="text-gray-200">Tenha visibilidade e controle absoluto sobre cada execução. <span className='font-semibold text-[#FFB86C]'>(Segurança, Poder)</span></span></div>
-                      <div className="flex items-start gap-2"><span className="text-[#FFB86C] mt-1">✅</span><span className="text-gray-200">Opere com a máxima segurança e privacidade em sua VPS dedicada. <span className='font-semibold text-[#FFB86C]'>(Segurança Exclusiva)</span></span></div>
-                      <div className="flex items-start gap-2"><span className="text-[#FFB86C] mt-1">✅</span><span className="text-gray-200">Garanta a continuidade do seu negócio, mesmo diante do inesperado. <span className='font-semibold text-[#FFB86C]'>(Segurança, Paz de Espírito)</span></span></div>
+                      <div className="flex items-start gap-2"><span className="text-[#FFB86C] mt-1">✅</span><span className="text-gray-200">Construa a inteligência que seus processos exigem (no-code ou código puro).</span></div>
+                      <div className="flex items-start gap-2"><span className="text-[#FFB86C] mt-1">✅</span><span className="text-gray-200">Conecte Machina ao coração da sua operação (APIs, CRMs, bancos de dados).</span></div>
+                      <div className="flex items-start gap-2"><span className="text-[#FFB86C] mt-1">✅</span><span className="text-gray-200">Tenha visibilidade e controle absoluto sobre cada execução.</span></div>
+                      <div className="flex items-start gap-2"><span className="text-[#FFB86C] mt-1">✅</span><span className="text-gray-200">Opere com a máxima segurança e privacidade em sua VPS dedicada.</span></div>
+                      <div className="flex items-start gap-2"><span className="text-[#FFB86C] mt-1">✅</span><span className="text-gray-200">Garanta a continuidade do seu negócio, mesmo diante do inesperado.</span></div>
                     </div>
                     <div className="bg-[#FFB86C]/5 rounded-xl p-4 border border-[#FFB86C]/20 mb-6 flex items-start gap-2">
                       <span className="text-2xl">🧩</span>
@@ -344,15 +344,15 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                  <div className="flex flex-col gap-3">
+                  <div className="flex flex-col gap-3 items-center">
                     <a
                       href="https://wa.me/557388360017?text=Ol%C3%A1%20Ugarit%20Digital!%20Quero%20descobrir%20como%20o%20Machina%20pode%20ser%20o%20motor%20inteligente%20da%20minha%20opera%C3%A7%C3%A3o."
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full px-8 py-3 rounded-full bg-gradient-to-r from-[#FFB86C] to-[#FF6F91] text-white font-bold flex items-center justify-center gap-2 shadow-[0_0_20px_#FFB86C60] hover:shadow-[0_0_40px_#FFB86C90] transition-all text-center sm:text-left"
+                      className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#FFB86C] to-[#FF6F91] text-white font-bold flex items-center justify-center gap-2 shadow-[0_0_10px_#FFB86C40] hover:shadow-[0_0_20px_#FFB86C70] transition-all text-center sm:text-left text-base sm:text-base md:text-base"
                       onClick={() => window.gtmTrack('clique_machina')}
                     >
-                      ⚙️ Descubra o Motor Inteligente da Sua Operação!
+                      🚀 Ativar inteligência Ugarit
                       <ArrowRight className="w-5 h-5" />
                     </a>
                   </div>
@@ -447,13 +447,13 @@ export default function Home() {
             {/* CTA Final */}
             <div className="mt-8 flex justify-center">
               <a
-                href="https://wa.me/557388360017?text=Ol%C3%A1%20Ugarit%20Digital!%20Acabei%20de%20ler%20no%20site%20sobre%20como%20posso%20receber%20controle%20da%20minha%20automa%C3%A7%C3%A3o%20e%20gostaria%20de%20receber%20minha%20Estrat%C3%A9gia%20de%20Automa%C3%A7%C3%A3o%20Sob%20Controle."
+                href="https://wa.me/557388360017?text=Ol%C3%A1%20Ugarit%20Digital!%20Acabei%20de%20ler%20no%20site%20sobre%20como%20posso%20receber%20controle%20da%20minha%20automa%C3%A7%C3%A3o%20e%20gostaria%20de%20desenhar%20minha%20solu%C3%A7%C3%A3o%20IA."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="animated-gradient-button px-6 py-4 rounded-full text-white font-bold flex items-center justify-center gap-2 shadow-[0_0_10px_#00f0ff30] hover:shadow-[0_0_20px_#00f0ff50] hover:scale-[1.02] transition-all"
+                className="animated-gradient-button px-6 py-4 rounded-full text-white font-bold flex items-center justify-center gap-2"
                 onClick={() => window.gtmTrack('clique_agendar_diagnostico')}
               >
-                Receba Sua Estratégia de Automação Sob Controle!
+                Desenhar Minha Solução IA
                 <ArrowRight className="w-5 h-5" />
               </a>
             </div>
@@ -505,16 +505,19 @@ export default function Home() {
             </div>
 
             <div className="mt-10 sm:mt-16 text-center">
-              <a
-                href="https://wa.me/557388360017?text=Ol%C3%A1%20Ugarit%20Digital!%20Percorri%20o%20Processo%20de%20Transforma%C3%A7%C3%A3o%20no%20site%20e%20estou%20pronto%20para%20iniciar%20a%20minha%20jornada.%20Vamos%20conversar%3F"
-                target="_blank"
-                rel="noopener noreferrer"
+              <div className="mb-4">
+                <span className="text-base sm:text-lg md:text-xl font-semibold text-white flex items-center justify-center gap-2">
+                  <span className="text-2xl text-[#00f0ff]">⚡</span> "Você pode ver. Ou pode viver. Clique abaixo e teste um agente agora mesmo."
+                </span>
+              </div>
+              <Link
+                to={createPageUrl("Portfolio")}
                 className="animated-gradient-button px-6 sm:px-8 py-3 sm:py-4 text-black font-bold rounded-full inline-flex items-center space-x-2 group transition-all duration-300 text-sm sm:text-base"
-                onClick={() => window.gtmTrack('clique_iniciar_transformacao')}
+                onClick={() => window.gtmTrack('clique_testar_agente')}
               >
-                <span>Inicie sua transformação agora</span>
+                <span>Quero testar um agente</span>
                 <Rocket className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </a>
+              </Link>
             </div>
 
           </div>
