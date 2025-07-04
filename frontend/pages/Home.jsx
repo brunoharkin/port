@@ -153,7 +153,7 @@ export default function Home() {
           <div className="absolute inset-0">
             {/* Background Image */}
             <div className="absolute inset-0">
-              <img src={HeroBg} alt="" className="w-full h-full object-cover opacity-30" loading="lazy" />
+              <img src={HeroBg} alt="" className="w-full h-full object-cover opacity-30" loading="lazy" width="1920" height="1080" />
             </div>
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-transparent"></div>
             {/* Gradientes de fundo */}
@@ -827,7 +827,16 @@ const AgentCard = ({ title, description, image, delay }) => {
       transition={{ delay, duration: 0.8 }}
       whileHover={{ y: -5, borderColor: '#00f0ff' }}
     >
-      <div className="relative h-48 overflow-hidden flex items-center justify-center bg-black/50">
+      <div className="relative h-48 overflow-hidden flex flex-col items-center justify-center bg-black/50">
+        {/* Imagem do agente */}
+        <img 
+          src={image} 
+          alt={title}
+          width="320"
+          height="192"
+          loading="lazy"
+          className="rounded-lg mb-2 object-cover w-full h-32"
+        />
         <div className="w-full px-4">
           <TypewriterText
             text={
