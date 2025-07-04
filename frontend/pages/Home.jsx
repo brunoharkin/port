@@ -829,20 +829,23 @@ const AgentCard = ({ title, description, image, delay }) => {
     >
       <div className="relative h-48 overflow-hidden flex flex-col items-center justify-center bg-black/50">
         {/* Imagem do agente */}
-        <img 
-          src={image}
-          srcSet={`
-            ${image}&w=320 320w,
-            ${image}&w=640 640w,
-            ${image}&w=1280 1280w
-          `}
-          sizes="(max-width: 640px) 320px, (max-width: 1024px) 640px, 1280px"
-          alt={title}
-          width="320"
-          height="192"
-          loading="lazy"
-          className="rounded-lg mb-2 object-cover w-full h-32"
-        />
+        <div className="w-full min-h-[128px] flex items-center justify-center bg-black/30">
+          <img 
+            src={image}
+            srcSet={`
+              ${image}&w=160 160w,
+              ${image}&w=320 320w,
+              ${image}&w=640 640w,
+              ${image}&w=1280 1280w
+            `}
+            sizes="(max-width: 400px) 160px, (max-width: 640px) 320px, (max-width: 1024px) 640px, 1280px"
+            alt={title}
+            width="320"
+            height="192"
+            loading="lazy"
+            className="rounded-lg mb-2 object-cover w-full h-32"
+          />
+        </div>
         <div className="w-full px-4">
           <TypewriterText
             text={
@@ -869,6 +872,7 @@ const AgentCard = ({ title, description, image, delay }) => {
             whileTap={{ scale: 0.98, boxShadow: '0 0 8px 2px #fff5' }}
             className="px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md hover:bg-white/20 text-white font-bold text-sm border border-white/20 flex items-center space-x-2 transition-all duration-300"
             onClick={() => window.gtmTrack('clique_ver_em_acao')}
+            aria-label={`Testar o agente: ${title}`}
           >
             <span className="font-bold">Testar Agora</span>
             <ArrowRight className="w-4 h-4" />
