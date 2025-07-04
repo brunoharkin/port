@@ -830,7 +830,13 @@ const AgentCard = ({ title, description, image, delay }) => {
       <div className="relative h-48 overflow-hidden flex flex-col items-center justify-center bg-black/50">
         {/* Imagem do agente */}
         <img 
-          src={image} 
+          src={image}
+          srcSet={`
+            ${image}&w=320 320w,
+            ${image}&w=640 640w,
+            ${image}&w=1280 1280w
+          `}
+          sizes="(max-width: 640px) 320px, (max-width: 1024px) 640px, 1280px"
           alt={title}
           width="320"
           height="192"
