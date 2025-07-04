@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Bloquear acesso a arquivos sensíveis
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /*.xml$
+Disallow: /package.json
+Disallow: /vite.config.js
+
+# Permitir acesso a recursos importantes
+Allow: /frontend/assets/
+Allow: /public/assets/
+Allow: /sitemap.xml
+Allow: /robots.txt
+
+# Configurações de crawl
+Crawl-delay: 1
+
+# Sitemap
+Sitemap: https://portfolio.ugaritdigital.com/sitemap.xml 

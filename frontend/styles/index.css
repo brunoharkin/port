@@ -120,6 +120,7 @@ body, .text-white, .headline-white {
   color: transparent;
   background-size: 200% 200%;
   animation: gradientFlow 4s ease infinite;
+  will-change: background-position;
 }
 
 @keyframes gradientFlow {
@@ -145,6 +146,7 @@ body, .text-white, .headline-white {
 
 .animate-marquee {
   animation: marquee 20s linear infinite;
+  will-change: transform;
 }
 
 @keyframes pulse-slow {
@@ -153,6 +155,7 @@ body, .text-white, .headline-white {
 }
 .animate-pulse-slow {
   animation: pulse-slow 4s ease-in-out infinite;
+  will-change: opacity;
 }
 
 @keyframes floatLeft {
@@ -175,9 +178,11 @@ body, .text-white, .headline-white {
 }
 .float-left {
   animation: floatLeft 3s ease-in-out infinite;
+  will-change: transform;
 }
 .float-right {
   animation: floatRight 3s ease-in-out infinite;
+  will-change: transform;
 }
 @keyframes loadBar {
   0% { width: 0%; }

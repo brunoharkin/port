@@ -1,0 +1,4 @@
+Contact: mailto:contato@ugaritdigital.com
+Expires: 2026-12-31T23:59:59.000Z
+Preferred-Languages: pt-BR, en
+Canonical: https://portfolio.ugaritdigital.com/.well-known/security.txt 

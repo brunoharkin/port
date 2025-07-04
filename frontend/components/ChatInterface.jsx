@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { Send, X, Mic, Image } from "lucide-react";
 import { FixedSizeList as List } from 'react-window';
 
-
 const ChatInterface = ({ 
   agentName = "Agent", 
   agentAvatar = "https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?auto=format&fit=crop&w=800&q=80",
@@ -35,7 +34,7 @@ const ChatInterface = ({
   // Function to play audio safely
   const playSound = (audioRef) => {
     if (audioRef.current) {
-      audioRef.current.play().catch(error => console.warn("Audio play failed:", error));
+      audioRef.current.play().catch(() => {});
     }
   };
 

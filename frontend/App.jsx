@@ -1,12 +1,13 @@
-import React, { useEffect, Suspense, lazy } from "react";
+import React, { useEffect, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import Layout from "./components/Layout";
 import ScrollToTop from "./components/ScrollToTop";
 import ChatInterface from "./components/ChatInterface";
-
-const Home = lazy(() => import("./pages/Home"));
-const Portfolio = lazy(() => import("./pages/Portfolio"));
-const Contact = lazy(() => import("./pages/Contact"));
+import Home from "./pages/Home";
+import Portfolio from "./pages/Portfolio";
+import Contact from "./pages/Contact";
+import PerformanceOptimizer from "./components/PerformanceOptimizer";
 
 function PageViewTracker() {
   const location = useLocation();
@@ -82,28 +83,29 @@ export default function App() {
   };
 
   return (
-    <Router>
-      <ScrollToTop />
-      <Layout isChatOpen={isChatOpen || isPortfolioChatOpen}>
-        <Suspense fallback={<div className="text-center py-20 text-white">Carregando...</div>}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/portfolio" element={<Portfolio 
-            openChat={openPortfolioChat}
-            isChatOpen={isPortfolioChatOpen}
-            closeChat={closePortfolioChat}
-          />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-        </Suspense>
-        {isChatOpen && (
-          <ChatInterface onClose={() => setIsChatOpen(false)} />
-        )}
-        {isPortfolioChatOpen && portfolioChatProps && (
-          <ChatInterface {...portfolioChatProps} onClose={closePortfolioChat} />
-        )}
-      </Layout>
-      <PageViewTracker />
-    </Router>
+    <HelmetProvider>
+      <Router>
+        <ScrollToTop />
+        <PerformanceOptimizer />
+        <Layout isChatOpen={isChatOpen || isPortfolioChatOpen}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/portfolio" element={<Portfolio 
+              openChat={openPortfolioChat}
+              isChatOpen={isPortfolioChatOpen}
+              closeChat={closePortfolioChat}
+            />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+          {isChatOpen && (
+            <ChatInterface onClose={() => setIsChatOpen(false)} />
+          )}
+          {isPortfolioChatOpen && portfolioChatProps && (
+            <ChatInterface {...portfolioChatProps} onClose={closePortfolioChat} />
+          )}
+        </Layout>
+        <PageViewTracker />
+      </Router>
+    </HelmetProvider>
   );
 } 

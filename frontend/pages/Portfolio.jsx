@@ -6,6 +6,7 @@ import { ArrowRight, X } from "lucide-react";
 import ChatInterface from "../components/ChatInterface";
 import TypewriterText from "../components/TypewriterText";
 import agenteEcommerce from '../assets/images/agente-ecommerce.webp';
+import SEOHead from "../components/SEOHead";
 
 export default function Portfolio({ openChat, isChatOpen, closeChat }) {
   const [selectedAgent, setSelectedAgent] = useState(null);
@@ -199,6 +200,33 @@ export default function Portfolio({ openChat, isChatOpen, closeChat }) {
     ? agents 
     : agents.filter(agent => agent.category === filter);
 
+  // Schema.org para a página de portfólio
+  const portfolioSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Portfólio de Agentes de Automação e IA - Ugarit Digital",
+    "description": "Explore nossos agentes especializados, prontos para automatizar e otimizar diversas áreas do seu negócio. Agentes de vendas, agendamento, suporte RH e disparo automático.",
+    "url": "https://portfolio.ugaritdigital.com/portfolio",
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": agents.map((agent, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "item": {
+          "@type": "Service",
+          "name": agent.title,
+          "description": agent.description,
+          "provider": {
+            "@type": "Organization",
+            "name": "Ugarit Digital"
+          },
+          "category": agent.category,
+          "url": `https://portfolio.ugaritdigital.com/portfolio#agent-${agent.id}`
+        }
+      }))
+    }
+  };
+
   const handleAgentClick = (agent) => {
     setSelectedAgent(agent);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -223,6 +251,14 @@ export default function Portfolio({ openChat, isChatOpen, closeChat }) {
 
   return (
     <>
+      <SEOHead 
+        title="Portfólio de Agentes de Automação e IA"
+        description="Explore nossos agentes especializados, prontos para automatizar e otimizar diversas áreas do seu negócio. Agentes de vendas, agendamento, suporte RH e disparo automático."
+        keywords="agentes de automação, chatbot inteligente, agente de vendas, agente de agendamento, suporte RH, disparo automático, IA para negócios, automação de processos, Ugarit Digital"
+        image="https://portfolio.ugaritdigital.com/assets/agente-ecommerce.webp"
+        url="https://portfolio.ugaritdigital.com/portfolio"
+        schema={portfolioSchema}
+      />
       <div className="min-h-screen bg-black">
         {/* Agent Detail Modal */}
         <AnimatePresence>

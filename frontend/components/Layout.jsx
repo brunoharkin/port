@@ -4,6 +4,7 @@ import { Menu, X, ChevronDown, Instagram, Linkedin } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import UgaritLogo from '../assets/logos/UgaritLogo.svg';
 import WhatsAppIcon from '../assets/icons/whatsapp.svg';
+import Breadcrumbs from './Breadcrumbs';
 
 const Layout = ({ children, isChatOpen = false }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,9 +22,7 @@ const Layout = ({ children, isChatOpen = false }) => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   useEffect(() => {
-    // Simula carregamento da página
-    const timer = setTimeout(() => setLoading(false), 1800);
-    return () => clearTimeout(timer);
+    setLoading(false);
   }, []);
 
   useEffect(() => {
@@ -183,19 +182,7 @@ const Layout = ({ children, isChatOpen = false }) => {
       </header>
 
       {/* Breadcrumbs */}
-      {location.pathname !== '/' && (
-        <nav aria-label="Breadcrumb" className="bg-black/60 px-4 py-2 text-sm text-gray-400">
-          <ol className="list-reset flex">
-            <li><Link to="/" className="hover:text-white">Home</Link></li>
-            {location.pathname === '/portfolio' && (
-              <li><span className="mx-2">/</span><span className="text-white">Portfolio</span></li>
-            )}
-            {location.pathname === '/contact' && (
-              <li><span className="mx-2">/</span><span className="text-white">Contato</span></li>
-            )}
-          </ol>
-        </nav>
-      )}
+      <Breadcrumbs />
 
       {/* Main Content */}
       <main className="flex-grow pt-16 md:pt-20">

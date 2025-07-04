@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Send, Mail, Phone, MapPin, MessageSquare, CheckCircle } from "lucide-react";
+import SEOHead from "../components/SEOHead";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -80,8 +81,57 @@ export default function Contact() {
     }
   };
 
+  // Schema.org para a página de contato
+  const contactSchema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contato - Ugarit Digital",
+    "description": "Conte sua ideia, desafio ou sonho. Nossa equipe está pronta para criar soluções que vão além do esperado. Fale com quem entende de automação visionária.",
+    "url": "https://portfolio.ugaritdigital.com/contact",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Ugarit Digital",
+      "url": "https://portfolio.ugaritdigital.com/",
+              "logo": "https://portfolio.ugaritdigital.com/assets/UgaritLogo.svg",
+      "description": "Automação inteligente, IA generativa e soluções digitais sob medida para empresas.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Mogi das Cruzes",
+        "addressRegion": "SP",
+        "addressCountry": "BR"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "areaServed": "BR",
+          "availableLanguage": ["Portuguese", "English"],
+          "url": "https://portfolio.ugaritdigital.com/",
+          "contactOption": ["Chat"],
+          "availableTime": "Mo-Fr 09:00-18:00"
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "telephone": "+55-73-8836-0017",
+          "email": "contato@ugaritdigital.com",
+          "areaServed": "BR",
+          "availableLanguage": ["Portuguese"]
+        }
+      ]
+    }
+  };
+
   return (
     <div className="min-h-screen bg-black">
+      <SEOHead 
+        title="Contato - Fale com Especialistas em Automação e IA"
+        description="Conte sua ideia, desafio ou sonho. Nossa equipe está pronta para criar soluções que vão além do esperado. Fale com quem entende de automação visionária."
+        keywords="contato Ugarit Digital, automação inteligente, IA sob medida, consultoria tecnológica, transformação digital, agentes inteligentes, chatbot personalizado"
+        image="https://portfolio.ugaritdigital.com/assets/hero-bg.svg"
+        url="https://portfolio.ugaritdigital.com/contact"
+        schema={contactSchema}
+      />
       {/* Header Section */}
       <section className="relative py-20 bg-gradient-to-b from-black to-gray-900">
         <div className="absolute top-0 right-0 w-1/3 h-64 bg-[#9442fe]/20 blur-[120px]"></div>

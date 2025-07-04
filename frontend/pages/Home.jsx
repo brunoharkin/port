@@ -5,7 +5,8 @@ import HeroBg from "../assets/images/hero-bg.svg";
 import TypewriterText from "../components/TypewriterText";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "../utils";
-import AgenteEcommerce from "../assets/images/agente-ecommerce.png";
+import AgenteEcommerce from "../assets/images/agente-ecommerce.webp";
+import SEOHead from "../components/SEOHead";
 
 export default function Home() {
   const heroRef = useRef(null);
@@ -158,8 +159,69 @@ export default function Home() {
     }
   ];
 
+  // Schema.org para a página inicial
+  const homeSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Ugarit Digital - Automação Inteligente e IA sob medida",
+    "description": "Automação inteligente, IA generativa e soluções digitais sob medida para empresas que querem ir além do comum. Ugarit Digital: sua transformação começa aqui.",
+    "url": "https://portfolio.ugaritdigital.com/",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Ugarit Digital",
+      "url": "https://portfolio.ugaritdigital.com/",
+              "logo": "https://portfolio.ugaritdigital.com/assets/UgaritLogo.svg",
+      "description": "Automação inteligente, IA generativa e soluções digitais sob medida para empresas.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Mogi das Cruzes",
+        "addressRegion": "SP",
+        "addressCountry": "BR"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "areaServed": "BR",
+          "availableLanguage": ["Portuguese", "English"],
+          "url": "https://portfolio.ugaritdigital.com/",
+          "contactOption": ["Chat"],
+          "availableTime": "Mo-Fr 09:00-18:00"
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "telephone": "+55-73-8836-0017",
+          "email": "contato@ugaritdigital.com",
+          "areaServed": "BR",
+          "availableLanguage": ["Portuguese"]
+        }
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/company/ugarit-digital",
+        "https://www.instagram.com/ugaritdigital",
+        "https://www.facebook.com/ugaritdigital",
+        "https://wa.me/557388360017"
+      ]
+    },
+    "offers": {
+      "@type": "Offer",
+      "description": "Automação inteligente e IA sob medida para empresas",
+      "category": "Serviços de Tecnologia",
+      "areaServed": "BR"
+    }
+  };
+
   return (
     <>
+      <SEOHead 
+        title="Automação Inteligente e IA sob medida"
+        description="Imagine ter o know-how dos seus melhores especialistas multiplicado, operando 24/7 com a precisão de um algoritmo e a alma da sua marca. Na Ugarit Digital, não vendemos software. Cocriamos o futuro do seu negócio."
+        keywords="automação inteligente, IA generativa, agentes humanizados, chatbot inteligente, automação de processos, inteligência artificial, transformação digital, laboratório digital, Ugarit Digital"
+        image="https://portfolio.ugaritdigital.com/assets/hero-bg.svg"
+        url="https://portfolio.ugaritdigital.com/"
+        schema={homeSchema}
+      />
       {/* Badge fixo logo abaixo do menu */}
       <div className="w-full flex justify-center mt-2 sm:mt-3 z-30 relative">
         <div className="inline-flex items-center gap-0 px-3 sm:px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 neon-animated-border">

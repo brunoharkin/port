@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react';
 import postcssNesting from 'postcss-nesting';
 import tailwindcss from 'tailwindcss';
 import autoprefixer from 'autoprefixer';
+import { resolve } from 'path';
 
 export default defineConfig({
   plugins: [react()],
@@ -21,6 +22,7 @@ export default defineConfig({
       },
     },
   },
+  publicDir: 'public',
   server: {
     port: 5173,
     host: true,

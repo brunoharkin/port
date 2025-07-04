@@ -1,0 +1,55 @@
+{
+  "name": "Ugarit Digital - Automação Inteligente e IA sob medida",
+  "short_name": "Ugarit Digital",
+  "description": "Automação inteligente, IA generativa e soluções digitais sob medida para empresas que querem ir além do comum.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#00f0ff",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "pt-BR",
+  "categories": ["business", "productivity", "technology"],
+  "icons": [
+    {
+      "src": "/assets/UgaritLogo-CdAhrQRf.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/assets/hero-bg.svg",
+      "sizes": "1280x720",
+      "type": "image/svg+xml",
+      "form_factor": "wide"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Portfólio",
+      "short_name": "Portfólio",
+      "description": "Ver nossos agentes de automação",
+      "url": "/portfolio",
+      "icons": [
+        {
+          "src": "/assets/UgaritLogo-CdAhrQRf.svg",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Contato",
+      "short_name": "Contato",
+      "description": "Fale conosco",
+      "url": "/contact",
+      "icons": [
+        {
+          "src": "/assets/UgaritLogo-CdAhrQRf.svg",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+} 
