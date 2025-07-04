@@ -390,13 +390,14 @@ const ChatInterface = ({
         className={`flex ${message.sender === "user" ? "justify-end" : "justify-start"}`}
       >
         <div
-          className={`max-w-[80vw] sm:max-w-[70%] p-3 sm:p-4 shadow-md text-base flex flex-col
+          className={`break-words max-w-[90vw] sm:max-w-[75%] p-3 sm:p-4 shadow-md text-base flex flex-col
             ${message.sender === "user"
               ? "bg-gradient-to-r from-[#6B8AFF] to-[#9442FE] text-white rounded-2xl rounded-br-none"
               : message.isError
                 ? "bg-red-200 border border-red-400 text-red-900 rounded-2xl rounded-bl-none"
                 : "bg-[#23272F] text-gray-100 rounded-2xl rounded-bl-none"
             }`}
+          style={{ wordBreak: 'break-word', overflowWrap: 'break-word' }}
         >
           {message.text && <p className="mb-1 whitespace-pre-line">{message.text}</p>}
           {message.isAudio && message.audioUrl && (
@@ -513,11 +514,10 @@ const ChatInterface = ({
             <Mic className={`w-5 h-5 ${isRecording ? 'text-red-500' : ''}`} />
           </button>
           <div className="flex-grow">
-            <input
-              type="text"
+            <textarea
               value={inputMessage}
-              onChange={(e) => setInputMessage(e.target.value)}
-              onKeyDown={(e) => {
+              onChange={e => setInputMessage(e.target.value)}
+              onKeyDown={e => {
                 if (e.key === "Enter" && !e.shiftKey) {
                   e.preventDefault();
                   handleSendMessage();
@@ -525,7 +525,9 @@ const ChatInterface = ({
               }}
               disabled={isLoading || isRecording}
               placeholder="Digite sua mensagem..."
-              className="w-full px-4 py-2 bg-[#23272F] border border-[#23272F] rounded-full focus:outline-none focus:ring-2 focus:ring-[#6B8AFF]/50 focus:border-[#6B8AFF] text-gray-100"
+              rows={1}
+              style={{ resize: 'none', minHeight: 40, maxHeight: 120 }}
+              className="w-full px-4 py-2 bg-[#23272F] border border-[#23272F] rounded-full focus:outline-none focus:ring-2 focus:ring-[#6B8AFF]/50 focus:border-[#6B8AFF] text-gray-100 overflow-auto"
             />
           </div>
           <motion.button

@@ -19,8 +19,17 @@
     <script>
       // Redirecionamento se não estiver no domínio oficial
       (function() {
-        var dominioOficial = 'portfolio.ugaritdigital.com'; // Substitua pelo seu domínio real
-        if (window.location.hostname !== dominioOficial && window.location.hostname !== 'www.' + dominioOficial && !window.location.hostname.includes('localhost')) {
+        var dominioOficial = 'portfolio.ugaritdigital.com';
+        var host = window.location.hostname;
+        // Permite: domínio oficial, www, subdomínios, localhost, IPs locais e redes internas
+        var isOficial = host === dominioOficial ||
+                        host === 'www.' + dominioOficial ||
+                        host.endsWith('.' + dominioOficial) ||
+                        host === 'localhost' ||
+                        /^\d+\.\d+\.\d+\.\d+$/.test(host) || // IPs locais
+                        host.endsWith('.local') ||
+                        host.endsWith('.lan');
+        if (!isOficial) {
           window.location.href = 'https://' + dominioOficial;
         }
       })();
