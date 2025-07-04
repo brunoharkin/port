@@ -7,12 +7,9 @@ import ChatInterface from "../components/ChatInterface";
 import TypewriterText from "../components/TypewriterText";
 import agenteEcommerce from '../assets/images/agente-ecommerce.webp';
 
-
-
-export default function Portfolio() {
+export default function Portfolio({ openChat, isChatOpen, closeChat }) {
   const [selectedAgent, setSelectedAgent] = useState(null);
   const [filter, setFilter] = useState("all");
-  const [showChat, setShowChat] = useState(false);
 
   const categories = [
     { id: 'all', name: 'Todos' },
@@ -209,11 +206,19 @@ export default function Portfolio() {
 
   const handleClose = () => {
     setSelectedAgent(null);
-    setShowChat(false);
+    if (closeChat) closeChat();
   };
 
   const handleOpenChat = () => {
-    setShowChat(true);
+    if (openChat && selectedAgent) {
+      openChat({
+        agentName: selectedAgent.title.replace(/^\W+/, ''),
+        agentAvatar: agenteEcommerce,
+        webhookUrl: selectedAgent.webhookUrl,
+        initialMessage: selectedAgent.initialMessage,
+        agentId: selectedAgent.id
+      });
+    }
   };
 
   return (
@@ -238,17 +243,10 @@ export default function Portfolio() {
                 style={{ maxHeight: '90vh', overflowY: 'auto', cursor: 'auto' }}
                 onClick={e => e.stopPropagation()}
               >
-                {/* Show chat when showChat is true */}
-                {showChat ? (
+                {/* Show chat when isChatOpen is true */}
+                {isChatOpen ? (
                   <div className="h-[80vh]">
-                    <ChatInterface 
-                      agentName={selectedAgent.title.replace(/^\W+/, '')}
-                      agentAvatar={agenteEcommerce}
-                      onClose={() => setShowChat(false)}
-                      webhookUrl={selectedAgent.webhookUrl}
-                      initialMessage={selectedAgent.initialMessage}
-                      agentId={selectedAgent.id}
-                    />
+                    {/* O ChatInterface será renderizado pelo App.jsx */}
                   </div>
                 ) : (
                   <>

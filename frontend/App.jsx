@@ -67,20 +67,40 @@ function useInjectAnalytics() {
 export default function App() {
   useInjectAnalytics();
   const [isChatOpen, setIsChatOpen] = React.useState(false);
+  const [isPortfolioChatOpen, setIsPortfolioChatOpen] = React.useState(false);
+  const [portfolioChatProps, setPortfolioChatProps] = React.useState(null);
+
+  // Função para abrir o chat do portfólio
+  const openPortfolioChat = (chatProps) => {
+    setPortfolioChatProps(chatProps);
+    setIsPortfolioChatOpen(true);
+  };
+  // Função para fechar o chat do portfólio
+  const closePortfolioChat = () => {
+    setIsPortfolioChatOpen(false);
+    setPortfolioChatProps(null);
+  };
 
   return (
     <Router>
       <ScrollToTop />
-      <Layout isChatOpen={isChatOpen}>
+      <Layout isChatOpen={isChatOpen || isPortfolioChatOpen}>
         <Suspense fallback={<div className="text-center py-20 text-white">Carregando...</div>}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/portfolio" element={<Portfolio />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/portfolio" element={<Portfolio 
+            openChat={openPortfolioChat}
+            isChatOpen={isPortfolioChatOpen}
+            closeChat={closePortfolioChat}
+          />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
         </Suspense>
         {isChatOpen && (
           <ChatInterface onClose={() => setIsChatOpen(false)} />
+        )}
+        {isPortfolioChatOpen && portfolioChatProps && (
+          <ChatInterface {...portfolioChatProps} onClose={closePortfolioChat} />
         )}
       </Layout>
       <PageViewTracker />

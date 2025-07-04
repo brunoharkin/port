@@ -759,16 +759,16 @@ export default function Home() {
                     Fale com a Ugarit e transforme seu negócio com automação de outro nível.
                   </p>
                 </div>
-                <motion.a
+                  <motion.a
                   href={createPageUrl("Contact")}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#00f0ff] to-[#9442fe] text-black font-bold rounded-full whitespace-nowrap flex items-center space-x-2 text-sm sm:text-base"
-                  onClick={() => window.gtmTrack('clique_inovar_home')}
-                >
-                  <span>Quero Inovar com a Ugarit</span>
-                  <Zap className="w-5 h-5" />
-                </motion.a>
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#00f0ff] to-[#9442fe] text-black font-bold rounded-full whitespace-nowrap flex items-center space-x-2 text-sm sm:text-base"
+                    onClick={() => window.gtmTrack('clique_inovar_home')}
+                  >
+                    <span>Quero Inovar com a Ugarit</span>
+                    <Zap className="w-5 h-5" />
+                  </motion.a>
               </div>
             </motion.div>
           </div>

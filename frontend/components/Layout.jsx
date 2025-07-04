@@ -255,20 +255,20 @@ const Layout = ({ children, isChatOpen = false }) => {
       </div>
 
       {/* WhatsApp Button */}
-      {!(isMobile && isChatOpen) && (
-        <a
-          href="https://wa.me/557388360017?text=Ol%C3%A1%2C%20equipe%20Ugarit%20Digital!%20Estou%20no%20site%20e%20gostaria%20de%20tirar%20uma%20d%C3%BAvida"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="fixed bottom-8 right-8 z-50 p-3 bg-white/10 backdrop-blur-sm rounded-full shadow-[0_0_20px_rgba(37,211,102,0.3)] hover:shadow-[0_0_30px_rgba(37,211,102,0.6)] transition-all duration-300 hover:scale-110 group border border-[#25D366]/30 hover:border-[#25D366]/60"
-        >
-          <img 
-            src={WhatsAppIcon} 
+      {!isChatOpen && (
+      <a
+        href="https://wa.me/557388360017?text=Ol%C3%A1%2C%20equipe%20Ugarit%20Digital!%20Estou%20no%20site%20e%20gostaria%20de%20tirar%20uma%20d%C3%BAvida"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-8 right-8 z-50 p-3 bg-white/10 backdrop-blur-sm rounded-full shadow-[0_0_20px_rgba(37,211,102,0.3)] hover:shadow-[0_0_30px_rgba(37,211,102,0.6)] transition-all duration-300 hover:scale-110 group border border-[#25D366]/30 hover:border-[#25D366]/60"
+      >
+        <img 
+          src={WhatsAppIcon} 
             alt="Ícone do WhatsApp" 
-            className="w-6 h-6 group-hover:animate-pulse" 
+          className="w-6 h-6 group-hover:animate-pulse" 
             loading="lazy"
-          />
-        </a>
+        />
+      </a>
       )}
 
       {/* Footer */}

@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, memo } from "react";
 import { motion } from "framer-motion";
 import { Send, X, Mic, Image } from "lucide-react";
+import { FixedSizeList as List } from 'react-window';
 
 
 const ChatInterface = ({ 
@@ -10,15 +11,8 @@ const ChatInterface = ({
   webhookUrl, // Receive webhookUrl as a prop
   initialMessage // Receive initialMessage as a prop
 }) => {
-  // Initialize messages state with the received initialMessage
-  const [messages, setMessages] = useState([
-    {
-      id: 1,
-      sender: "agent",
-      text: initialMessage || `Hello! I'm ${agentName}. How can I help you today?`, // Use initialMessage or a default
-      timestamp: new Date()
-    }
-  ]);
+  // Initialize messages state sem mensagem inicial
+  const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -386,6 +380,45 @@ const ChatInterface = ({
     return new Date(date).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
   };
 
+  // Componente de mensagem individual memoizado
+  const MessageItem = memo(({ data, index, style }) => {
+    const { messages, formatTime } = data;
+    const message = messages[index];
+    return (
+      <div
+        style={style}
+        key={message.id}
+        className={`flex ${message.sender === "user" ? "justify-end" : "justify-start"}`}
+      >
+        <div
+          className={`max-w-[70%] rounded-2xl p-4 shadow-md text-base"
+            ${message.sender === "user"
+              ? "bg-gradient-to-r from-[#6B8AFF] to-[#9442FE] text-white rounded-br-none"
+              : message.isError
+                ? "bg-red-200 border border-red-400 text-red-900 rounded-bl-none"
+                : "bg-[#23272F] text-gray-100 rounded-bl-none"
+            }`}
+        >
+          {message.text && <p className="mb-1 whitespace-pre-line">{message.text}</p>}
+          {message.isAudio && message.audioUrl && (
+            <audio controls src={message.audioUrl} className="max-w-full"></audio>
+          )}
+          {message.isImage && message.imageUrl && (
+            <img
+              src={message.imageUrl}
+              alt="Mensagem com imagem"
+              className="max-w-full rounded"
+              loading="lazy"
+            />
+          )}
+          <div className={`text-xs mt-1 ${message.sender === "user" ? "text-white/80" : "text-gray-400"}`}>
+            {formatTime(message.timestamp)}
+          </div>
+        </div>
+      </div>
+    );
+  });
+
   // Modal centralizado
   return (
     <div
@@ -430,39 +463,17 @@ const ChatInterface = ({
           </div>
         </div>
         {/* Mensagens */}
-        <div className="flex-grow overflow-y-auto p-6 space-y-4 bg-[#181A20]" aria-live="polite">
-          {messages.map((message) => (
-            <div
-              key={message.id}
-              className={`flex ${message.sender === "user" ? "justify-end" : "justify-start"}`}
-            >
-              <div
-                className={`max-w-[70%] rounded-2xl p-4 shadow-md text-base"
-                  ${message.sender === "user"
-                    ? "bg-gradient-to-r from-[#6B8AFF] to-[#9442FE] text-white rounded-br-none"
-                    : message.isError
-                      ? "bg-red-200 border border-red-400 text-red-900 rounded-bl-none"
-                      : "bg-[#23272F] text-gray-100 rounded-bl-none"
-                  }`}
-              >
-                {message.text && <p className="mb-1 whitespace-pre-line">{message.text}</p>}
-                {message.isAudio && message.audioUrl && (
-                  <audio controls src={message.audioUrl} className="max-w-full"></audio>
-                )}
-                {message.isImage && message.imageUrl && (
-                  <img
-                    src={message.imageUrl}
-                    alt="Mensagem com imagem"
-                    className="max-w-full rounded"
-                    loading="lazy"
-                  />
-                )}
-                <div className={`text-xs mt-1 ${message.sender === "user" ? "text-white/80" : "text-gray-400"}`}>
-                  {formatTime(message.timestamp)}
-                </div>
-              </div>
-            </div>
-          ))}
+        <div className="flex-grow overflow-y-auto p-6 space-y-4 bg-[#181A20]" aria-live="polite" style={{padding:0}}>
+          <List
+            height={window.innerHeight * 0.6} // 60% da viewport
+            itemCount={messages.length}
+            itemSize={110} // altura média de cada mensagem (ajuste se necessário)
+            width={"100%"}
+            itemData={{ messages, formatTime }}
+            overscanCount={5}
+          >
+            {MessageItem}
+          </List>
           {isTyping && (
             <div className="flex justify-start">
               <div className="bg-[#23272F] rounded-2xl rounded-bl-none p-4 max-w-[70%] shadow-md">
