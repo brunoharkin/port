@@ -2,6 +2,7 @@ import React, { useEffect, Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Layout from "./components/Layout";
 import ScrollToTop from "./components/ScrollToTop";
+import ChatInterface from "./components/ChatInterface";
 
 const Home = lazy(() => import("./pages/Home"));
 const Portfolio = lazy(() => import("./pages/Portfolio"));
@@ -65,10 +66,12 @@ function useInjectAnalytics() {
 
 export default function App() {
   useInjectAnalytics();
+  const [isChatOpen, setIsChatOpen] = React.useState(false);
+
   return (
     <Router>
       <ScrollToTop />
-      <Layout>
+      <Layout isChatOpen={isChatOpen}>
         <Suspense fallback={<div className="text-center py-20 text-white">Carregando...</div>}>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -76,6 +79,9 @@ export default function App() {
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </Suspense>
+        {isChatOpen && (
+          <ChatInterface onClose={() => setIsChatOpen(false)} />
+        )}
       </Layout>
       <PageViewTracker />
     </Router>

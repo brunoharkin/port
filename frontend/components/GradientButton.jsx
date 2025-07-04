@@ -28,7 +28,7 @@ export default function GradientButton({ children, leftIcon, rightIcon, classNam
         {...props}
       >
         {leftIcon && <span className="mr-2 flex items-center">{leftIcon}</span>}
-        <span className="font-bold whitespace-nowrap">{children}</span>
+        <span className="font-bold">{children}</span>
         {rightIcon && <span className="ml-2 flex items-center">{rightIcon}</span>}
       </a>
     );
@@ -45,7 +45,7 @@ export default function GradientButton({ children, leftIcon, rightIcon, classNam
       {...props}
     >
       {leftIcon && <span className="mr-2 flex items-center">{leftIcon}</span>}
-      <span className="font-bold whitespace-nowrap">{children}</span>
+      <span className="font-bold">{children}</span>
       {rightIcon && <span className="ml-2 flex items-center">{rightIcon}</span>}
     </button>
   );

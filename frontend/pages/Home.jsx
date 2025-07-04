@@ -17,6 +17,10 @@ export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const [barAntes, setBarAntes] = useState(0);
+  const [barDepois, setBarDepois] = useState(0);
+  const qualifRef = useRef(null);
+  const [qualifVisible, setQualifVisible] = useState(false);
   
   const scale = useTransform(scrollYProgress, [0, 1], [1, 2.5]);
   const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
@@ -34,6 +38,28 @@ export default function Home() {
       return () => clearTimeout(timer);
     }
   }, [count, isVisible]);
+
+  useEffect(() => {
+    const observer = new window.IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setQualifVisible(true);
+        }
+      },
+      { threshold: 0.4 }
+    );
+    if (qualifRef.current) observer.observe(qualifRef.current);
+    return () => {
+      if (qualifRef.current) observer.unobserve(qualifRef.current);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (qualifVisible) {
+      setBarAntes(72);
+      setTimeout(() => setBarDepois(89), 800); // depois começa um pouco depois
+    }
+  }, [qualifVisible]);
 
   const processSteps = [
     {
@@ -183,7 +209,7 @@ export default function Home() {
 
               {/* Frase Destacada */}
               <div className="max-w-3xl mx-auto mb-8 sm:mb-10 flex flex-col sm:flex-row items-center gap-3 sm:gap-0">
-                <div className="w-1 h-10 sm:h-16 bg-yellow-400 mx-auto sm:mx-0 rounded"></div>
+                <div className="w-1 h-10 sm:h-16 bg-yellow-400 mx-auto sm:mx-0 rounded hidden sm:block"></div>
                 <p className="italic text-base sm:text-lg text-gray-200 text-center sm:text-left">
                   "Liberamos o tempo dos visionários impacientes. Como um laboratório de automação, nossa missão é desacelerar o tempo para você, permitindo que seu negócio salte uma década à frente."
                 </p>
@@ -606,14 +632,7 @@ export default function Home() {
               {/* Lado Direito - Métricas */}
               <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-8">
                 {/* Taxa de Qualificação */}
-                <div className="col-span-1 lg:col-span-2 bg-black backdrop-blur-xl rounded-2xl p-4 sm:p-8 border border-[#00F0FF]/20 shadow-[0_0_25px_rgba(0,240,255,0.1)]">
-                  <style>{`
-                    @keyframes loadBar {
-                      0% { width: 0%; }
-                      100% { width: var(--target-width); }
-                    }
-                  `}</style>
-
+                <div ref={qualifRef} className="col-span-1 lg:col-span-2 bg-black backdrop-blur-xl rounded-2xl p-4 sm:p-8 border border-[#00F0FF]/20 shadow-[0_0_25px_rgba(0,240,255,0.1)]">
                   <h4 className="text-xl mb-6 bg-gradient-to-r from-[#00F0FF] to-[#9442FE] text-transparent bg-clip-text font-bold">Taxa de Qualificação</h4>
                   <div className="space-y-4">
                     <div>
@@ -623,8 +642,8 @@ export default function Home() {
                       </div>
                       <div className="h-2 bg-black/50 rounded-full overflow-hidden border border-white/10">
                         <div 
-                          className="h-full bg-[#FF6B6B] rounded-full shadow-[0_0_10px_rgba(255,107,107,0.5)] animate-load-bar"
-                          style={{"--target-width": "72%"}}
+                          className="h-full bg-[#FF6B6B] rounded-full shadow-[0_0_10px_rgba(255,107,107,0.5)] transition-all duration-[8000ms]"
+                          style={{width: barAntes + '%'}}
                         ></div>
                       </div>
                     </div>
@@ -635,8 +654,8 @@ export default function Home() {
                       </div>
                       <div className="h-2 bg-black/50 rounded-full overflow-hidden border border-white/10">
                         <div 
-                          className="h-full bg-gradient-to-r from-[#00F0FF] to-[#9442FE] rounded-full shadow-[0_0_15px_rgba(0,240,255,0.5)] animate-load-bar"
-                          style={{"--target-width": "89%"}}
+                          className="h-full bg-gradient-to-r from-[#00F0FF] to-[#9442FE] rounded-full shadow-[0_0_15px_rgba(0,240,255,0.5)] transition-all duration-[8000ms]"
+                          style={{width: barDepois + '%'}}
                         ></div>
                       </div>
                     </div>
