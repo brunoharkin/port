@@ -152,8 +152,8 @@ export default function Home() {
         <section className="relative flex items-center justify-center pt-12 sm:pt-20 pb-12 sm:pb-20 min-h-[80vh] sm:min-h-screen sm:py-0">
           <div className="absolute inset-0">
             {/* Background Image */}
-            <div className="absolute inset-0">
-              <img src={HeroBg} alt="" className="w-full h-full object-cover opacity-30" loading="lazy" width="1920" height="1080" />
+            <div className="absolute inset-0 aspect-[16/9]">
+              <img src={HeroBg} alt="" className="w-full h-full object-cover opacity-30" loading="eager" fetchpriority="high" width="1920" height="1080" />
             </div>
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-transparent"></div>
             {/* Gradientes de fundo */}
@@ -222,7 +222,7 @@ export default function Home() {
                   href="https://wa.me/557388360017?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20meu%20diagn%C3%B3stico%20gratuito%20com%20a%20Ugarit%20Digital"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="animated-gradient-button px-8 py-4 text-black font-bold rounded-full flex items-center space-x-2 group transition-all duration-300"
+                  className="animated-gradient-button px-8 py-4 text-black font-bold rounded-full flex items-center space-x-2 group transition-all duration-300 justify-center text-center sm:justify-start sm:text-left"
                   onClick={() => window.gtmTrack('clique_diagnostico')}
                 >
                   <span>Quero um diagnóstico gratuito</span>
@@ -349,7 +349,7 @@ export default function Home() {
                       href="https://wa.me/557388360017?text=Ol%C3%A1%20Ugarit%20Digital!%20Quero%20descobrir%20como%20o%20Machina%20pode%20ser%20o%20motor%20inteligente%20da%20minha%20opera%C3%A7%C3%A3o."
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full px-8 py-3 rounded-full bg-gradient-to-r from-[#FFB86C] to-[#FF6F91] text-white font-bold flex items-center justify-center gap-2 shadow-[0_0_20px_#FFB86C60] hover:shadow-[0_0_40px_#FFB86C90] transition-all"
+                      className="w-full px-8 py-3 rounded-full bg-gradient-to-r from-[#FFB86C] to-[#FF6F91] text-white font-bold flex items-center justify-center gap-2 shadow-[0_0_20px_#FFB86C60] hover:shadow-[0_0_40px_#FFB86C90] transition-all text-center sm:text-left"
                       onClick={() => window.gtmTrack('clique_machina')}
                     >
                       ⚙️ Descubra o Motor Inteligente da Sua Operação!
@@ -829,21 +829,14 @@ const AgentCard = ({ title, description, image, delay }) => {
     >
       <div className="relative h-48 overflow-hidden flex flex-col items-center justify-center bg-black/50">
         {/* Imagem do agente */}
-        <div className="w-full min-h-[128px] flex items-center justify-center bg-black/30">
+        <div className="w-full aspect-[16/9] flex items-center justify-center bg-black/30">
           <img 
-            src={image}
-            srcSet={`
-              ${image}&w=160 160w,
-              ${image}&w=320 320w,
-              ${image}&w=640 640w,
-              ${image}&w=1280 1280w
-            `}
-            sizes="(max-width: 400px) 160px, (max-width: 640px) 320px, (max-width: 1024px) 640px, 1280px"
+            src={image.replace('.jpg', '.webp')}
             alt={title}
             width="320"
-            height="192"
+            height="180"
             loading="lazy"
-            className="rounded-lg mb-2 object-cover w-full h-32"
+            className="rounded-lg mb-2 object-cover w-full h-full"
           />
         </div>
         <div className="w-full px-4">
