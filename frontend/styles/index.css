@@ -200,24 +200,24 @@ body, .text-white, .headline-white {
   border-radius: 9999px;
   border: 2px solid #00f0ff;
   box-shadow:
+    0 0 2px #00f0ff,
     0 0 4px #00f0ff,
-    0 0 8px #00f0ff,
-    0 0 16px #00f0ff;
+    0 0 8px #00f0ff;
   animation: neon-pulse 1.6s infinite alternate;
 }
 
 @keyframes neon-pulse {
   from {
     box-shadow:
+      0 0 2px #00f0ff,
       0 0 4px #00f0ff,
-      0 0 8px #00f0ff,
-      0 0 16px #00f0ff;
+      0 0 8px #00f0ff;
   }
   to {
     box-shadow:
+      0 0 4px #00f0ff,
       0 0 8px #00f0ff,
-      0 0 16px #00f0ff,
-      0 0 32px #00f0ff;
+      0 0 16px #00f0ff;
   }
 }
 

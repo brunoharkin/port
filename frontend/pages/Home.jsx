@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ChevronDown, ArrowRight, Zap, Brain, Sparkles, Target, Code, Wrench, FlaskConical, Rocket, TrendingUp, CheckCircle } from "lucide-react";
-import HeroBg from "../assets/images/hero-bg.svg";
 import TypewriterText from "../components/TypewriterText";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "../utils";
@@ -227,7 +226,7 @@ export default function Home() {
         <div className="inline-flex items-center gap-0 px-3 sm:px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 neon-animated-border">
           <span className="flex items-center">
             {/* Ícone Brain Lucide com cor de cérebro humano */}
-            <Brain className="w-5 h-5 text-[#FF6F91] drop-shadow-[0_0_6px_#FF6F91]" strokeWidth={2.2} />
+            <Brain className="w-5 h-5 text-[#FF6F91] drop-shadow-[0_0_6px_#FF6F91] mr-4" strokeWidth={2.2} />
           </span>
           <span className="text-sm text-white/90 whitespace-nowrap">Laboratório de Automação Inteligente</span>
         </div>
@@ -237,9 +236,6 @@ export default function Home() {
         <section className="relative flex items-center justify-center pt-12 sm:pt-20 pb-12 sm:pb-20 min-h-[80vh] sm:min-h-screen sm:py-0">
           <div className="absolute inset-0">
             {/* Background Image */}
-            <div className="absolute inset-0 aspect-[16/9]">
-              <img src={HeroBg} alt="" className="w-full h-full object-cover opacity-30" loading="eager" fetchpriority="high" width="1920" height="1080" />
-            </div>
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-transparent"></div>
             {/* Gradientes de fundo */}
             <div className="absolute top-0 right-0 w-1/3 h-64 bg-transparent blur-[120px]"></div>

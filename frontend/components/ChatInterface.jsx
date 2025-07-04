@@ -390,12 +390,12 @@ const ChatInterface = ({
         className={`flex ${message.sender === "user" ? "justify-end" : "justify-start"}`}
       >
         <div
-          className={`max-w-[80vw] sm:max-w-[70%] rounded-2xl p-3 sm:p-4 shadow-md text-base"
+          className={`max-w-[80vw] sm:max-w-[70%] p-3 sm:p-4 shadow-md text-base flex flex-col
             ${message.sender === "user"
-              ? "bg-gradient-to-r from-[#6B8AFF] to-[#9442FE] text-white rounded-br-none"
+              ? "bg-gradient-to-r from-[#6B8AFF] to-[#9442FE] text-white rounded-2xl rounded-br-none"
               : message.isError
-                ? "bg-red-200 border border-red-400 text-red-900 rounded-bl-none"
-                : "bg-[#23272F] text-gray-100 rounded-bl-none"
+                ? "bg-red-200 border border-red-400 text-red-900 rounded-2xl rounded-bl-none"
+                : "bg-[#23272F] text-gray-100 rounded-2xl rounded-bl-none"
             }`}
         >
           {message.text && <p className="mb-1 whitespace-pre-line">{message.text}</p>}
